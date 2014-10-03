@@ -1,0 +1,134 @@
+html
+  head
+    //if lt IE 9
+    //script(type='text/javascript',src='javascript/html5shiv.min.js')
+    //script(type='text/javascript',src='javascript/respond.min.js')
+
+    // jQuery and Bootstrap JS 
+    //script(type='text/javascript', src='javascript/jquery-2.0.3.min.js')
+    script(type='text/javascript', src='javascript/bootstrap.min.js')
+
+
+    // Bootstrap CSS 
+    link(rel='stylesheet', href='stylesheets/bootstrap.css')
+    // Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome 
+    //link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
+    // BootstrapValidator CSS 
+    link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
+
+    // BootstrapValidator JS 
+    script(type='text/javascript', src='javascript/bootstrapValidator.min.js')
+    // Validator JS 
+    script(type='text/javascript', src='javascript/va.js')   
+    // Geo finder
+    script(src='http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='javascript/jquery.geocomplete.js')
+    script(src='javascript/geo.js')               
+
+
+  body
+    .page-border
+    .container
+      .row
+        .col-lg-8.col-lg-offset-3
+          .page-header
+           h2 New Apply             
+          // Change the "action" attribute to your back-end URL 
+          form#registrationForm.form-horizontal(method='post', action='...')
+            .form-group
+              label.col-lg-3.control-label Full Name
+              .col-lg-3
+                input.form-control(type='text', name='fusername', placeholder="First Name", data-bv-regexp="true", data-bv-notempty="true", data-bv-stringlength="true", data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long", data-bv-notempty-message="#{__('E1')}")
+              .col-lg-2
+                input.form-control(type='text', name='musername', placeholder="Middle Name")                                    
+              .col-lg-3
+                input.form-control(type='text', name='lusername', placeholder="Last Name")                                    
+            .form-group
+              label.col-lg-3.control-label Email address
+              .col-lg-5
+                input.form-control(type='text', name='email')
+            .form-group
+              label.col-lg-3.control-label Password
+              .col-lg-5
+                input.form-control(type='password', name='password')
+            .form-group
+              label.col-lg-3.control-label Gender
+              .col-lg-5
+                .radio
+                  label
+                    input(type='radio', name='gender', value='male')
+                    | Male
+                .radio
+                  label
+                    input(type='radio', name='gender', value='female')
+                    | Female
+                .radio
+                  label
+                    input(type='radio', name='gender', value='other')
+                    | Other
+            .form-group
+              label.col-lg-3.control-label Date of birth
+              .col-lg-5
+                input.form-control(type='text', name='birthday', placeholder='YYYY/MM/DD')
+            .form-group
+              .col-lg-9.col-lg-offset-3
+                // Do NOT use name="submit" or id="submit" for the Submit button 
+                button.btn.btn-default(type='submit') Sign up
+                //button.btn.btn-default(type='') Reset
+    .container
+      .row
+        .col-lg-8.col-lg-offset-3
+          .page-header          
+          form.geo.form-horizontal
+            .form-group
+              .col-lg-5
+                input#geocomplete.form-control(type='text', placeholder='Type in an address', value='Empire State Bldg')
+              .col-lg-3
+                input#find.btn.btn-default(type='button', value='find')
+            .form-group
+              fieldset
+                .col-lg-3              
+                  label Location
+                .col-lg-5  
+                  input.form-control(name='location', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Formatted Address
+                .col-lg-5                  
+                  input.form-control(name='formatted_address', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Street Number
+                .col-lg-5
+                  input.form-control(name='street_number', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Postal Code
+                .col-lg-5
+                  input.form-control(name='postal_code', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Locality
+                .col-lg-5
+                  input.form-control(name='locality', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Sub Locality
+                .col-lg-5
+                  input.form-control(name='sublocality', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Country
+                .col-lg-5
+                  input.form-control(name='country', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label Country Code
+                .col-lg-5
+                  input.form-control(name='country_short', type='text', value='')
+            .form-group
+                .col-lg-3
+                  label State
+                .col-lg-5
+                  input.form-control(name='administrative_area_level_1', type='text', value='')      

@@ -1,0 +1,43 @@
+html
+head
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    script(src='js/angular.min.js')
+    script(src='js/jquery-1.11.0.js')
+    script(src='js/bootstrap.min.js')
+    link(rel='stylesheet', href='css/style.css')
+    script(src='js/script.js')
+  body(ng-app='app', ng-controller='NewUserController')
+    h2 New User Apply
+    form(name='userForm', novalidate='novalidate')
+      
+      .form-group(show-errors='{showSuccess: true}')
+        label.control-label First Name
+        input.form-control(type='text', name='fname', ng-model='user.fname', required='required', placeholder='First Name', ng-pattern='/^[a-zA-Z]{2,12}$/')
+        p.help-block(ng-if='userForm.fname.$error.required') The user's first name is required
+        p.help-block(ng-if='userForm.fname.$error.pattern') The name is invalid
+
+      .form-group(show-errors='{showSuccess: true}')
+        label.control-label Last Name
+        input.form-control(type='text', name='lname', ng-model='user.lname', required='required', placeholder='Last Name', ng-pattern='/^[a-zA-Z]{3,12}$/')
+        p.help-block(ng-if='userForm.lname.$error.required') The user's last name is required
+        p.help-block(ng-if='userForm.lname.$error.pattern') The name is invalid
+      
+      .form-group(show-errors='{showSuccess: true}')
+        label.control-label Email
+        input.form-control(type='email', name='email', ng-model='user.email', required='required', placeholder='Email')
+        p.help-block(ng-if='userForm.email.$error.required') The user's email is required
+        p.help-block(ng-if='userForm.email.$error.email') The email address is invalid
+
+      .form-group(show-errors='{showSuccess: true}')
+        label.control-label Phone
+        input.form-control(type='number', name='phone', ng-model='user.phone', required='required', placeholder='xxx-xxx-xxxx', ng-pattern='/^[0-9]{1,11}$/')
+        p.help-block(ng-if='userForm.phone.$error.required') The user's phone is required
+        p.help-block(ng-if='userForm.phone.$error.pattern') The user's phone is invalid
+
+      .form-group(show-errors='{showSuccess: true}')
+        label.control-label Date
+        input.form-control(type='date', name='date', ng-model='user.date', required='required', placeholder='' )
+        p.help-block(ng-if='userForm.date.$error.required') The Date is required
+        
+      button.btn.btn-primary(ng-click='save()') Add User
+      button.btn.btn-link(ng-click='reset()') Reset

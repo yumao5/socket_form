@@ -1,0 +1,110 @@
+html
+  head
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    // Bootstrap CSS 
+    link(rel='stylesheet', href='stylesheets/bootstrap.css')
+    // Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome 
+    link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
+    // BootstrapValidator CSS 
+    link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
+
+    //script(type='text/javascript',src='javascript/html5shiv.min.js')
+    //script(type='text/javascript',src='javascript/respond.min.js')
+    //script(type='text/javascript',src='https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js*')  
+
+  body    
+    .container
+      .row
+        .col-lg-8.col-lg-offset-3
+          .page-header
+           h1 New Apply              
+           hr 
+           #textva.col-lg-8.col-lg-offset-3.alert.alert-warning.fade.in(role='alert')
+              button.close(type='button', data-dismiss='alert')
+              strong 
+
+           form#registrationForm.form-horizontal(method='post', action='...')
+            .form-group
+              label.col-lg-3.control-label Loan Amount
+              .col-lg-5
+                input.form-control(type='text', name='lamount')            
+            .form-group
+              label.col-lg-3.control-label First Name
+              .col-lg-5
+                //input.form-control(type='text', name='fusername', placeholder="First Name", data-bv-regexp="true", data-bv-notempty="true", data-bv-stringlength="true", data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long", data-bv-notempty-message="#{__('E1')}")
+                input.form-control(type='text', name='fusername', placeholder="First Name")                                      
+            .form-group
+              label.col-lg-3.control-label Middle Name              
+              .col-lg-5
+                input.form-control(type='text', name='musername', placeholder="Middle Name")                                    
+            .form-group
+              label.col-lg-3.control-label Last Name
+              .col-lg-5
+                input.form-control(type='text', name='lusername', placeholder="Last Name")                                    
+            .form-group
+              label.col-lg-3.control-label SSN
+              .col-lg-5
+                input.form-control(type='text', name='ssn', placeholder="9 digits")                                    
+            .form-group
+              label.col-lg-3.control-label Home Phone
+              .col-lg-5
+                input.form-control(type='text', name='hphone', placeholder="xxx-xxx-xxxx")                                    
+            .form-group
+              label.col-lg-3.control-label Cell Phone
+              .col-lg-5
+                input.form-control(type='text', name='cphone', placeholder="xxx-xxx-xxxx")                                    
+            .form-group
+              label.col-lg-3.control-label Work Phone
+              .col-lg-5
+                input.form-control(type='text', name='wphone', placeholder="xxx-xxx-xxxx")  
+            .form-group
+              label.col-lg-3.control-label Pay Frequency
+              .col-lg-5
+                .radio
+                  label
+                    input(type='radio', name='pfren', value='Weekly')
+                    | Weekly
+                .radio
+                  label
+                    input(type='radio', name='pfren', value='BiWeekly')
+                    | BiWeekly
+                .radio
+                  label
+                    input(type='radio', name='pfren', value='Monthly')
+                    | Monthly
+            .form-group
+              label.col-lg-3.control-label State
+              .col-lg-5
+                input.form-control(type='text', name='state', placeholder="xx")    
+            .form-group
+              label.col-lg-3.control-label Monthly Income
+              .col-lg-5
+                input.form-control(type='text', name='mincome', placeholder="xx")                                                                                 
+            .form-group
+              label.col-lg-3.control-label Date of birth
+              .col-lg-5
+                input.form-control(type='text', name='birthday', placeholder='mm/dd/yyyy')
+            .form-group
+              label.col-lg-3.control-label Email address
+              .col-lg-5
+                input.form-control(type='text', name='email')                  
+            .form-group
+              .col-lg-3.col-lg-offset-3
+                // Do NOT use name="submit" or id="submit" for the Submit button 
+                //button.btn.btn-default(type='submit') Submit
+                //button.btn.btn-default(type='') Reset
+          #va_btn.button.btn.btn-default.col-lg-3.col-lg-offset-1 Validate          
+          //#va_btn.button.btn.btn-default.col-lg-3.col-lg-offset-1(name='re_btn') Reset info         
+        
+    // jQuery and Bootstrap JS 
+    script(type='text/javascript', src='javascript/jquery-1.11.0.js')
+    //script(type='text/javascript', src='javascript/bootstrap.min.js')
+
+    // Socket.io
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    // BootstrapValidator JS 
+    script(type='text/javascript', src='javascript/bootstrapValidator.min.js')
+    // Validator JS 
+    script(type='text/javascript', src='javascript/va.js')  
+    // Mask JS 
+    script(type='text/javascript', src='javascript/jquery.mask.min.js')
