@@ -2,6 +2,7 @@ var express = require('express');
 var i18n = require('i18n');
 var app = express();
 var path = require('path');
+var va = require('validator');
 
 //i18n config
 i18n.configure({
@@ -86,24 +87,62 @@ var io = require('socket.io').listen(server);
 
 // define interactions with client
 io.sockets.on('connection', function(socket){
+    //var form = require('./form');
     
-    //send data to client
-    setInterval(function(){
-        socket.emit('date', {'date': ' + ' + new Date()});
-        //socket.emit('url', '/form');
-    }, 1000);
-
     //recieve client data
     socket.on('client_data', function(data,res){
-        //process.stdout.write(data.letter);
-        //socket.emit('va', {'name': });
-        if (data.mess === 'mao'){
-          socket.emit('va', {'mess': 'Approved ! '+ data.mess});
-          //socket.emit('url', '/form');
-        setInterval(function(){
-          //socket.emit('date', {'date': ' + ' + new Date()});
-          socket.emit('url', '/form');
-        }, 5000);
+        var form = require('./form');
+      
+        form.firstName = data.firstName;
+        form.lastName = data.lastName; 
+        form.lonaAmount = data.lamount;
+        form.middleName = data.musername; 
+        form.ssn = data.ssn;
+        form.homePhone = data.hphone; 
+        form.cellPhone = data.cphone;
+        form.workPhone = data.wphone; 
+        form.payFreq = data.pfren;
+        form.state = data.state; 
+        form.monthIncome = data.mincome;
+        form.birth = data.birthday;    
+        form.email = data.email; 
+
+        //validation                        
+        var error = 'Invalid message';
+
+        if (!va.isAlpha(form.firstName) || !va.isAlpha(form.lastName) || 
+            !va.isAlpha(form.musername) || !va.isAlpha(form.pfren)    || 
+            !va.isAlpha(form.state)) 
+        { error = error + 'input invalid Letters' };
+
+        if (!va.isNumeric(form.ssn) || !va.isLength(form.ssn, 9, 9))
+        { error = error + 'input SSN invalid'}; 
+
+        if (!va.isLength(form.state, 2, 2))
+        { error = error + 'input State invalid'};  
+
+        if (!va.isEmail(form.email))             
+        { error = error + 'input invalid Email'}; 
+
+        if (!va.isNumeric(va.blacklist(form.birthday,'/')))
+        { error = error + 'input invalid Date'};                  
+
+        if (!va.isLength(form.birthday, 10)) 
+        { error = error + 'input invalid Date'};           
+
+        error = error.replace(/input/g, ', input'); 
+
+        //send the result back to front
+        if (form.firstName === 'mao'){          
+          socket.emit('va', {'mess': 'Approved! ' + error});
+        }
+        else {
+          socket.emit('va', {'mess': 'Denied! ' + error}); 
+        
+        //Direct different URL
+        //setInterval(function(){
+        //  socket.emit('url', '/form');
+        //}, 5000);
       }
     });
 });

@@ -215,7 +215,9 @@ $(document).ready(function() {
 
     $('#va_btn').click(function(){
       //socket.emit('client_data', {'mess': 'Aprroved?'});  
-      socket.emit('client_data', {'mess': $("input[name*='fusername']").val()});          
+      socket.emit('client_data', {'fname': $("input[name*='fusername']").val() , 
+                                  'lname': $("input[name*='lusername']").val() 
+                                });          
     });
 
     // $('#datetimePicker')
