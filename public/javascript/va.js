@@ -2,7 +2,13 @@ var socket = io.connect();
 
 socket.on('va', function(data){
     $('#textva').css("display","block");
-    $('#textva').text(data.mess);
+    $('#serverva').css("display","block");
+    //$('#serverva').text(data.mess);
+    $("#serverva").text(data.mess).html(function(index, currentHtml) {
+        return currentHtml.replace(/-/g, '<br />  -  ');
+    });
+    //$('#registrationForm').data('bootstrapValidator').resetForm(); 
+    //$( "#serverva" ).fadeOut( 4000 );
 });
 
 socket.on('url', function (data) {
@@ -15,9 +21,9 @@ $(document).ready(function() {
       .bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
+            //valid: 'glyphicon glyphicon-ok',
+            //invalid: 'glyphicon glyphicon-remove',
+            //validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
             lamount: {
@@ -212,21 +218,48 @@ $(document).ready(function() {
             }
         }
     });
+    
 
     $('#va_btn').click(function(){
-      //socket.emit('client_data', {'mess': 'Aprroved?'});  
-      socket.emit('client_data', {'fname': $("input[name*='fusername']").val() , 
-                                  'lname': $("input[name*='lusername']").val() 
+
+      socket.emit('client_data', {'lonaAmount': $("input[name*='lamount']").val() , 
+                                  'firstName': $("input[name*='fusername']").val() , 
+                                  'lastName': $("input[name*='lusername']").val() ,
+                                  'middleName': $("input[name*='musername']").val() ,
+                                  'ssn': $("input[name*='ssn']").val() ,
+                                  'homePhone': $("input[name*='hphone']").val() ,
+                                  'cellPhone': $("input[name*='cphone']").val() ,
+                                  'workPhone': $("input[name*='wphone']").val() ,
+                                  'payFreq': $("input[name*='pfren']").val() , 
+                                  'state': $("input[name*='state']").val() ,
+                                  'monthIncome': $("input[name*='mincome']").val() ,
+                                  'birth': $("input[name*='birthday']").val() ,
+                                  'email': $("input[name*='email']").val() 
                                 });          
-    });
+
+    }); 
 
     // $('#datetimePicker')
     // .on('dp.change dp.show', function(e) {
     //     // Validate the date when user change it
     //     $('#registrationForm').bootstrapValidator('revalidateField', 'meeting');
     // });      
+    
+    $('#serverva').css("display","none");
     $('#textva').css("display","none");
+
     $('#registrationForm').find('[name="cphone"]').mask('000-000-0000');
     $('#registrationForm').find('[name="wphone"]').mask('000-000-0000');
     $('#registrationForm').find('[name="hphone"]').mask('000-000-0000');
+
+    // Reset button to help css style
+    $('#rest_btn').click(function(){
+        $('#registrationForm').data('bootstrapValidator').resetForm();  
+    }) ; 
+
+    $('#va_error_btn').click(function(){
+        $('#textva').fadeOut( 800 );
+    });
+
+    //$("#alert").alert()
 });

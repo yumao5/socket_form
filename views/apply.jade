@@ -12,16 +12,19 @@ html
     //script(type='text/javascript',src='javascript/respond.min.js')
     //script(type='text/javascript',src='https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js*')  
 
-  body    
+  body.page-border    
     .container
       .row
         .col-lg-8.col-lg-offset-3
           .page-header
            h1 New Apply              
-           hr 
-           #textva.col-lg-8.col-lg-offset-3.alert.alert-warning.fade.in(role='alert')
-              button.close(type='button', data-dismiss='alert')
-              strong 
+           hr
+           #textva.alert.alert-warning.fade.in(role='alert')
+              #va_error_btn.button.close(type='button', data-dismiss='alert')
+                span(aria-hidden='true') ×
+                span.sr-only Close
+              strong Warning!
+              #serverva.span           
 
            form#registrationForm.form-horizontal(method='post', action='...')
             .form-group
@@ -89,13 +92,21 @@ html
               .col-lg-5
                 input.form-control(type='text', name='email')                  
             .form-group
-              .col-lg-3.col-lg-offset-3
+              .col-lg-5.col-lg-offset-3
                 // Do NOT use name="submit" or id="submit" for the Submit button 
-                //button.btn.btn-default(type='submit') Submit
-                //button.btn.btn-default(type='') Reset
-          #va_btn.button.btn.btn-default.col-lg-3.col-lg-offset-1 Validate          
+                button.btn.btn-default(type='submit') Submit 
+                //| &nbsp;
+                // Reset help css style
+                //#rest_btn.button.btn.btn-default(type='') Reset 
+          #va_btn.button.btn.btn-default.col-lg-3.col-lg-offset-1 Sever Side Validate          
           //#va_btn.button.btn.btn-default.col-lg-3.col-lg-offset-1(name='re_btn') Reset info         
-        
+        //- .col-lg-5.col-lg-offset-3   
+        //-   #textva.alert.alert-warning.fade.in(role='alert')
+        //-     #va_error_btn.button.close(type='button', data-dismiss='alert')
+        //-       span(aria-hidden='true') ×
+        //-       span.sr-only Close
+        //-     strong Warning!
+        //-     #serverva.span   
     // jQuery and Bootstrap JS 
     script(type='text/javascript', src='javascript/jquery-1.11.0.js')
     //script(type='text/javascript', src='javascript/bootstrap.min.js')
