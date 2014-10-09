@@ -1,6 +1,7 @@
 var socket = io.connect();
 
-socket.on('va', function(data){
+socket.on('va_er', function(data){
+    //$('#vaMess').modal('show');
     $('#textva').css("display","block");
     $('#serverva').css("display","block");
     //$('#serverva').text(data.mess);
@@ -8,11 +9,29 @@ socket.on('va', function(data){
         return currentHtml.replace(/-/g, '<br />  -  ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
-    //$( "#serverva" ).fadeOut( 4000 );
+    $( "#serverva" ).fadeOut( 3000 );
 });
+
+// socket.on('va_pass', function(data){
+//     //$('#vaMess').modal('show');
+//     $('#textva').css("display","block");
+//     $('#serverva').css("display","block");
+//     //$('#serverva').text(data.mess);
+//     $("#serverva").text(data.mess).html(function(index, currentHtml) {
+//         return currentHtml.replace(/-/g, '<br />  -  ');
+//     });
+//     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
+//     $( "#serverva" ).fadeOut( 3000 );
+// });
 
 socket.on('url', function (data) {
     window.location.href=data; 
+});
+
+$(document).ready(function(){
+  $(".va_error_btn").click(function(){
+    $(".serverva").fadeIn();
+  });
 });
 
 $(document).ready(function() {
@@ -21,9 +40,9 @@ $(document).ready(function() {
       .bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
-            //valid: 'glyphicon glyphicon-ok',
-            //invalid: 'glyphicon glyphicon-remove',
-            //validating: 'glyphicon glyphicon-refresh'
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
             lamount: {
@@ -239,12 +258,6 @@ $(document).ready(function() {
 
     }); 
 
-    // $('#datetimePicker')
-    // .on('dp.change dp.show', function(e) {
-    //     // Validate the date when user change it
-    //     $('#registrationForm').bootstrapValidator('revalidateField', 'meeting');
-    // });      
-    
     $('#serverva').css("display","none");
     $('#textva').css("display","none");
 
@@ -256,10 +269,5 @@ $(document).ready(function() {
     $('#rest_btn').click(function(){
         $('#registrationForm').data('bootstrapValidator').resetForm();  
     }) ; 
-
-    $('#va_error_btn').click(function(){
-        $('#textva').fadeOut( 800 );
-    });
-
-    //$("#alert").alert()
+    
 });

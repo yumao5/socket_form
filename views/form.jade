@@ -4,131 +4,293 @@ html
     //script(type='text/javascript',src='javascript/html5shiv.min.js')
     //script(type='text/javascript',src='javascript/respond.min.js')
 
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    link(rel='stylesheet', href='stylesheets/bootstrap.min.paper.css')
+    link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
     // jQuery and Bootstrap JS 
     //script(type='text/javascript', src='javascript/jquery-2.0.3.min.js')
-    script(type='text/javascript', src='javascript/bootstrap.min.js')
+    //script(type='text/javascript', src='javascript/bootstrap.min.js')
 
 
     // Bootstrap CSS 
-    link(rel='stylesheet', href='stylesheets/bootstrap.css')
+    //link(rel='stylesheet', href='stylesheets/bootstrap.css')
     // Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome 
     //link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
-    // BootstrapValidator CSS 
-    link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
 
+  body
+    | &nbsp; 
+    .container
+      .row
+        .col-lg-8.col-lg-offset-3
+          form#registrationForm.geo.form-horizontal(method='post', action='...')
+            .panel.panel-default  
+              .panel-heading 
+                h4 Personal Info         
+                #textva.alert.alert-warning
+                  #va_error_btn.button.close(type='button', data-dismiss='alert')
+                    span() x
+                  span.sr-only Close
+                  strong Warning!
+                  #serverva.span           
+              .panel-body  
+                // Personal Info section              
+                .form-group
+                  label.col-lg-3.control-label Funding Type
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='fundType', value='Cash')
+                        | Cash
+                  .col-lg-2  
+                    .radio
+                      label
+                        input(type='radio', name='fundType', value='Check')
+                        | Check
+                  .col-lg-2  
+                    .radio
+                      label
+                        input(type='radio', name='fundType', value='Ach')
+                        | Ach          
+                .form-group
+                  label.col-lg-3.control-label Drivers License
+                  .col-lg-5
+                    //input.form-control(type='text', name='fusername', placeholder="First Name", data-bv-regexp="true", data-bv-notempty="true", data-bv-stringlength="true", data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long", data-bv-notempty-message="#{__('E1')}")
+                    input.form-control(type='text', name='driLicense', placeholder="Drivers License")                                      
+                .form-group
+                  label.col-lg-3.control-label Drivers License State              
+                  .col-lg-5
+                    input.form-control(type='text', name='licenState', placeholder="Drivers License State")                                    
+                .form-group
+                  label.col-lg-3.control-label Is Military
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='isMilitary', value='Yes')
+                        | Yes   
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='isMilitary', value='No')
+                        | No  
+
+            // Contact info section              
+            .panel.panel-default 
+              .panel-heading 
+                h4 Contact Information  
+              .panel-body               
+                .form-group
+                  label.col-lg-3.control-label Search Address
+                  .col-lg-5
+                    input#geocomplete.form-control(type='text', placeholder='Type in an address', value='1320 Cornwall Road,Ontario')
+                  label.col-lg-1.control-label 
+                    input#find.btn.btn-default(type='button', value='find')
+                .form-group
+                    label.col-lg-3.control-label Formatted Address
+                    .col-lg-5                  
+                      input.form-control(name='formatted_address', type='text', value='')
+                .form-group
+                    label.col-lg-3.control-label Postal Code
+                    .col-lg-5
+                      input.form-control(name='postal_code', type='text', value='')
+                .form-group
+                    label.col-lg-3.control-label Locality
+                    .col-lg-5
+                      input.form-control(name='locality', type='text', value='')
+                .form-group
+                    label.col-lg-3.control-label State
+                    .col-lg-5
+                      input.form-control(name='administrative_area_level_1', type='text', value='')   
+                .form-group
+                  label.col-lg-3.control-label Month At Address
+                  .col-lg-5
+                    input.form-control(type='text', name='months' )                                    
+                .form-group
+                  label.col-lg-3.control-label Mail Address Same
+                  .col-lg-2
+                    .radio
+                      label
+                        input#sameAdd(type='radio', name='addSame', value='Yes')
+                        | Yes
+                  .col-lg-2
+                    .radio
+                      label
+                        input#nosameAdd(type='radio', name='addSame', value='No')
+                        | No 
+                // Mail address section        
+                .form-group
+                    label.col-lg-3.control-label Mailed Address
+                    .col-lg-5                  
+                      input.form-control(name='mailed_formatted_address', type='text', value='')
+                .form-group
+                    label.col-lg-3.control-label Mailed Postal Code
+                    .col-lg-5
+                      input.form-control(name='mailed_postal_code', type='text', value='')
+                .form-group
+                    label.col-lg-3.control-label Mailed City
+                    .col-lg-5
+                      input.form-control(name='mailed_locality', type='text', value='')
+                .form-group
+                    label.col-lg-3.control-label Mailed State
+                    .col-lg-5
+                      input.form-control(name='mailed_administrative_area_level_1', type='text', value='')  
+
+            // Employment Information section
+            .panel.panel-default 
+              .panel-heading 
+                h4 Employment Information  
+              .panel-body                
+                .form-group
+                  label.col-lg-3.control-label Total Income
+                  .col-lg-5
+                    input.form-control(type='text', name='totalIncome' )  
+                .form-group
+                  label.col-lg-3.control-label Income Type
+                  .col-lg-2
+                    .radio
+                      label
+                        input#sameAdd(type='radio', name='incomeType', value='Type1')
+                        | Type1
+                  .col-lg-2
+                    .radio
+                      label
+                        input#nosameAdd(type='radio', name='incomeType', value='TYpe2')
+                        | TYpe2 
+                .form-group
+                  label.col-lg-3.control-label Pay roll Type
+                  .col-lg-2
+                    .radio
+                      label
+                        input#sameAdd(type='radio', name='payrollType', value='cash')
+                        | Cash
+                  .col-lg-2
+                    .radio
+                      label
+                        input#nosameAdd(type='radio', name='payrollType', value='check')
+                        | Check 
+                  .col-lg-3
+                    .radio
+                      label
+                        input#nosameAdd(type='radio', name='payrollType', value='DirectDeposit')
+                        | Direct Deposit 
+                .form-group
+                  label.col-lg-3.control-label Holiday Skipping
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='holidaySkip', value='None')
+                        | None
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='holidaySkip', value='MoveEarlier')
+                        | MoveEarlier
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='holidaySkip', value='MoveLater')
+                        | MoveLater
+                  .col-lg-6.col-lg-offset-3
+                    .radio
+                      label
+                        input(type='radio', name='holidaySkip', value='MoveToNearestPreferEarlier')
+                        | Move To Nearest Prefer Earlier  
+                  .col-lg-6.col-lg-offset-3
+                    .radio
+                      label
+                        input(type='radio', name='holidaySkip', value='MoveToNearestPreferLater')
+                        | Move To Nearest Prefer Later                                                
+                .form-group
+                  label.col-lg-3.control-label Pay Frequency
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='pfren', value='Weekly')
+                        | Weekly
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='pfren', value='BiWeekly')
+                        | BiWeekly
+                  .col-lg-2
+                    .radio
+                      label
+                        input(type='radio', name='pfren', value='Monthly')
+                        | Monthly
+                .form-group
+                  label.col-lg-3.control-label Employer Name
+                  .col-lg-5
+                    input.form-control(type='text', name='employerName' )  
+
+                // Validate button                                                                             
+                .form-group
+                  .col-lg-8.col-lg-offset-3
+                    // Do NOT use name="submit" or id="submit" for the Submit button 
+                    button.btn.btn-default(type='') Submit 
+                    | &nbsp;
+                    // Reset help css style
+                    //#rest_btn.button.btn.btn-default(type='') Reset 
+                    #va_btn.button.btn.btn-default Validate
+    //- .container
+    //-   .row
+    //-     .col-lg-8.col-lg-offset-3
+    //-       .panel.panel-default  
+    //-         .panel-heading 
+    //-           h4 Contact Infomation 
+    //-         .panel-body     
+    //-           form.geo.form-horizontal
+    //-             .form-group
+    //-               .col-lg-5
+    //-                 input#geocomplete.form-control(type='text', placeholder='Type in an address', value='Empire State Bldg')
+    //-               .col-lg-3
+    //-                 input#find.btn.btn-default(type='button', value='find')
+    //-             .form-group
+    //-                 .col-lg-3
+    //-                   label Formatted Address
+    //-                 .col-lg-5                  
+    //-                   input.form-control(name='formatted_address', type='text', value='')
+    //-             .form-group
+    //-                 .col-lg-3
+    //-                   label Street Number
+    //-                 .col-lg-5
+    //-                   input.form-control(name='street_number', type='text', value='')
+    //-             .form-group
+    //-                 .col-lg-3
+    //-                   label Postal Code
+    //-                 .col-lg-5
+    //-                   input.form-control(name='postal_code', type='text', value='')
+    //-             .form-group
+    //-                 .col-lg-3
+    //-                   label Locality
+    //-                 .col-lg-5
+    //-                   input.form-control(name='locality', type='text', value='')
+    //-             .form-group
+    //-                 .col-lg-3
+    //-                   label Country Code
+    //-                 .col-lg-5
+    //-                   input.form-control(name='country_short', type='text', value='')
+    //-             .form-group
+    //-                 .col-lg-3
+    //-                   label State
+    //-                 .col-lg-5
+    //-                   input.form-control(name='administrative_area_level_1', type='text', value='')   
+
+
+    // jQuery and Bootstrap JS 
+    script(type='text/javascript', src='javascript/jquery-1.11.0.js')
+    //script(type='text/javascript', src='javascript/bootstrap.min.js')
+
+    // Socket.io
+    script(type='text/javascript', src='/socket.io/socket.io.js')
     // BootstrapValidator JS 
     script(type='text/javascript', src='javascript/bootstrapValidator.min.js')
     // Validator JS 
-    script(type='text/javascript', src='javascript/va.js')   
+    script(type='text/javascript', src='javascript/va_2.js')  
+    // Mask JS 
+    script(type='text/javascript', src='javascript/jquery.mask.min.js')                     
+
     // Geo finder
     script(src='http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places')
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    //script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(src='javascript/jquery.geocomplete.js')
-    script(src='javascript/geo.js')               
-
-
-  body
-    .page-border
-    .container
-      .row
-        .col-lg-8.col-lg-offset-3
-          .page-header
-           h2 New Apply             
-          // Change the "action" attribute to your back-end URL 
-          form#registrationForm.form-horizontal(method='post', action='...')
-            .form-group
-              label.col-lg-3.control-label Full Name
-              .col-lg-3
-                input.form-control(type='text', name='fusername', placeholder="First Name", data-bv-regexp="true", data-bv-notempty="true", data-bv-stringlength="true", data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long", data-bv-notempty-message="#{__('E1')}")
-              .col-lg-2
-                input.form-control(type='text', name='musername', placeholder="Middle Name")                                    
-              .col-lg-3
-                input.form-control(type='text', name='lusername', placeholder="Last Name")                                    
-            .form-group
-              label.col-lg-3.control-label Email address
-              .col-lg-5
-                input.form-control(type='text', name='email')
-            .form-group
-              label.col-lg-3.control-label Password
-              .col-lg-5
-                input.form-control(type='password', name='password')
-            .form-group
-              label.col-lg-3.control-label Gender
-              .col-lg-5
-                .radio
-                  label
-                    input(type='radio', name='gender', value='male')
-                    | Male
-                .radio
-                  label
-                    input(type='radio', name='gender', value='female')
-                    | Female
-                .radio
-                  label
-                    input(type='radio', name='gender', value='other')
-                    | Other
-            .form-group
-              label.col-lg-3.control-label Date of birth
-              .col-lg-5
-                input.form-control(type='text', name='birthday', placeholder='YYYY/MM/DD')
-            .form-group
-              .col-lg-9.col-lg-offset-3
-                // Do NOT use name="submit" or id="submit" for the Submit button 
-                button.btn.btn-default(type='submit') Sign up
-                //button.btn.btn-default(type='') Reset
-    .container
-      .row
-        .col-lg-8.col-lg-offset-3
-          .page-header          
-          form.geo.form-horizontal
-            .form-group
-              .col-lg-5
-                input#geocomplete.form-control(type='text', placeholder='Type in an address', value='Empire State Bldg')
-              .col-lg-3
-                input#find.btn.btn-default(type='button', value='find')
-            .form-group
-              fieldset
-                .col-lg-3              
-                  label Location
-                .col-lg-5  
-                  input.form-control(name='location', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Formatted Address
-                .col-lg-5                  
-                  input.form-control(name='formatted_address', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Street Number
-                .col-lg-5
-                  input.form-control(name='street_number', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Postal Code
-                .col-lg-5
-                  input.form-control(name='postal_code', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Locality
-                .col-lg-5
-                  input.form-control(name='locality', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Sub Locality
-                .col-lg-5
-                  input.form-control(name='sublocality', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Country
-                .col-lg-5
-                  input.form-control(name='country', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label Country Code
-                .col-lg-5
-                  input.form-control(name='country_short', type='text', value='')
-            .form-group
-                .col-lg-3
-                  label State
-                .col-lg-5
-                  input.form-control(name='administrative_area_level_1', type='text', value='')      
+    script(src='javascript/geo.js')   

@@ -1,51 +1,41 @@
 var express = require('express');
-
+var cookieParser = require('cookie-parser');
 var i18n = require('i18n');
+var path = require('path');
+var va = require('validator');
 
 var app = express();
 
-var path = require('path');
+// Cookie and Session setup
+app.use(cookieParser('S3CRE7'));
+//app.use(express.session());
+//app.use(app.router);
+////app.use(session({secret:'1234567YIUEdkd',saveUninitialized: ture, resave: save}));
 
-var va = require('validator');
-
-
+var sess;
 
 //i18n config
-
 i18n.configure({
-
     locales:['en', 'sp', 'ch'],
-
     directory:'./locales',    
-
 });
 
-
-
 var server = app.listen(3000, function() {
-
     console.log('Listening on port %d', server.address().port);
-
 })
 
 
 
 app.use(i18n.init); // Should always before app.route
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 app.set('views', path.join(__dirname, 'views'));
-
 app.set('view engine', 'jade');
 
 
-
 app.get('/', function (req, res) {
-
-  res.render('index');
-
+  res.render('index');  
 });
 
 
@@ -54,24 +44,18 @@ app.get('/apply', function (req, res) {
 //   //res.render('forum', {
 //   //  'error': i18n.__('E1')
 //   //});  
-//   //req.setLocale('sp');
+//   //req.setLocale('sp'); 
+//console.log("Cookies: ", req.cookies);
    res.render('apply') 
 });
 
-
-
 function ensureSecure(req, res, next){
-
   if(req.secure){  
-
     return next();
-
   };
 
   // handle port numbers if you need non defaults
-
   res.redirect('https://'+req.host+req.url); 
-
 };
 
 
@@ -170,14 +154,9 @@ var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function(socket){
 
-    //var form = require('./form');
-
     
-
     //recieve client data
-
     socket.on('client_data', function(data,res){
-
         var form = require('./form');      
 
         form.firstName = data.firstName;
@@ -194,12 +173,8 @@ io.sockets.on('connection', function(socket){
         form.birth = data.birth;    
         form.email = data.email; 
 
-
-
-        //validation                        
-
+        //validation                
         var error = '';
-
         if (!va.isAlpha(form.firstName))
         { error = error + 'input Firtname invalid' };
 
@@ -245,24 +220,15 @@ io.sockets.on('connection', function(socket){
         //send the result back to front
 
         if (form.firstName === 'mao'){          
+          socket.emit('va_pass', {'mess': 'Approved!'});
 
-          socket.emit('va', {'mess': '$1000 Approved! ' + form.payFreq});
-
+          //Direct different URL
+          setInterval(function(){
+              socket.emit('url', '/form');
+              }, 2000);          
         }
-
         else {
-
-          socket.emit('va', {'mess': error}); 
-
-        
-
-        //Direct different URL
-
-        //setInterval(function(){
-
-        //  socket.emit('url', '/form');
-
-        //}, 5000);
+          socket.emit('va_er', {'mess': error}); 
 
       }
 
