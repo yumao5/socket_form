@@ -24,17 +24,26 @@ html
       .row
         .col-lg-8.col-lg-offset-3
           form#registrationForm.geo.form-horizontal(method='post', action='...')
-            .panel.panel-default  
+            // Loan info section              
+            .panel.panel-default 
               .panel-heading 
-                h4 Personal Info         
-                #textva.alert.alert-warning
-                  #va_error_btn.button.close(type='button', data-dismiss='alert')
-                    span() x
-                  span.sr-only Close
-                  strong Warning!
-                  #serverva.span           
-              .panel-body  
-                // Personal Info section              
+                h4 Loan Information
+
+              #textva.alert.alert-warning(style='display: none;')
+                #va_error_btn.button.close(type='button', data-dismiss='alert')
+                  span() x
+                span.sr-only Close
+                strong Warning!
+                #serverva.span 
+
+              #textva_passed.alert.alert-success(style='display: none;')
+                #va_error_btn.button.close(type='button', data-dismiss='alert')
+                  span() x
+                span.sr-only Close
+                strong Approved!
+                #serverva__passed.span  
+                               
+              .panel-body   
                 .form-group
                   label.col-lg-3.control-label Funding Type
                   .col-lg-2
@@ -51,7 +60,17 @@ html
                     .radio
                       label
                         input(type='radio', name='fundType', value='Ach')
-                        | Ach          
+                        | Ach  
+                .form-group
+                  label.col-lg-3.control-label Pay Schedule           
+                  .col-lg-5
+                    input.form-control(type='text', name='paySchedule', placeholder="Pay Schedule") 
+
+            .panel.panel-default  
+              .panel-heading 
+                h4 Personal Info         
+              .panel-body  
+                // Personal Info section              
                 .form-group
                   label.col-lg-3.control-label Drivers License
                   .col-lg-5
@@ -84,7 +103,7 @@ html
                   .col-lg-5
                     input#geocomplete.form-control(type='text', placeholder='Type in an address', value='1320 Cornwall Road,Ontario')
                   label.col-lg-1.control-label 
-                    input#find.btn.btn-default(type='button', value='find')
+                    //input#find.btn.btn-default(type='button', value='Find')
                 .form-group
                     label.col-lg-3.control-label Formatted Address
                     .col-lg-5                  
@@ -221,6 +240,81 @@ html
                   label.col-lg-3.control-label Employer Name
                   .col-lg-5
                     input.form-control(type='text', name='employerName' )  
+                .form-group
+                  label.col-lg-3.control-label Occupation
+                  .col-lg-5
+                    input.form-control(type='text', name='occupation' )    
+                .form-group
+                  label.col-lg-3.control-label Work Address
+                  .col-lg-5
+                    input.form-control(type='text', name='workAddress' )    
+                .form-group
+                  label.col-lg-3.control-label Work City
+                  .col-lg-5
+                    input.form-control(type='text', name='workCity' )    
+                .form-group
+                  label.col-lg-3.control-label Work State
+                  .col-lg-5
+                    input.form-control(type='text', name='workState' ) 
+                .form-group                                                                                                                     
+                  label.col-lg-3.control-label Work Zip
+                  .col-lg-5
+                    input.form-control(type='text', name='workZip' ) 
+                .form-group
+                  label.col-lg-3.control-label work Phone
+                  .col-lg-5
+                    input.form-control(type='text', name='wPhone', placeholder="xxx-xxx-xxxx")                                    
+                .form-group
+                  label.col-lg-3.control-label Work Phone Ext
+                  .col-lg-5
+                    input.form-control(type='text', name='wPhoneext', placeholder="xx")                                    
+                .form-group
+                  label.col-lg-3.control-label Work Phone
+                  .col-lg-5
+                    input.form-control(type='text', name='wPhonec', placeholder="xxx-xxx-xxxx")                      
+
+            // Employment Information section
+            .panel.panel-default 
+              .panel-heading 
+                h4 Bank Information  
+              .panel-body                
+                .form-group
+                  label.col-lg-3.control-label Bank Name
+                  .col-lg-5
+                    input.form-control(type='text', name='bankName' ) 
+                .form-group
+                  label.col-lg-3.control-label Bank City
+                  .col-lg-5
+                    input.form-control(type='text', name='bankCity' )                     
+                .form-group
+                  label.col-lg-3.control-label Bank State
+                  .col-lg-5
+                    input.form-control(type='text', name='bankState' )  
+                .form-group
+                  label.col-lg-3.control-label ABA Number
+                  .col-lg-5
+                    input.form-control(type='text', name='abaNumber' )  
+                .form-group
+                  label.col-lg-3.control-label Account Number
+                  .col-lg-5
+                    input.form-control(type='text', name='accountNumber' )   
+                .form-group
+                  label.col-lg-3.control-label Account Tyoe
+                  .col-lg-2
+                    .checkbox
+                      label
+                        input(type='checkbox', name='accountType', value='Checking')
+                        | Checking
+                  .col-lg-2
+                    .checkbox
+                      label
+                        input(type='checkbox', name='accountType', value='Saving')
+                        | Saving
+
+                .form-group
+                  label.col-lg-3.control-label Month With Account
+                  .col-lg-5
+                    input.form-control(type='text', name='monthwithAccount' )  
 
                 // Validate button                                                                             
                 .form-group

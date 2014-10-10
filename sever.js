@@ -155,7 +155,7 @@ var io = require('socket.io').listen(server);
 io.sockets.on('connection', function(socket){
 
     
-    //recieve client data
+    //recieve 1th step client data
     socket.on('client_data', function(data,res){
         var form = require('./form');      
 
@@ -211,6 +211,113 @@ io.sockets.on('connection', function(socket){
         if (!va.isNumeric(va.blacklist(form.wphone,'-')) || !va.isLength(form.wphone, 12))
         { error = error + 'input Work phone invalid'};  
 
+        // if (!va.isLength(form.birthday, 10)) 
+        // { error = error + 'input invalid Date'};           
+
+        error = error.replace(/input/g, ' - '); 
+
+        //send the result back to front
+
+        if (form.firstName === 'mao'){          
+          socket.emit('va_pass', {'mess': ''});
+
+            //Direct different URL
+            setInterval(function(){
+                socket.emit('url', '/form');
+                }, 2000);          
+            }
+
+        else {
+          socket.emit('va_er', {'mess': error}); 
+
+      }
+
+    });
+
+    //recieve 2th step client data
+    socket.on('client_data_2', function(data,res){
+        var form = require('./form');      
+
+        form.fundType = data.fundType;
+        form.driLicense = data.driLicense; 
+        form.isMilitary = data.isMilitary;
+        form.formatted_address = data.formatted_address; 
+        form.postal_code = data.postal_code;
+        form.locality = data.locality; 
+        form.administrative_area_level_1 = data.administrative_area_level_1;
+        form.mailed_formatted_address = data.mailed_formatted_address;
+        form.mailed_postal_code = data.mailed_postal_code;
+        form.mailed_locality = data.mailed_locality; 
+        form.mailed_administrative_area_level_1 = data.mailed_administrative_area_level_1;
+        
+        form.totalIncome = data.totalIncome;    
+        form.incomeType = data.incomeType; 
+        form.payrollType = data.payrollType; 
+        form.holidaySkip = data.holidaySkip; 
+        form.pfren = data.pfren; 
+        form.employerName = data.employerName; 
+        form.workAddress = data.workAddress; 
+        form.workCity = data.workCity; 
+        form.workState = data.workState; 
+        form.workZip = data.workZip; 
+        form.wPhone = data.wPhone; 
+        form.wPhoneext = data.wPhoneext; 
+        form.wPhonec = data.wPhonec; 
+
+        form.bankName = data.bankName; 
+        form.bankCity = data.bankCity; 
+        form.bankState = data.bankState; 
+        form.abaNumber = data.abaNumber; 
+        form.accountNumber = data.accountNumber;
+        form.accountType = data.accountType;
+        form.monthwithAccount = data.monthwithAccount;        
+
+        //validation                
+        var error = '';
+        if (!va.isAlpha(form.formatted_address))
+        { error = error + 'input Address invalid' };
+
+        if (!va.isAlpha(form.locality)) 
+        { error = error + 'input city invalid' };
+
+        if (!va.isAlpha(form.administrative_area_level_1)) 
+        { error = error + 'input state invalid' }; 
+
+        if (!va.isAlpha(form.mailed_formatted_address))
+        { error = error + 'input Address invalid' };
+
+        if (!va.isAlpha(form.mailed_locality)) 
+        { error = error + 'input city invalid' };
+
+        if (!va.isAlpha(form.mailed_administrative_area_level_1)) 
+        { error = error + 'input state invalid' };             
+
+        if (!va.isAlpha(form.payFreq)) 
+        { error = error + 'input Pay frequency invalid' };      
+
+        if (!va.isNumeric(form.ssn) || !va.isLength(form.ssn, 9, 9))
+        { error = error + 'input SSN invalid'}; 
+
+        if (!va.isLength(form.state, 2, 2) || !va.isAlpha(form.state))
+        { error = error + 'input State invalid'}; 
+
+        if (!va.isInt(form.monthIncome, 3))
+        { error = error + 'input Month income invalid'};         
+
+        if (!va.isEmail(form.email))
+        { error = error + 'input Email invalid '}; 
+
+        if (!va.isNumeric(va.blacklist(form.birth,'/')) || !va.isLength(form.birth, 10))
+        { error = error + 'input Date invalid '};    
+
+        if (!va.isNumeric(va.blacklist(form.hphone,'-')) || !va.isLength(form.hphone, 12 ))
+        { error = error + 'input Home phone invalid'};  
+
+        if (!va.isNumeric(va.blacklist(form.cphone,'-')) || !va.isLength(form.cphone, 12))
+        { error = error + 'input Cell phone invalid '}; 
+
+        if (!va.isNumeric(va.blacklist(form.wphone,'-')) || !va.isLength(form.wphone, 12))
+        { error = error + 'input Work phone invalid'};  
 
         // if (!va.isLength(form.birthday, 10)) 
         // { error = error + 'input invalid Date'};           
@@ -220,13 +327,14 @@ io.sockets.on('connection', function(socket){
         //send the result back to front
 
         if (form.firstName === 'mao'){          
-          socket.emit('va_pass', {'mess': 'Approved!'});
+          socket.emit('va_pass', {'mess': ''});
 
-          //Direct different URL
-          setInterval(function(){
-              socket.emit('url', '/form');
-              }, 2000);          
-        }
+            //Direct different URL
+            setInterval(function(){
+                socket.emit('url', '/');
+                }, 2000);          
+            }
+
         else {
           socket.emit('va_er', {'mess': error}); 
 

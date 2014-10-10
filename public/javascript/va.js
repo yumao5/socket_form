@@ -2,6 +2,8 @@ var socket = io.connect();
 
 socket.on('va_er', function(data){
     //$('#vaMess').modal('show');
+    $('#textva_passed').css("display","none");
+    $('#serverva_passed').css("display","none");    
     $('#textva').css("display","block");
     $('#serverva').css("display","block");
     //$('#serverva').text(data.mess);
@@ -12,17 +14,19 @@ socket.on('va_er', function(data){
     $( "#serverva" ).fadeOut( 3000 );
 });
 
-// socket.on('va_pass', function(data){
-//     //$('#vaMess').modal('show');
-//     $('#textva').css("display","block");
-//     $('#serverva').css("display","block");
-//     //$('#serverva').text(data.mess);
-//     $("#serverva").text(data.mess).html(function(index, currentHtml) {
-//         return currentHtml.replace(/-/g, '<br />  -  ');
-//     });
-//     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
-//     $( "#serverva" ).fadeOut( 3000 );
-// });
+socket.on('va_pass', function(data){
+    //$('#vaMess').modal('show');
+    $('#textva').css("display","none");
+    $('#serverva').css("display","none");
+    $('#textva_passed').css("display","block");
+    $('#serverva_passed').css("display","block");
+    //$('#serverva').text(data.mess);
+    $("#serverva_passed").text(data.mess).html(function(index, currentHtml) {
+        return currentHtml.replace(/-/g, '<br />  -  ');
+    });
+    //$('#registrationForm').data('bootstrapValidator').resetForm(); 
+    $( "#serverva_passed" ).fadeOut( 3000 );
+});
 
 socket.on('url', function (data) {
     window.location.href=data; 
@@ -31,8 +35,11 @@ socket.on('url', function (data) {
 $(document).ready(function(){
   $(".va_error_btn").click(function(){
     $(".serverva").fadeIn();
+    $(".serverva_passed").fadeIn();
   });
 });
+
+
 
 $(document).ready(function() {
     $('#registrationForm')
@@ -260,6 +267,8 @@ $(document).ready(function() {
 
     $('#serverva').css("display","none");
     $('#textva').css("display","none");
+    $('#serverva_passed').css("display","none");
+    $('#textva_passed').css("display","none");
 
     $('#registrationForm').find('[name="cphone"]').mask('000-000-0000');
     $('#registrationForm').find('[name="wphone"]').mask('000-000-0000');

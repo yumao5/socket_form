@@ -19,13 +19,22 @@ html
         .col-lg-8.col-lg-offset-3
           .panel.panel-default  
             .panel-heading 
-              h4 Personal Info         
-              #textva.alert.alert-warning
+              h4 Personal Info  
+                     
+            #textva.alert.alert-warning
+              #va_error_btn.button.close(type='button', data-dismiss='alert')
+                span() x
+              span.sr-only Close
+              strong Warning!
+              #serverva.span 
+
+            #textva_passed.alert.alert-success
                 #va_error_btn.button.close(type='button', data-dismiss='alert')
                   span() x
                 span.sr-only Close
-                strong Warning!
-                #serverva.span           
+                strong Approved!
+                #serverva__passed.span  
+
             .panel-body  
              form#registrationForm.form-horizontal(method='post', action='...')
               .form-group

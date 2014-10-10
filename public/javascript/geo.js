@@ -5,7 +5,11 @@ $(function(){
     types: ["geocode", "establishment"],
   });
 
-  $("#find").click(function(){
-    $("#geocomplete").trigger("geocode");
+  $("#geocomplete").keyup(function(){
+    //$("#geocomplete").trigger("geocode");
   });
+
+  // $("#find").click(function(){
+  //   $("#geocomplete").trigger("geocode");
+  // });
 });
