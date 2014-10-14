@@ -7,33 +7,32 @@ html
     link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
     // BootstrapValidator CSS 
     link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
+    // BootstrapValidator CSS 
+    link(rel='stylesheet', href='stylesheets/animate.css')
+    // Customiced CSS 
+    link(rel='stylesheet', href='stylesheets/style.css')  
 
     //script(type='text/javascript',src='javascript/html5shiv.min.js')
     //script(type='text/javascript',src='javascript/respond.min.js')
     //script(type='text/javascript',src='https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js*')  
 
-  body.page-border  
-    | &nbsp; 
+  body.page-border      
     .container
       .row
-        .col-lg-8.col-lg-offset-3
-          .panel.panel-default  
+        .col-lg-8.col-lg-offset-2.animatedx3.bounceInDown
+          .panel.panel-default
             .panel-heading 
               h4 Personal Info  
                      
-            #textva.alert.alert-warning
+            #textva.alert.alert-warning.animatedx3.flash
               #va_error_btn.button.close(type='button', data-dismiss='alert')
-                span() x
-              span.sr-only Close
               strong Warning!
               #serverva.span 
 
             #textva_passed.alert.alert-success
-                #va_error_btn.button.close(type='button', data-dismiss='alert')
-                  span() x
-                span.sr-only Close
-                strong Approved!
-                #serverva__passed.span  
+              #va_error_btn.button.close(type='button', data-dismiss='alert')
+              strong Approved!
+              #serverva__passed.span  
 
             .panel-body  
              form#registrationForm.form-horizontal(method='post', action='...')

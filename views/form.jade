@@ -8,6 +8,11 @@ html
     link(rel='stylesheet', href='stylesheets/bootstrap.min.paper.css')
     link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
     link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
+    // BootstrapValidator CSS 
+    link(rel='stylesheet', href='stylesheets/animate.css')
+    // Customiced CSS 
+    link(rel='stylesheet', href='stylesheets/style.css')  
+
     // jQuery and Bootstrap JS 
     //script(type='text/javascript', src='javascript/jquery-2.0.3.min.js')
     //script(type='text/javascript', src='javascript/bootstrap.min.js')
@@ -22,24 +27,24 @@ html
     | &nbsp; 
     .container
       .row
-        .col-lg-8.col-lg-offset-3
+        .col-lg-8.col-lg-offset-2
           form#registrationForm.geo.form-horizontal(method='post', action='...')
             // Loan info section              
-            .panel.panel-default 
+            .panel.panel-default.animatedx3.bounceInDown
               .panel-heading 
                 h4 Loan Information
 
               #textva.alert.alert-warning(style='display: none;')
-                #va_error_btn.button.close(type='button', data-dismiss='alert')
-                  span() x
-                span.sr-only Close
+                //- #va_error_btn.button.close(type='button', data-dismiss='alert')
+                //-   span() x
+                //- span.sr-only Close
                 strong Warning!
                 #serverva.span 
 
               #textva_passed.alert.alert-success(style='display: none;')
-                #va_error_btn.button.close(type='button', data-dismiss='alert')
-                  span() x
-                span.sr-only Close
+                //- #va_error_btn.button.close(type='button', data-dismiss='alert')
+                //-   span() x
+                //- span.sr-only Close
                 strong Approved!
                 #serverva__passed.span  
                                
@@ -66,7 +71,7 @@ html
                   .col-lg-5
                     input.form-control(type='text', name='paySchedule', placeholder="Pay Schedule") 
 
-            .panel.panel-default  
+            .panel.panel-default.animatedx3.bounceInDown  
               .panel-heading 
                 h4 Personal Info         
               .panel-body  
@@ -94,7 +99,7 @@ html
                         | No  
 
             // Contact info section              
-            .panel.panel-default 
+            .panel.panel-default.animatedx3.bounceInUp 
               .panel-heading 
                 h4 Contact Information  
               .panel-body               
@@ -155,7 +160,7 @@ html
                       input.form-control(name='mailed_administrative_area_level_1', type='text', value='')  
 
             // Employment Information section
-            .panel.panel-default 
+            .panel.panel-default.animatedx3.bounceInUp 
               .panel-heading 
                 h4 Employment Information  
               .panel-body                
@@ -274,7 +279,7 @@ html
                     input.form-control(type='text', name='wPhonec', placeholder="xxx-xxx-xxxx")                      
 
             // Employment Information section
-            .panel.panel-default 
+            .panel.panel-default.animatedx3.bounceInUp  
               .panel-heading 
                 h4 Bank Information  
               .panel-body                
@@ -324,7 +329,7 @@ html
                     | &nbsp;
                     // Reset help css style
                     //#rest_btn.button.btn.btn-default(type='') Reset 
-                    #va_btn.button.btn.btn-default Validate
+                    #va_btn.button.btn.btn-default Backend Validate
     //- .container
     //-   .row
     //-     .col-lg-8.col-lg-offset-3

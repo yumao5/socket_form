@@ -8,10 +8,10 @@ socket.on('va_er', function(data){
     $('#serverva').css("display","block");
     //$('#serverva').text(data.mess);
     $("#serverva").text(data.mess).html(function(index, currentHtml) {
-        return currentHtml.replace(/-/g, '<br />  -  ');
+        return currentHtml.replace(/-/g, '<br /> ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
-    $( "#serverva" ).fadeOut( 3000 );
+    //$( "#serverva" ).fadeOut( 3000 );
 });
 
 socket.on('va_pass', function(data){
@@ -25,7 +25,7 @@ socket.on('va_pass', function(data){
         return currentHtml.replace(/-/g, '<br />  -  ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
-    $( "#serverva_passed" ).fadeOut( 3000 );
+    //$( "#serverva_passed" ).fadeOut( 3000 );
 });
 
 socket.on('url', function (data) {
