@@ -1,4 +1,6 @@
-var validRoutingNumber = function(routing) {
+var va = require('validator');
+
+function validRoutingNumber (routing) {
 
     // all valid routing numbers are 9 numbers in length
     if (routing.length !== 9) {
@@ -6,7 +8,7 @@ var validRoutingNumber = function(routing) {
     }
 
     // if it aint a number, it aint a routin' number
-    if ( !$.isNumeric( routing ) ) {
+    if ( !va.isNumeric( routing ) ) {
         return false;
     }
 
@@ -29,7 +31,4 @@ var validRoutingNumber = function(routing) {
     }
 };
 
-module.exports = function (data) {
-    var instance = new validRoutingNumber(data);    
-    return instance;
-};
+module.exports.validRoutingNumber = validRoutingNumber;

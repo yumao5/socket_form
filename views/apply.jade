@@ -19,20 +19,10 @@ html
   body.page-border      
     .container
       .row
-        .col-lg-8.col-lg-offset-2.animatedx3.bounceInDown
+        .col-lg-8.col-lg-offset-2
           .panel.panel-default
             .panel-heading 
               h4 Personal Info  
-                     
-            #textva.alert.alert-warning.animatedx3.flash
-              #va_error_btn.button.close(type='button', data-dismiss='alert')
-              strong Warning!
-              #serverva.span 
-
-            #textva_passed.alert.alert-success
-              #va_error_btn.button.close(type='button', data-dismiss='alert')
-              strong Approved!
-              #serverva__passed.span  
 
             .panel-body  
              form#registrationForm.form-horizontal(method='post', action='...')
@@ -45,10 +35,10 @@ html
                 .col-lg-5
                   //input.form-control(type='text', name='fusername', placeholder="First Name", data-bv-regexp="true", data-bv-notempty="true", data-bv-stringlength="true", data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long", data-bv-notempty-message="#{__('E1')}")
                   input.form-control(type='text', name='fusername', placeholder="First Name")                                      
-              .form-group
-                label.col-lg-3.control-label Middle Name              
-                .col-lg-5
-                  input.form-control(type='text', name='musername', placeholder="Middle Name")                                    
+              //- .form-group
+              //-   label.col-lg-3.control-label Middle Name              
+              //-   .col-lg-5
+              //-     input.form-control(type='text', name='musername', placeholder="Middle Name")                                    
               .form-group
                 label.col-lg-3.control-label Last Name
                 .col-lg-5
@@ -108,7 +98,17 @@ html
                   // Reset help css style
                   //#rest_btn.button.btn.btn-default(type='') Reset 
                   #va_btn.button.btn.btn-default Validate      
-                      
+            
+            #textva.alert.alert-warning.animatedx3.flash
+              #va_error_btn.button.close(type='button', data-dismiss='alert')
+              strong Warning!
+              #serverva.span 
+
+            #textva_passed.alert.alert-success
+              #va_error_btn.button.close(type='button', data-dismiss='alert')
+              strong Approved!
+              #serverva__passed.span  
+
           //#va_btn.button.btn.btn-default.col-lg-3.col-lg-offset-1(name='re_btn') Reset info         
         //- .col-lg-5.col-lg-offset-3   
         //-   #textva.alert.alert-warning.fade.in(role='alert')

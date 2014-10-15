@@ -7,7 +7,7 @@ socket.on('va_er', function(data){
     $('#textva').css("display","block");
     $('#serverva').css("display","block");
     //$('#serverva').text(data.mess);
-    $("#serverva").text(data.mess).html(function(index, currentHtml) {
+    $("#serverva").text(data.info).html(function(index, currentHtml) {
         return currentHtml.replace(/-/g, '<br /> ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
@@ -21,7 +21,7 @@ socket.on('va_pass', function(data){
     $('#textva_passed').css("display","block");
     $('#serverva_passed').css("display","block");
     //$('#serverva').text(data.mess);
-    $("#serverva_passed").text(data.mess).html(function(index, currentHtml) {
+    $("#serverva_passed").text(data.info).html(function(index, currentHtml) {
         return currentHtml.replace(/-/g, '<br /> ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 

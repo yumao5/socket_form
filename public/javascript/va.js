@@ -7,7 +7,7 @@ socket.on('va_er', function(data){
     $('#textva').css("display","block");
     $('#serverva').css("display","block");
     //$('#serverva').text(data.mess);
-    $("#serverva").text(data.mess).html(function(index, currentHtml) {
+    $("#serverva").text(data.info).html(function(index, currentHtml) {
         return currentHtml.replace(/-/g, '<br /> ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
@@ -21,7 +21,7 @@ socket.on('va_pass', function(data){
     $('#textva_passed').css("display","block");
     $('#serverva_passed').css("display","block");
     //$('#serverva').text(data.mess);
-    $("#serverva_passed").text(data.mess).html(function(index, currentHtml) {
+    $("#serverva_passed").text(data.info).html(function(index, currentHtml) {
         return currentHtml.replace(/-/g, '<br />  -  ');
     });
     //$('#registrationForm').data('bootstrapValidator').resetForm(); 
@@ -111,23 +111,23 @@ $(document).ready(function() {
                     }
                 }
             },
-            musername: {
-                message: 'The name is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 2,
-                        max: 30,
-                        message: 'The username must be more than 2 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z]+$/,
-                        message: 'The username can only consist of alphabetical and number'
-                    }
-                }
-            },            
+            // musername: {
+            //     message: 'The name is not valid',
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'The username is required and cannot be empty'
+            //         },
+            //         stringLength: {
+            //             min: 2,
+            //             max: 30,
+            //             message: 'The username must be more than 2 and less than 30 characters long'
+            //         },
+            //         regexp: {
+            //             regexp: /^[a-zA-Z]+$/,
+            //             message: 'The username can only consist of alphabetical and number'
+            //         }
+            //     }
+            // },            
             email: {
                 validators: {
                     notEmpty: {

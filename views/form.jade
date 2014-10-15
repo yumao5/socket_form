@@ -34,20 +34,6 @@ html
               .panel-heading 
                 h4 Loan Information
 
-              #textva.alert.alert-warning(style='display: none;')
-                //- #va_error_btn.button.close(type='button', data-dismiss='alert')
-                //-   span() x
-                //- span.sr-only Close
-                strong Warning!
-                #serverva.span 
-
-              #textva_passed.alert.alert-success(style='display: none;')
-                //- #va_error_btn.button.close(type='button', data-dismiss='alert')
-                //-   span() x
-                //- span.sr-only Close
-                strong Approved!
-                #serverva__passed.span  
-                               
               .panel-body   
                 .form-group
                   label.col-lg-3.control-label Funding Type
@@ -330,49 +316,20 @@ html
                     // Reset help css style
                     //#rest_btn.button.btn.btn-default(type='') Reset 
                     #va_btn.button.btn.btn-default Backend Validate
-    //- .container
-    //-   .row
-    //-     .col-lg-8.col-lg-offset-3
-    //-       .panel.panel-default  
-    //-         .panel-heading 
-    //-           h4 Contact Infomation 
-    //-         .panel-body     
-    //-           form.geo.form-horizontal
-    //-             .form-group
-    //-               .col-lg-5
-    //-                 input#geocomplete.form-control(type='text', placeholder='Type in an address', value='Empire State Bldg')
-    //-               .col-lg-3
-    //-                 input#find.btn.btn-default(type='button', value='find')
-    //-             .form-group
-    //-                 .col-lg-3
-    //-                   label Formatted Address
-    //-                 .col-lg-5                  
-    //-                   input.form-control(name='formatted_address', type='text', value='')
-    //-             .form-group
-    //-                 .col-lg-3
-    //-                   label Street Number
-    //-                 .col-lg-5
-    //-                   input.form-control(name='street_number', type='text', value='')
-    //-             .form-group
-    //-                 .col-lg-3
-    //-                   label Postal Code
-    //-                 .col-lg-5
-    //-                   input.form-control(name='postal_code', type='text', value='')
-    //-             .form-group
-    //-                 .col-lg-3
-    //-                   label Locality
-    //-                 .col-lg-5
-    //-                   input.form-control(name='locality', type='text', value='')
-    //-             .form-group
-    //-                 .col-lg-3
-    //-                   label Country Code
-    //-                 .col-lg-5
-    //-                   input.form-control(name='country_short', type='text', value='')
-    //-             .form-group
-    //-                 .col-lg-3
-    //-                   label State
-    //-                 .col-lg-5
-    //-                   input.form-control(name='administrative_area_level_1', type='text', value='')   
+
+              #textva.alert.alert-warning.animatedx3.flash
+                //- #va_error_btn.button.close(type='button', data-dismiss='alert')
+                //-   span() x
+                //- span.sr-only Close
+                strong Warning!
+                #serverva.span 
+
+              #textva_passed.alert.alert-success.animatedx3.flash
+                //- #va_error_btn.button.close(type='button', data-dismiss='alert')
+                //-   span() x
+                //- span.sr-only Close
+                strong Approved!
+                #serverva__passed.span                      
 
 
     // jQuery and Bootstrap JS 
