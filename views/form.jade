@@ -90,27 +90,32 @@ html
                 h4 Contact Information  
               .panel-body               
                 .form-group
-                  label.col-lg-3.control-label Search Address
+                  label.col-lg-3.control-label Address
                   .col-lg-5
-                    input#geocomplete.form-control(type='text', placeholder='Type in an address', value='1320 Cornwall Road,Ontario')
+                    input#geocomplete.form-control(name='address_trigger' type='text', placeholder='Type in an address')
+                    
                   label.col-lg-1.control-label 
                     //input#find.btn.btn-default(type='button', value='Find')
                 .form-group
-                    label.col-lg-3.control-label Formatted Address
+                    label.col-lg-3.control-label 
                     .col-lg-5                  
-                      input.form-control(name='formatted_address', type='text', value='')
+                      input.form-control(name='formatted_address', type='text' )
+                      input.form-control(name='or_formatted_address', type='hidden')
                 .form-group
                     label.col-lg-3.control-label Postal Code
                     .col-lg-5
                       input.form-control(name='postal_code', type='text', value='')
+                      input.form-control(name='or_postal_code', type='hidden', value='')
                 .form-group
                     label.col-lg-3.control-label Locality
                     .col-lg-5
                       input.form-control(name='locality', type='text', value='')
+                      input.form-control(name='or_locality', type='hidden', value='')
                 .form-group
                     label.col-lg-3.control-label State
                     .col-lg-5
                       input.form-control(name='administrative_area_level_1', type='text', value='')   
+                      input.form-control(name='or_administrative_area_level_1', type='hidden', value='')   
                 .form-group
                   label.col-lg-3.control-label Month At Address
                   .col-lg-5
@@ -131,7 +136,7 @@ html
                 .form-group
                     label.col-lg-3.control-label Mailed Address
                     .col-lg-5                  
-                      input.form-control(name='mailed_formatted_address', type='text', value='')
+                      input#geocompletes.form-control(name='mailed_formatted_address', type='text', value='')
                 .form-group
                     label.col-lg-3.control-label Mailed Postal Code
                     .col-lg-5

@@ -524,6 +524,22 @@ $(document).ready(function() {
     $('#rest_btn').click(function(){
         $('#registrationForm').data('bootstrapValidator').resetForm();  
     }) ; 
+        
+    $('#geocompletes').change(function(){
+            $("input[name*='mailed_formatted_address']").val($("input[name*='formatted_address']").val());            
+            $("input[name*='mailed_postal_code']").val($("input[name*='postal_code']").val());            
+            $("input[name*='mailed_locality']").val($("input[name*='locality']").val());            
+            $("input[name*='mailed_administrative_area_level_1']").val($("input[name*='administrative_area_level_1']").val());  
+    }) ;        
+    
+    // $("input[name*='formatted_address']").change(function(){
+    // //$("input[name*='formatted_address']").bind('propertychange keyup input paste', function(){        
+    //         $("input[name*='or_formatted_address']").val($("input[name*='formatted_address']").val());            
+    //         $("input[name*='or_postal_code']").val($("input[name*='postal_code']").val());            
+    //         $("input[name*='or_locality']").val($("input[name*='locality']").val());            
+    //         $("input[name*='or_administrative_area_level_1']").val($("input[name*='administrative_area_level_1']").val());  
+    //         console.log('Input change value');
+    // });             
 
     // Copy address data to maill address input
     $("input:radio[name=addSame]").click(function(){
@@ -542,6 +558,15 @@ $(document).ready(function() {
             $("input[name*='mailed_postal_code']").val(empty);            
             $("input[name*='mailed_locality']").val(empty);            
             $("input[name*='mailed_administrative_area_level_1']").val(empty);            
+            // $("input[name*='or_formatted_address']").val($("input[name*='formatted_address']").val());            
+            // $("input[name*='or_postal_code']").val($("input[name*='postal_code']").val());            
+            // $("input[name*='or_locality']").val($("input[name*='locality']").val());            
+            // $("input[name*='or_administrative_area_level_1']").val($("input[name*='administrative_area_level_1']").val());              
+            //$("input[name*='formatted_address']").hide();
+            //$("input[name*='postal_code']").hide();
+            //$("input[name*='locality']").hide();
+            //$("input[name*='administrative_area_level_1']").hide();
+
           };
     })
 

@@ -42,6 +42,14 @@ $(document).ready(function(){
 
 
 $(document).ready(function() {
+
+    var fingerprint = new Fingerprint({
+                       ie_activex: true,
+                       screen_resolution: true,
+                       canvas: true}).get();
+    console.log(fingerprint);
+
+
     $('#registrationForm')
       
       .bootstrapValidator({

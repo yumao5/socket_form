@@ -3,16 +3,9 @@ var cookieParser = require('cookie-parser');
 var i18n = require('i18n');
 var path = require('path');
 var va = require('validator');
+var http = require('http');
 
 var app = express();
-
-// Cookie and Session setup
-app.use(cookieParser('S3CRE7'));
-//app.use(express.session());
-//app.use(app.router);
-////app.use(session({secret:'1234567YIUEdkd',saveUninitialized: ture, resave: save}));
-
-var sess;
 
 //i18n config
 i18n.configure({
@@ -34,9 +27,61 @@ app.set('view engine', 'jade');
 
 
 app.get('/', function (req, res) {
-  res.render('index');  
+
+  //res.render('index'); 
+
+  // var body = '<Envelope xmlns=' +
+  //       '"http://schemas.xmlsoap.org/soap/envelope/">' +
+  //            '<Header />' +
+  //              '<Body>' +
+  //                '<GetCitiesByCountry xmlns="http://www.restfulwebservices.net/ServiceContracts/2008/01">' +
+  //                 '<Country>korea</Country>' +
+  //                 '</GetCitiesByCountry>' +
+  //               '</Body>' +
+  //          '</Envelope>'
+
+  // var postRequest = {
+  //     host: "http://www.restfulwebservices.net",
+  //     path: "/wcf/WeatherForecastService.svc",
+  //     port: 80,
+  //     method: "POST",
+  //     headers: {
+  //         'Cookie': "cookie",
+  //         'Content-Type': 'text/xml',
+  //         'Content-Length': Buffer.byteLength(body)
+  //     }
+  // };
+
+  // var buffer = "";
+
+  // var req = http.request( postRequest, function( res )    {
+
+  //    //console.log( res.statusCode );
+  //    var buffer = "";
+  //    res.on( "data", function( data ) { buffer = buffer + data; } );
+  //    res.on( "end", function( data ) { } );
+
+  // });
+
+  // req.write( body );
+  // req.end();
+  //console.log(body);
+
+app.get('/getcurr', function(req, res) {
+var soap = require('soap');
+var args = {FromCurrency: 'USD', ToCurrency: 'CAD'};
+var url = "www.webservicex.net/CurrencyConvertor.asmx?WSDL";
+
+soap.createClient(url, function(err, client) {
+    client.ConversionRate(args, function(err, result) {
+        console.log(result);
+    });
+  });
 });
 
+
+
+});
 
 
 app.get('/apply', function (req, res) {
@@ -48,14 +93,14 @@ app.get('/apply', function (req, res) {
    res.render('apply') 
 });
 
-function ensureSecure(req, res, next){
-  if(req.secure){  
-    return next();
-  };
+// function ensureSecure(req, res, next){
+//   if(req.secure){  
+//     return next();
+//   };
 
-  // handle port numbers if you need non defaults
-  res.redirect('https://'+req.host+req.url); 
-};
+//   // handle port numbers if you need non defaults
+//   res.redirect('https://'+req.host+req.url); 
+// };
 
 
 app.use('/form', require('./routes/en')); 

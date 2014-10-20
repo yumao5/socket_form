@@ -11,7 +11,7 @@ head
     script(src='javascript/angular.min.js')
 
     //Bootstrap Core CSS 
-    link(href='./stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='./stylesheets/bootstrap.min.paper.css', rel='stylesheet')
     //Custom CSS 
     link(href='./stylesheets/grayscale.css', rel='stylesheet')
     //Custom Fonts 
@@ -45,7 +45,7 @@ head
             li
               a.page-scroll(href='#download') FAQ
             li
-              a.page-scroll(href='#forum') Forum
+              a.page-scroll(href='#forum') Form
             li
               a.page-scroll(href='#contact') Contact
         ///.navbar-collapse 
@@ -55,30 +55,19 @@ head
         .container
           .row
             .col-md-8.col-md-offset-2
-              h1.brand-heading 
-              br  
-              br  
-              br
-              br
-              br
-              br
-              br
-              br
-              br
-              br
-              br  
-              h1 Your team. Always up-in-air  
-              p.intro-text
-                | A quick, responsive, loan service team.
-                br
-                | Created by 4Finance.
+              h2.brand-heading 
+                h2 Your team. Always up-in-air  
+              //- p.intro-text
+              //-   | A quick, responsive, loan service team.
+              //-   br
+              //-   | Supported by 4Finance.
               a.btn.btn-circle.page-scroll(href='#about')
                 i.fa.fa-angle-double-down.animated
     //About Section 
     section#about.container.content-section.text-center
       .row
         .col-lg-8.col-lg-offset-2
-          h2 About Zaplo
+          h3 About Zaplo
           p
             | 1st loan free!
             | If your first loan is repaid on time, you will not be charged any additional interest or fees.
@@ -92,17 +81,17 @@ head
       .download-section
         .container
           .col-lg-8.col-lg-offset-2
-            h2 Download Zaplo
+            h3 FAQ
             p You can contact with us any time you want to spend monedy.
             a.btn.btn-default.btn-lg(href='http://startbootstrap.com/template-overviews/grayscale/') Visit FAQ Page
 
-    //Forum Section 
+    //Form Section 
     section#forum.content-section.text-center
       .row
       .forum-section
         .container
           .col-lg-8.col-lg-offset-2            
-            h2 Apply Forum          
+            h3 Apply          
             form(name='userForm', novalidate='novalidate')
 
               .form-group(show-errors='{showSuccess: true}')
@@ -141,7 +130,7 @@ head
     section#contact.container.content-section.text-center
       .row
         .col-lg-8.col-lg-offset-2
-          h2 Contact Zaplo
+          h3 Contact Zaplo
           p
             | Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!
           p

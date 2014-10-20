@@ -7,9 +7,9 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #000;
-    background-color: #fff;
+    /*font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    color: #fff;
+    background-color: #bbbbbb;
 }
 
 html {
@@ -36,20 +36,6 @@ p {
     line-height: 1.5;
 }
 
-.label-font {
-    margin: 0 0 0px;
-    font-size: 18px;
-    line-height: 1.5;    
-    text-align: left;
-}
-
-.label-warnning {
-    margin: 0 0 0px;
-    font-size: 15px;
-    line-height: 1.2;    
-    text-align: left;
-}
-
 @media(min-width:767px) {
     p {
         margin: 0 0 35px;
@@ -59,7 +45,7 @@ p {
 }
 
 a {
-    color: #407fc0;
+    color: #219ab3;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -80,7 +66,7 @@ a:focus {
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #407fc0;
+    background-color: #000;
 }
 
 .navbar-custom .navbar-brand {
@@ -137,7 +123,7 @@ a:focus {
 
     .top-nav-collapse {
         padding: 0;
-        background-color: #407fc0;
+        background-color: #000;
     }
 
     .navbar-custom.top-nav-collapse {
@@ -149,7 +135,7 @@ a:focus {
     display: table;
     width: 100%;
     height: auto;
-    padding: 50px 0;
+    padding: 100px 0;
     text-align: center;
     color: #fff;
     background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
@@ -163,6 +149,10 @@ a:focus {
 .intro .intro-body {
     display: table-cell;
     vertical-align: middle;
+}
+
+.brand-heading {
+    margin-top: 240px;
 }
 
 .intro .intro-body .brand-heading {
@@ -263,27 +253,15 @@ a:focus {
 }
 
 .content-section {
-    padding-top: 100px;    
+    padding-top: 100px;
 }
 
 .download-section {
     width: 100%;
-    padding: 10px 0;
-    color: #000;
-    
-    background-color: #fff;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-.forum-section {
-    width: 100%;
-    padding: 10px 0;
-    color: #000;
-    
-    background-color: #eeeeee;
+    padding: 50px 0;
+    color: #fff;
+    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+    background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -298,13 +276,10 @@ a:focus {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 50px;
+        padding-top: 250px;
     }
 
     .download-section {
-        padding: 100px 0;
-    }
-    .forum-section {
         padding: 100px 0;
     }
 
@@ -324,17 +299,17 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #407fc0;
-    color: #407fc0;
+    border: 1px solid #219ab3;
+    color: #219ab3;
     background-color: transparent;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #407fc0;
+    border: 1px solid #219ab3;
     outline: 0;
     color: #000;
-    background-color: #407fc0;
+    background-color: #219ab3;
 }
 
 ul.banner-social-buttons {
@@ -360,7 +335,7 @@ ul.banner-social-buttons {
 }
 
 footer {
-    padding: 10px 0;
+    padding: 50px 0;
 }
 
 footer p {
@@ -389,12 +364,4 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: rgba(255,255,255,.2);
-}
-
-.form-group .help-block {
-  display: none;
-}
- 
-.form-group.has-error .help-block {
-  display: block;
 }
