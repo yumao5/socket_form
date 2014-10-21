@@ -132,9 +132,10 @@ a:focus {
 }
 
 .intro {
+
     display: table;
     width: 100%;
-    height: auto;
+    height: 500px;
     padding: 100px 0;
     text-align: center;
     color: #fff;
@@ -152,7 +153,7 @@ a:focus {
 }
 
 .brand-heading {
-    margin-top: 240px;
+    margin-top: 240px;    
 }
 
 .intro .intro-body .brand-heading {
@@ -257,15 +258,34 @@ a:focus {
 }
 
 .download-section {
+
+    height: 400px;
     width: 100%;
     padding: 50px 0;
-    color: #fff;
-    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+    color: #1e1e1e;
+        
+    background: url(../img/intro-bg_4.jpg) no-repeat center center ;
     background-color: #000;
+    background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.contact-section{
+   
+    height: 400px;    
+    padding: 50px 0;
+    color: #fff;
+        
+    background: url(../img/intro-bg_3.jpg) no-repeat center center fixed;
+    background-color: #000;    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
 }
 
 #map {

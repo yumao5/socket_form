@@ -564,7 +564,7 @@
                         var fields  = that.getFieldElements(f);
                         if (fields.length) {
                             var type    = $(fields[0]).attr('type'),
-                                event   = ('radio' === type || 'checkbox' === type || 'file' === type || 'SELECT' === $(fields[0]).get(0).tagName) ? 'change' : that._changeEvent,
+                                event   = ('radio' === type || 'checkbox' === type || 'file' === type || 'SELECT' === $(fields[0]).get(0).tagName) ? 'keydown' : that._changeEvent,
                                 trigger = that.options.fields[field].trigger || that.options.trigger || event,
                                 events  = $.map(trigger.split(' '), function(item) {
                                     return item + '.live.bv';

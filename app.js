@@ -3,7 +3,7 @@ var cookieParser = require('cookie-parser');
 var i18n = require('i18n');
 var path = require('path');
 var va = require('validator');
-var http = require('http');
+var http = require('https');
 
 var app = express();
 
@@ -27,60 +27,61 @@ app.set('view engine', 'jade');
 
 
 app.get('/', function (req, res) {
-
-  //res.render('index'); 
-
-  // var body = '<Envelope xmlns=' +
-  //       '"http://schemas.xmlsoap.org/soap/envelope/">' +
-  //            '<Header />' +
-  //              '<Body>' +
-  //                '<GetCitiesByCountry xmlns="http://www.restfulwebservices.net/ServiceContracts/2008/01">' +
-  //                 '<Country>korea</Country>' +
-  //                 '</GetCitiesByCountry>' +
-  //               '</Body>' +
-  //          '</Envelope>'
-
-  // var postRequest = {
-  //     host: "http://www.restfulwebservices.net",
-  //     path: "/wcf/WeatherForecastService.svc",
-  //     port: 80,
-  //     method: "POST",
-  //     headers: {
-  //         'Cookie': "cookie",
-  //         'Content-Type': 'text/xml',
-  //         'Content-Length': Buffer.byteLength(body)
-  //     }
-  // };
-
-  // var buffer = "";
-
-  // var req = http.request( postRequest, function( res )    {
-
-  //    //console.log( res.statusCode );
-  //    var buffer = "";
-  //    res.on( "data", function( data ) { buffer = buffer + data; } );
-  //    res.on( "end", function( data ) { } );
-
-  // });
-
-  // req.write( body );
-  // req.end();
-  //console.log(body);
-
-app.get('/getcurr', function(req, res) {
-var soap = require('soap');
-var args = {FromCurrency: 'USD', ToCurrency: 'CAD'};
-var url = "www.webservicex.net/CurrencyConvertor.asmx?WSDL";
-
-soap.createClient(url, function(err, client) {
-    client.ConversionRate(args, function(err, result) {
-        console.log(result);
-    });
-  });
+  res.render('index'); 
 });
 
 
+app.get('/hr', function (req, res) {
 
+  var body = '<?xml version="1.0" encoding="utf-8"?> <REQUEST> <REFERRAL> <STOREKEY>NSTF2</STOREKEY> <REFURL>https://nstf.epicloansystems.com/service/leadinbox.ashx</REFURL> <IPADDRESS>173.209.212.155</IPADDRESS> <TIERKEY>OTTP71CBGAI3TSXRVT66LKRCWDRPRAP1OQV0J2156C2HW4CPOPKQ1G242GRS7LH6</TIERKEY> <AFFID/> <SUBID/> <TEST>true</TEST> </REFERRAL> <CUSTOMER> <PERSONAL> <REQUESTEDAMOUNT>400</REQUESTEDAMOUNT> <SSN>000000000</SSN> <DOB>1965-09-26</DOB> <FIRSTNAME>Lisa</FIRSTNAME> <MIDDLEINITIAL/> <LASTNAME>Brown</LASTNAME> <ADDRESS>359 Farmview rd</ADDRESS> <ADDRESS2/> <CITY>Farmville</CITY> <STATE>VA</STATE> <ZIP>23901</ZIP> <HOMEPHONE>(434)390-8931</HOMEPHONE> <OTHERPHONE>(434)414-5820</OTHERPHONE> <DLSTATE>VA</DLSTATE> <DLNUMBER>T67530000</DLNUMBER> <CONTACTTIME/> <ADDRESSMONTHS>10</ADDRESSMONTHS> <ADDRESSYEARS>3</ADDRESSYEARS> <RENTOROWN>R</RENTOROWN> <ISMILITARY>false</ISMILITARY> <ISCITIZEN>true</ISCITIZEN> <OTHEROFFERS>true</OTHEROFFERS> <EMAIL>Shaq.xxxxxxx@gmail.com</EMAIL> </PERSONAL> <EMPLOYMENT> <INCOMETYPE>E</INCOMETYPE> <PAYTYPE>D</PAYTYPE> <EMPMONTHS>4</EMPMONTHS> <EMPYEARS>18</EMPYEARS> <EMPNAME>Piedmont Geriatric Hospital</EMPNAME> <EMPADDRESS>5001 E. Patrick Henry Highway.</EMPADDRESS> <EMPADDRESS2>P.O. Box 427</EMPADDRESS2> <EMPCITY>Burkeville</EMPCITY> <EMPSTATE>VA</EMPSTATE> <EMPZIP>23922</EMPZIP> <EMPPHONE>(434)767-4492</EMPPHONE> <EMPPHONEEXT/> <SUPERVISORNAME>Mitzi Thackston</SUPERVISORNAME> <HIREDATE>1995-11-16</HIREDATE> <EMPTYPE>F</EMPTYPE> <JOBTITLE>Nursing aid</JOBTITLE> <PAYFREQUENCY>B</PAYFREQUENCY> <NETMONTHLY>1800</NETMONTHLY> <LASTPAYDATE>2014-09-16</LASTPAYDATE> <NEXTPAYDATE>2014-10-01</NEXTPAYDATE> <SECONDPAYDATE>2014-10-16</SECONDPAYDATE> </EMPLOYMENT> <BANK> <BANKNAME>Wells Fargo</BANKNAME> <ACCOUNTTYPE>C</ACCOUNTTYPE> <ROUTINGNUMBER>051400549</ROUTINGNUMBER> <ACCOUNTNUMBER>1984424992</ACCOUNTNUMBER> <BANKMONTHS>3</BANKMONTHS> <BANKYEARS>4</BANKYEARS> </BANK> <REFERENCES> <REFERENCE> <FIRSTNAME>John</FIRSTNAME> <LASTNAME>Smith</LASTNAME> <PHONE>(111)222-3333</PHONE> <RELATIONSHIP>F</RELATIONSHIP> </REFERENCE> <REFERENCE> <FIRSTNAME>Jim</FIRSTNAME> <LASTNAME>Jones</LASTNAME> <PHONE>(333)222-1111</PHONE> <RELATIONSHIP>F</RELATIONSHIP> </REFERENCE> </REFERENCES> </CUSTOMER> </REQUEST>';
+
+  var postRequest = {
+      host: "nstf.epicloansystems.com",
+      path: "/service/leadinbox.ashx",      
+      port: '443',
+      method: "POST",
+      headers: {          
+          'Content-Type': 'text',
+          'Content-Length': Buffer.byteLength(body)
+      }
+  };
+
+  var buffer = "";
+
+  var req = http.request( postRequest, function( res )    {
+
+     console.log( res.statusCode );
+     var buffer = "";
+     res.setEncoding('utf8');
+     res.on( "data", function( data ) { buffer = buffer + data; } );
+     res.on( "end", function( data ) { console.log( buffer ); } );     
+
+  });
+
+  req.write( body );
+  req.end();
+
+});
+
+app.get('/ws', function(req, res){
+
+    res.render('index'); 
+
+    var soap = require('soap');
+    var soapWSDL = "http://www.webservicex.net/stockquote.asmx?WSDL";
+    var args = {symbol: 'aapl'};
+    var quote ='';
+
+    soap.createClient(soapWSDL, function (err, client) {
+      
+      if (err) throw err;
+      console.log(client.describe());
+      client.GetQuote(args, function(err, result) {
+        console.log(result);
+        quote = result;
+      })  
+     });
+  
 });
 
 
