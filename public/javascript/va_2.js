@@ -56,8 +56,8 @@ $(document).ready(function() {
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
+            // invalid: 'glyphicon glyphicon-remove',
+            // validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
             driLicense: {

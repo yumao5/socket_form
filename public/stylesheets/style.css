@@ -12,3 +12,29 @@ body {
   display: block;
 }
 
+/*Disable Radio button underline display*/
+.has-success form,
+.has-success input[type="radio"],
+.has-success input[type="radio"]:focus{
+  -webkit-box-shadow: inset 0 0px 0 #4caf50;
+  box-shadow: inset 0 0px 0 #4caf50;
+}
+
+/*Disable Radio button underline display*/
+.has-error form,
+.has-error input[type="radio"],
+.has-error input[type="radio"]:focus{
+  -webkit-box-shadow: inset 0 0px 0 #e51c23;
+  box-shadow: inset 0 0px 0 #e51c23;
+}
+
+/* Big Triangle */
+svg#bigTriangleColor1 {
+	pointer-events: none;
+}
+
+#bigTriangleColor1 path {
+	fill: #ffffff;
+	stroke: #3498db;
+	stroke-width: 2;
+}

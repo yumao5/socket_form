@@ -139,7 +139,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    /*background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;*/
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -261,12 +261,29 @@ a:focus {
 
     height: 400px;
     width: 100%;
-    padding: 50px 0;
+    padding: 50px;
+    padding-bottom: 0; 
     color: #1e1e1e;
         
-    background: url(../img/intro-bg_4.jpg) no-repeat center center ;
-    background-color: #000;
+    /*background: url(../img/intro-bg_4.jpg) no-repeat center center ;*/
+    background-color: #bbb;
     background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.forum-section {
+
+    height: 800px;
+    width: 100%;
+    padding: 0 0;
+    color: #1e1e1e;
+        
+    /*background: url(../img/intro-bg_4.jpg) no-repeat center center ;*/
+    /*background-color: #fff;*/
+    /*background-attachment: fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

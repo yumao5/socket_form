@@ -1,15 +1,17 @@
-var express = require('express');
+var express = require('express.io')
 var cookieParser = require('cookie-parser');
 var i18n = require('i18n');
 var path = require('path');
 var va = require('validator');
 var http = require('https');
 
+// Express init
 var app = express();
+app.http().io()
 
-//i18n config
+//i18n init
 i18n.configure({
-    locales:['en', 'sp', 'ch'],
+    locales:['en', 'sp'],
     directory:'./locales',    
 });
 
@@ -18,16 +20,14 @@ var server = app.listen(3000, function() {
 })
 
 
-//app.use(i18n.init); // Should always before app.route
+app.use(i18n.init); 
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
 app.get('/', function (req, res) {
-  res.render('index'); 
+  res.render('indexs'); 
 });
 
 
@@ -86,26 +86,12 @@ app.get('/ws', function(req, res){
 
 
 app.get('/apply', function (req, res) {
-//   //res.render('forum', {
-//   //  'error': i18n.__('E1')
-//   //});  
-//   //req.setLocale('sp'); 
-//console.log("Cookies: ", req.cookies);
    res.render('apply') 
 });
 
-// function ensureSecure(req, res, next){
-//   if(req.secure){  
-//     return next();
-//   };
-
-//   // handle port numbers if you need non defaults
-//   res.redirect('https://'+req.host+req.url); 
-// };
-
-
 app.use('/form', require('./routes/en')); 
-app.use('/sp/forum/', require('./routes/sp')); 
+
+//app.use('/sp/forum/', require('./routes/sp')); 
 
 // i18n modules test block
 // app.use('/sp/forum/', function (req, res) {
@@ -135,72 +121,46 @@ app.use('/sp/forum/', require('./routes/sp'));
 // });
 
 
-// Page session check funcation test block
-// function ensureSecure(req, res, next){
-//   if(req.secure){
-//     // OK, continue
-//     return next();
-//   };
-//   res.redirect('https://'+req.host+req.url); // handle port numbers if non 443
-// };
-// app.all('*', ensureSecure);
+// Define socket interactions with client
+// recieve 1th step client data
+app.io.route('client_data', function(req) {
 
-// use socket.io
-var io = require('socket.io').listen(server);
+    var form = require('./form/form1')(req.data);         
+    var formVa = require('./form/form1_va');
+    error = formVa.formValidate(form);        
 
-//turn off debug
-//io.set('log level', 0);
+    //Send the result back to front
+    if (form.firstName === 'test'){          
+      req.io.emit('va_pass', {'info': ''});
 
-// define socket interactions with client
-io.sockets.on('connection', function(socket){
-    
-    //recieve 1th step client data
-    socket.on('client_data', function(data,res){
-        var form = require('./form/form1')(data);         
+        //Direct different URL
+        setInterval(function(){
+            req.io.emit('url', '/form');
+        }, 2000);          
+    }
+    else {
+      req.io.emit('va_er', {'info': error}); 
+    }
 
-        var formVa = require('./form/form1_va');
-        error = formVa.formValidate(form);
-        delete form;        
+});
 
-        //send the result back to front
-        if (form.firstName === 'mao'){          
-          socket.emit('va_pass', {'info': ''});
+app.io.route('client_data2', function(req) {
 
-            //Direct different URL
-            setInterval(function(){
-                socket.emit('url', '/form');
-            }, 2000);          
-        }
-        else {
-          socket.emit('va_er', {'info': error}); 
-        }
+    var form2 = require('./form/form2')(req.data);         
+    var formVa = require('./form/form2_va');
+    error = formVa.formValidate(form2);        
 
-    });
+    //Send the result back to front
+    if (form2.bankName === 'BMO'){          
+      req.io.emit('va_pass', {'info': ''});
 
-    //recieve 2th step client data
-    socket.on('client_data_2', function(data,res){
-        var form2 = require('./form/form2')(data);            
-
-        // Form items Validation           
-        var error = '';
-        var formVa = require('./form/form2_va');
-        error = formVa.formValidate(form2);
-
-        //send the result back to front
-        if (form2.bankName === 'BMO'){          
-          socket.emit('va_pass', {'info': ''});
-
-            //Direct client to different URL
-            setInterval(function(){
-                socket.emit('url', '/');
-                }, 2000);          
-            }
-
-        else {
-          socket.emit('va_er', {'info': error}); 
-
-      }
-
-    });
+        //Direct different URL
+        setInterval(function(){
+            req.io.emit('url', '/');
+        }, 2000);          
+    }
+    else {
+      req.io.emit('va_er', {'info': error}); 
+    }
 
 });

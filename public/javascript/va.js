@@ -56,8 +56,8 @@ $(document).ready(function() {
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
+            //invalid: 'glyphicon glyphicon-remove',
+            //validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
             lamount: {
@@ -119,23 +119,7 @@ $(document).ready(function() {
                     }
                 }
             },
-            // musername: {
-            //     message: 'The name is not valid',
-            //     validators: {
-            //         notEmpty: {
-            //             message: 'The username is required and cannot be empty'
-            //         },
-            //         stringLength: {
-            //             min: 2,
-            //             max: 30,
-            //             message: 'The username must be more than 2 and less than 30 characters long'
-            //         },
-            //         regexp: {
-            //             regexp: /^[a-zA-Z]+$/,
-            //             message: 'The username can only consist of alphabetical and number'
-            //         }
-            //     }
-            // },            
+          
             email: {
                 validators: {
                     notEmpty: {
@@ -168,7 +152,17 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'The phone number is required and cannot be empty'
-                    }                  
+                    },
+                    stringLength: {
+                        min: 12,
+                        max: 35,
+                        message: 'The phone number must be 10 digits long'
+                    }
+                    // ,
+                    // regexp: {
+                    //     regexp: /^[^a-z]+$/,
+                    //     message: 'The number can only consist of number'
+                    // }
                 }
             },  
             cphone: {
@@ -176,6 +170,11 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'The phone number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 12,
+                        max: 35,
+                        message: 'The phone number must be 10 digits long'
                     }
                 }
             },  
@@ -184,6 +183,11 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'The phone number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 12,
+                        max: 35,
+                        message: 'The phone number must be 10 digits long'
                     }
                 }
             },  
@@ -278,9 +282,11 @@ $(document).ready(function() {
     $('#serverva_passed').css("display","none");
     $('#textva_passed').css("display","none");
 
-    $('#registrationForm').find('[name="cphone"]').mask('000-000-0000');
+    $('#registrationForm').find('[name="cphone"]').mask('000-000-0000');    
     $('#registrationForm').find('[name="wphone"]').mask('000-000-0000');
     $('#registrationForm').find('[name="hphone"]').mask('000-000-0000');
+
+
 
     // Reset button to help css style
     $('#rest_btn').click(function(){

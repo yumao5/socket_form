@@ -4,7 +4,7 @@ html
     // Bootstrap CSS 
     link(rel='stylesheet', href='stylesheets/bootstrap.min.paper.css')
     // Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome 
-    link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
+    //link(rel='stylesheet', href='stylesheets/font-awesome-4.1.0/css/font-awesome.min.css')
     // BootstrapValidator CSS 
     link(rel='stylesheet', href='stylesheets/bootstrapValidator.min.css')
     // BootstrapValidator CSS 
@@ -20,11 +20,11 @@ html
     .container
       .row
         .col-lg-8.col-lg-offset-2
-          .panel.panel-default
-            .panel-heading 
+          .panel.panel-default.animatedx3.bounceInDown 
+            .panel-heading
               h4 Personal Info  
 
-            .panel-body  
+            .panel-body
              form#registrationForm.form-horizontal(method='post', action='...')
               .form-group
                 label.col-lg-3.control-label Loan Amount
@@ -93,11 +93,11 @@ html
               .form-group
                 .col-lg-8.col-lg-offset-3
                   // Do NOT use name="submit" or id="submit" for the Submit button 
-                  button.btn.btn-default(type='') Submit 
+                  button.btn.btn-default(type='') Front Validate  
                   | &nbsp;
                   // Reset help css style
                   //#rest_btn.button.btn.btn-default(type='') Reset 
-                  #va_btn.button.btn.btn-default Validate      
+                  #va_btn.button.btn.btn-default Sever Validate    
             
             #textva.alert.alert-warning.animatedx3.flash
               #va_error_btn.button.close(type='button', data-dismiss='alert')
@@ -125,9 +125,11 @@ html
     script(type='text/javascript', src='/socket.io/socket.io.js')
     // BootstrapValidator JS 
     script(type='text/javascript', src='javascript/bootstrapValidator.min.js')
-    // Validator JS 
-    script(type='text/javascript', src='javascript/va.js')  
     // Mask JS 
     script(type='text/javascript', src='javascript/jquery.mask.min.js')
+    //script(type='text/javascript', src='javascript/jquery.maskedinput.js')  
+    // Validator JS 
+    script(type='text/javascript', src='javascript/va.js')  
+
     // Html5 Finger Print 
     script(type='text/javascript', src='javascript/fingerprint.js')
