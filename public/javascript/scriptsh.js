@@ -24,8 +24,8 @@ $('#nav .navbar-nav li>a').click(function(){
 
 	
 			$('#example1').accordionSlider({
-				width: 900,
-				height: 600,
+				width: 1170,
+				height: 450,
 				startPanel: 1,
 				shadow: 0,
 				responsiveMode: 'auto',

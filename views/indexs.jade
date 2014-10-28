@@ -7,7 +7,9 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     link(href='./stylesheets/bootstrap.min.paper.css', rel='stylesheet')
     link(href='./stylesheets/accordion-slider.min.css', rel='stylesheet')
-    
+    link(href='./stylesheets/animate.css', rel='stylesheet')      
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
+
     //if lt IE 9
       script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
     link(href='./stylesheets/stylesh.css', rel='stylesheet')
@@ -17,70 +19,123 @@ html(lang='en')
       header.masthead
         .container
           .row
-            .col-sm-6
-              h2 Zaplo
-                p 
-            .col-sm-6
-            //-   .pull-right.hidden-xs
-            //-     a.dropdown-toggle(href='#', data-toggle='dropdown')
-            //-       h3
-            //-         i.glyphicon.glyphicon-pushpin
-            //-     ul.dropdown-menu
-            //-       li
-            //-         a(href='#')
-            //-           i.glyphicon.glyphicon-chevron-right
-            //-           | Link
-            //-       li
-            //-         a(href='#')
-            //-           i.glyphicon.glyphicon-user
-            //-           | Link
-            //-       li
-            //-         a(href='#')
-            //-           i.glyphicon.glyphicon-lock
-            //-           | Link
-            //-       li
-            //-         a(href='#')
-            //-           i.glyphicon.glyphicon-cog
-            //-           | Link
+            .col-sm-10
+              h3 ZAPLO.COM
+               p Fast, Secure and Real Customer Serivice 
+            .col-sm-2
+              //- h6 1-800-zaplo | Rates and terms | Login | Apply                          
+              h6
+                .col-sm-1.col-xs-4.text-center
+                  i.fa.fa-facebook.fa-lg
+                .col-sm-1.col-xs-4.text-center
+                  i.fa.fa-google-plus.fa-lg
+                .col-sm-1.col-xs-4.text-center
+                  i.fa.fa-twitter.fa-lg
+                .col-sm-1.col-xs-4.text-center
+                  i.fa.fa-youtube.fa-lg
+                .col-sm-1.col-xs-4.text-center(style="text-decoration:underline")     
+                  |  Espa
+
+              //- ul(style="list-style-type: none;display: block")
+              //-   li
+              //-     a(href='index.html') HOME
+              //-   li
+              //-     a(href='services.html') SERVICES
+              //-   li
+              //-     a(href='portfolio.html') PORTFOLIO
+              //-   li
+              //-     a(href='pricing.html') PRICING
+
+                      
+              //- ul.nav.navbar-nav.nav-justified
+              //-   li 1-800-zaplo 
+              //-   li Rates and terms 
+              //-   li Login 
+              //-   li Apply
+              //- .pull-right.hidden-xs
+              //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+              //-     h3
+              //-       i.glyphicon.glyphicon-list
+              //-   ul.dropdown-menu
+              //-     li
+              //-       a(href='#')
+              //-         i.glyphicon.glyphicon-chevron-right
+              //-         | Call 1-800-zaplo
+              //-     li
+              //-       a(href='#')
+              //-         i.glyphicon.glyphicon-user
+              //-         | Sign up
+              //-     li
+              //-       a(href='#')
+              //-         i.glyphicon.glyphicon-lock
+              //-         | Login
+              //-     li
+              //-       a(href='#')
+              //-         i.glyphicon.glyphicon-cog
+              //-         | Profile
           .row
-            .col-sm-12
-              #example1.accordion-slider
-                .as-panels
-                  //Panel 1 
-                  .as-panel
-                    a(href='#')
-                      img.as-background(src='', data-src='./img/intro-bg_3.jpg', data-retina='image1@2x.jpg')
-                    .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='8', data-vertical='8')
-                      | Serivice
-                    h3.as-layer.as-opened.as-black.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left')
-                      | Lorem ipsum dolor sit amet
-                    p.as-layer.as-opened.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200')
-                      | consectetur adipisicing elit
-                    p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='40', data-vertical='34%', data-width='350', data-show-transition='left', data-show-delay='400', data-hide-transition='left', data-hide-delay='500')
-                      | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  //Panel 2 
-                  .as-panel
-                    a(href='#')
-                      img.as-background(src='', data-src='./img/intro-bg_7.jpg', data-retina='image2@2x.jpg')
-                    .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='8', data-vertical='8')
-                      | Support
-                    .as-layer(data-position='bottomLeft', data-horizontal='20', data-vertical='20', data-width='100%')
-                      p.as-layer.as-opened.as-white.as-padding(data-position='bottomLeft', data-show-transition='left', data-hide-transition='up', data-show-delay='400', data-hide-delay='200')
-                        | Lorem ipsum
-                      p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='120', data-show-transition='left', data-hide-transition='up', data-show-delay='600', data-hide-delay='100')
-                        | dolor sit amet
-                      p.as-layer.as-opened.as-white.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='245', data-show-transition='left', data-hide-transition='up', data-show-delay='800')
-                        | consectetur adipisicing elit.
-                  //Panel 3 
-                  .as-panel
-                    a(href='#')
-                      img.as-background(src='', data-src='./img/intro-bg_1.jpg', data-retina='image3@2x.jpg')
-                    .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='8', data-vertical='8')
-                      | Maintence
-                    p.as-layer.as-opened.as-white.as-padding(data-horizontal='center', data-vertical='44%', data-show-transition='right', data-hide-transition='left', data-show-delay='500')
-                      | Lorem ipsum dolor sit amet
-                    p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='center', data-vertical='58%', data-show-transition='left', data-show-delay='700', data-hide-transition='right', data-hide-delay='200')
-                      | consectetur adipisicing elit
+            #example1.accordion-slider
+              .as-panels
+                //Panel 1 
+                .as-panel
+                  a(href='#')
+                    img.as-background(src='', data-src='./img/intro-bg_3.jpg', data-retina='image1@2x.jpg')
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='8', data-vertical='8')
+                    | Serivice
+                  h3.as-layer.as-opened.as-black.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left')
+                    | Lorem ipsum dolor sit amet
+                  p.as-layer.as-opened.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200')
+                    | consectetur adipisicing elit
+                  p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='40', data-vertical='34%', data-width='350', data-show-transition='left', data-show-delay='400', data-hide-transition='left', data-hide-delay='500')
+                    | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                //Panel 2 
+                .as-panel
+                  a(href='#')
+                    img.as-background(src='', data-src='./img/intro-bg_7.jpg', data-retina='image2@2x.jpg')
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='8', data-vertical='8')
+                    | Support
+                  .as-layer(data-position='bottomLeft', data-horizontal='20', data-vertical='20', data-width='100%')
+                    p.as-layer.as-opened.as-white.as-padding(data-position='bottomLeft', data-show-transition='left', data-hide-transition='up', data-show-delay='400', data-hide-delay='200')
+                      | Lorem ipsum
+                    p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='120', data-show-transition='left', data-hide-transition='up', data-show-delay='600', data-hide-delay='100')
+                      | dolor sit amet
+                    p.as-layer.as-opened.as-white.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='245', data-show-transition='left', data-hide-transition='up', data-show-delay='800')
+                      | consectetur adipisicing elit.
+                //Panel 3 
+                .as-panel
+                  a(href='#')
+                    img.as-background(src='', data-src='./img/intro-bg_1.jpg', data-retina='image3@2x.jpg')
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='8', data-vertical='8')
+                    | Maintence
+                  p.as-layer.as-opened.as-white.as-padding(data-horizontal='center', data-vertical='44%', data-show-transition='right', data-hide-transition='left', data-show-delay='500')
+                    | Lorem ipsum dolor sit amet
+                  p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='center', data-vertical='58%', data-show-transition='left', data-show-delay='700', data-hide-transition='right', data-hide-delay='200')
+                    | consectetur adipisicing elit
+          .row.row_divider          
+          .row
+              .col-sm-4
+                .row
+                  .col-sm-10.col-sm-offset-2.text-center.animated.bounceInLeft
+                    i.fa.fa-clock-o.fa-5x
+                    h3 Fast
+                    p
+                      | There is other content and snippets of details or features that can be placed here..
+
+              .col-sm-4.text-center
+                .row
+                  .col-sm-10.col-sm-offset-1.text-center.animated.bounceIn
+                    i.fa.fa-gear.fa-5x
+                    h3 Flexible
+                    p You may also want to create content that compells users to scroll down more..
+
+              .col-sm-4.text-center.animated.bounceInRight
+                .row
+                  .col-sm-10.text-center
+                    i.fa.fa-user.fa-5x
+                    h3 Serivice
+                    p
+                      | In the first 30 seconds of a user's visit to your site they decide if they're going to stay..
+            //row finished
 
       //Fixed navbar                         
       #nav.navbar.navbar-custom.navbar-inverse.navbar-static-top
@@ -95,16 +150,19 @@ html(lang='en')
               li
                 a(href='#') Home
               li
-                a(href='#section2') Product
+                a(href='#section1') How it works
               li
-                a(href='#section3') News
+                a(href='#section2') You Benfits
               li
-                a(href='#section1')
-                  strong Brand
+                a(href='#section3') Serivice
               li
-                a(href='#section4') About
+                a(href='#section4') Leverage
               li
                 a(href='#section5') Contact
+              li
+                a(href='#section6') Apply Now 
+                  i.fa.fa-spinner.fa-spin
+                               
               //- li.dropdown
               //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
               //-     | More
@@ -123,32 +181,119 @@ html(lang='en')
           ///.nav-collapse 
         ///.container 
       ///.navbar 
+      
+
       //Begin page content 
       #section1.divider
       .container
         .col-sm-10.col-sm-offset-1
           .page-header.text-center
-            h1 Brand
+            h1 How it Works
           p.lead.text-center
-            | Twitter Bootstrap is a front-end toolkit to rapidly build web applications.
-          p.text-center
-            | Bootstrap is a framework that uses some of the latest browser techniques to provide you with stylish typography, navigation, buttons, tables, etc. One of the primary changes in Bootstrap 3 is an emphasis on Mobile-First responsive design. The goal is to elevate the mobile experience to a first-class citizen of the design process, because several billion mobile users is quite a large market to tap into. So, sites built with the current Bootstrap version target mobile devices and scale for larger screens depending on screen size.
-      #section2.divider
-      section.bg-1
-        .col-sm-6.col-sm-offset-3.text-center
-          h2(style='padding: 20px; background-color: rgba(5,5,5,.8);') Try and Tweak Different Layouts
-      .divider
-      #section3.container
+            | Learn how can you get your loan in 15mins
+          //- p.text-center
+          //-   | 
+
+          //Pricing Table 
+      .section
+        .container          
+          .row
+            //Pricing Plans Wrapper 
+            .pricing-wrapper.col-md-12
+              //Pricing Plan 
+              .pricing-plan
+                //Pricing Plan Ribbon 
+                .ribbon-wrapper
+                  .price-ribbon.ribbon-red Apply
+                h2.pricing-plan-title 1 Step
+                p.pricing-plan-price 3-4 Mins
+                //Pricing Plan Features 
+                ul.pricing-plan-features
+                  li
+                    strong Fill 
+                    | the easy form
+                  li
+                    strong Full Name 
+                    | and Address
+                  li
+                    strong SSN
+                    | number
+                a.btn(href='#') Read More
+
+              //End Pricing Plan 
+              .pricing-plan
+                .ribbon-wrapper
+                  .price-ribbon.ribbon-red Approval                
+                h2.pricing-plan-title 2 Step
+                p.pricing-plan-price
+                  | 1 Mins
+                  span 
+                ul.pricing-plan-features
+                  li
+                    strong Super 
+                    | fast check
+                  li
+                    strong Details 
+                    | infomation
+                  li
+                    strong Approval 
+                    | in one minute
+                a.btn(href='#') Read More
+
+              //Promoted Pricing Plan 
+              .pricing-plan.pricing-plan-promote
+                .ribbon-wrapper
+                  .price-ribbon.ribbon-red Transfer                                
+                h2.pricing-plan-title 3 Step
+                p.pricing-plan-price
+                  | 10 mins 
+                  span 
+                ul.pricing-plan-features
+                  li
+                    strong Fast 
+                    | transfer
+                  li
+                    strong Vary 
+                    | transerf ways
+                  li
+                    strong Safe 
+                    | deposit
+                a.btn(href='#') Read More
+
+              .pricing-plan
+                //Pricing Plan Ribbon 
+                .ribbon-wrapper
+                  .price-ribbon.ribbon-green Features
+                h2.pricing-plan-title Flexiable Payment Plan
+                p.pricing-plan-price
+                  | 4 ways
+                  span 
+                ul.pricing-plan-features
+                  li
+                    strong Flexiable 
+                    | payment
+                  li
+                    strong Unlimited 
+                    | extend
+                  li
+                    strong Free 
+                    | interest
+                a.btn(href='#') Read More
+            //End Pricing Plans Wrapper 
+          //End Pricing Table 
+
+      
+      #section2.container.bg-4
         .col-sm-8.col-sm-offset-2.text-center
-          h1 News
+          h1 Benfits
           p
             | Instead of creating a unique version of the webpage for each desktop, mobile & tablet, you can now create one design that works on all devices, browsers & resolutions. Your designs will be future ready when a new table or phone size comes in the market, your designs will adapt itself and fit to the new screen size.
-          hr
           hr
         ///col
       ///container
       .divider
-      section#section4.bg-4
+
+      section#section4
         .col-sm-6.col-sm-offset-3.text-center
           h2 Leverage 
       .continer
@@ -219,37 +364,84 @@ html(lang='en')
         //-     br
         //-     a(href='mailto:#') first.last@example.com
       ///row
-      .container
-        .col-sm-8.col-sm-offset-2.text-center
-          h2 Contact
-          hr
-          h4
-            | 
-          p
-            | 
-            a(href='http://bootply.com') 
-            | 
-          hr
-          ul.list-inline.center-block
-            li
-              a(href='')
-                img(src='./img/soc_fb.png')
-            li
-              a(href='')
-                img(src='./img/soc_tw.png')
-            li
-              a(href='')
-                img(src='./img/soc_gplus.png')
-            li
-              a(href='')
-                img(src='./img/soc_pin.png')
+      //- .container
+        //- .col-sm-8.col-sm-offset-2.text-center
+          //- h2 Contact
+          //- hr
+          //- h4
+          //-   | 
+          //- p
+          //-   | 
+          //-   a(href='http://bootply.com') 
+          //-   | 
+          //- hr
+          //- ul.list-inline.center-block
+          //-   li
+          //-     a(href='')
+          //-       img(src='./img/soc_fb.png')
+          //-   li
+          //-     a(href='')
+          //-       img(src='./img/soc_tw.png')
+          //-   li
+          //-     a(href='')
+          //-       img(src='./img/soc_gplus.png')
+          //-   li
+          //-     a(href='')
+          //-       img(src='./img/soc_pin.png')
         ///col
       ///container
     ///wrap
-    #footer
-      .container
-        p.text-muted
-          | This Footer          
+    footer#footer
+      div.container
+        div.row
+          div.col-xs-6.col-sm-6.col-md-3.column
+            //h5 Information
+            ul.nav
+              li
+                a(href='about-us.html') Products
+              li
+                a(href='about-us.html') Services
+              li
+                a(href='about-us.html') Benefits
+              li
+                a(href='elements.html') Developers
+          div.col-xs-6.col-md-3.column
+            //h5 Follow Us
+            ul.nav
+              li
+                a(href='#') Twitter
+              li
+                a(href='#') Facebook
+              li
+                a(href='#') Google+
+              li
+                a(href='#') Pinterest
+          div.col-xs-6.col-md-3.column
+            //h5 Contact Us
+            ul.nav
+              li
+                a(href='#') Email
+              li
+                a(href='#') Headquarters
+              li
+                a(href='#') Management
+              li
+                a(href='#') Support
+          div.col-xs-6.col-md-3.column
+            //h5 Customer Service
+            ul.nav
+              li
+                a(href='#') About Us
+              li
+                a(href='#') Delivery Information
+              li
+                a(href='#') Privacy Policy
+              li
+                a(href='#') Terms & Conditions
+    // /row
+
+
+
     ul.nav.pull-right.scroll-top
       li
         a(href='#', title='Scroll to top')
@@ -257,10 +449,8 @@ html(lang='en')
     //script references 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js')      
     script(src='./javascript/bootstrap.min.js')
-    script(src='./javascript/jquery.accordionSlider.min.js')      
-    //script(src='http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed')
+    script(src='./javascript/jquery.accordionSlider.min.js')          
     script(src='./javascript/scriptsh.js')
-    script(src='./javascript/examples.js')
 
     //Aminated intro  
     //- script(src='./javascript/introtzikas.js')
