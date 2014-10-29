@@ -8,6 +8,22 @@ body {
   font: normal 14px arial,sans-serif;
 }
 
+hr {
+display: block;
+height: 1px;
+border: 0;
+border-top: 1px solid #ccc;
+margin: 1em 0;
+padding: 0;
+}
+
+/*.scrollpoint {
+  opacity: 0;
+}
+.scrollpoint.active {
+  opacity: 1 \0;
+}*/
+
 .row {
   margin-left:0px;
   margin-right:0px;
@@ -29,7 +45,7 @@ body {
   height: 200px;
   /*margin-top:50px;*/
   padding-top:20px;
-  padding-bottom:20px;
+  padding-bottom:0px;
 }
 
 
@@ -205,7 +221,7 @@ section {
 }
 
 .bg-1 {
-	background: url(../img/intro-bg_7.jpg) no-repeat center center fixed; 
+	background: url(../img/intro-bg_1.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -221,7 +237,7 @@ section {
 }
 
 .bg-3 {
-	background: url(../img/intro-bg_3.jpg) no-repeat center center fixed; 
+	background: url(../img/intro-bg_7.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -291,7 +307,60 @@ section {
 .controls span.custom-arrow {
   display: none;
 }
-
+/*--------------------------------------------------------------------------
++ Services Style
+--------------------------------------------------------------------------*/
+/* Multicolumn */
+.service-wrapper {
+  background: #FFF;
+  margin: 20px 10px;
+  text-align: center;
+  padding: 30px 20px;
+  -webkit-border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 3px #999;
+  -moz-box-shadow: 0 0 3px #999;
+  box-shadow: 0 0 3px #999;
+  color: 0 0 3px #999;
+}
+.service-wrapper h3 {
+  font-size: 1.2em;
+  margin: 10px 0 !important;
+}
+.service-wrapper p {
+  margin-top: 0;
+}
+/* Row */
+.service-wrapper-row {
+  padding: 10px 0;
+}
+.service-wrapper-row h3 {
+  padding-top: 15px;
+}
+.service-wrapper-row .service-image {
+  padding-top: 15px;
+  text-align: center;
+}
+.service-wrapper-row .service-image img {
+  max-width: 80%;
+  vertical-align: bottom;
+  bottom: 0;
+  border: 7px solid #FFF;
+  -webkit-border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 8px #999;
+  -moz-box-shadow: 0 0 8px #999;
+  box-shadow: 0 0 8px #999;
+  color: 0 0 8px #999;
+}
 /*--------------------------------------------------------------------------
 + Pricing Table Style
 --------------------------------------------------------------------------*/
@@ -490,4 +559,74 @@ section {
     background-clip: padding-box;
     z-index: 4;
   }
+}
+
+/*--------------------------------------------------------------------------
++ Testimonials Style
+--------------------------------------------------------------------------*/
+.testimonial blockquote {
+  margin: 0;
+  padding: 0;
+  border-left: none;
+}
+.testimonial blockquote p {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.testimonial .testimonial-bubble {
+  text-align: justify;
+  -webkit-border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 4px;
+  -moz-background-clip: padding;
+  border-radius: 4px;
+  background-clip: padding-box;
+  padding: 0 20px 20px 20px;
+  margin: 35px 10px 20px 10px;
+  background: #FFF;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: inset 0 1px #fff,0 1px 2px #c8cfe6;
+  -moz-box-shadow: inset 0 1px #fff,0 1px 2px #c8cfe6;
+  box-shadow: inset 0 1px #fff,0 1px 2px #c8cfe6;
+  color: inset 0 1px #fff,0 1px 2px #c8cfe6;
+}
+.testimonial .testimonial-bubble::before {
+  background-color: #FFF;
+  content: "\00a0";
+  display: block;
+  height: 20px;
+  width: 20px;
+  top: -10px;
+  left: 45%;
+  position: relative;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.testimonial .author-photo {
+  text-align: center;
+}
+.testimonial .author-photo img {
+  margin: auto;
+  border: 5px solid #FFF;
+  -webkit-border-radius: 100px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 100px;
+  -moz-background-clip: padding;
+  border-radius: 100px;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px #fff,0 1px 2px #c8cfe6;
+  -moz-box-shadow: inset 0 1px #fff,0 1px 2px #c8cfe6;
+  box-shadow: inset 0 1px #fff,0 1px 2px #c8cfe6;
+  color: inset 0 1px #fff,0 1px 2px #c8cfe6;
+}
+.testimonial .author-info {
+  font-weight: 400;
+  font-size: 0.8em;
 }

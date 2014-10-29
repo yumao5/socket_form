@@ -7,7 +7,8 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     link(href='./stylesheets/bootstrap.min.paper.css', rel='stylesheet')
     link(href='./stylesheets/accordion-slider.min.css', rel='stylesheet')
-    link(href='./stylesheets/animate.css', rel='stylesheet')      
+    link(href='./stylesheets/animations.css', rel='stylesheet')   
+    //link(href='./stylesheets/animate.css', rel='stylesheet')      
     link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
 
     //if lt IE 9
@@ -34,7 +35,7 @@ html(lang='en')
                 .col-sm-1.col-xs-4.text-center
                   i.fa.fa-youtube.fa-lg
                 .col-sm-1.col-xs-4.text-center(style="text-decoration:underline")     
-                  |  Espa
+                  |  Español
 
               //- ul(style="list-style-type: none;display: block")
               //-   li
@@ -112,28 +113,29 @@ html(lang='en')
                   p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='center', data-vertical='58%', data-show-transition='left', data-show-delay='700', data-hide-transition='right', data-hide-delay='200')
                     | consectetur adipisicing elit
           .row.row_divider          
-          .row
-              .col-sm-4
+          .row.animatedParent.animateOnce(data-appear-top-offset='-50')
+              .col-sm-4.animated.bounceInDown
                 .row
-                  .col-sm-10.col-sm-offset-2.text-center.animated.bounceInLeft
+                  .col-sm-10.col-sm-offset-2.text-center
                     i.fa.fa-clock-o.fa-5x
-                    h3 Fast
-                    p
+                    h3(style="color:#444") Fast
+                    p(style="color:#555")
                       | There is other content and snippets of details or features that can be placed here..
 
-              .col-sm-4.text-center
+              .col-sm-4.text-center.animated.bounceInDown
                 .row
-                  .col-sm-10.col-sm-offset-1.text-center.animated.bounceIn
-                    i.fa.fa-gear.fa-5x
-                    h3 Flexible
-                    p You may also want to create content that compells users to scroll down more..
+                  .col-sm-10.col-sm-offset-1.text-center
+                    i.fa.fa-comments-o.fa-5x
+                    h3(style="color:#444") Flexible
+                    p(style="color:#555")
+                      | You may also want to create content that compells users to scroll down more..
 
-              .col-sm-4.text-center.animated.bounceInRight
+              .col-sm-4.text-center.animated.bounceInDown
                 .row
                   .col-sm-10.text-center
-                    i.fa.fa-user.fa-5x
-                    h3 Serivice
-                    p
+                    i.fa.fa-child.fa-5x
+                    h3(style="color:#444") Serivice
+                    p(style="color:#555")
                       | In the first 30 seconds of a user's visit to your site they decide if they're going to stay..
             //row finished
 
@@ -154,14 +156,12 @@ html(lang='en')
               li
                 a(href='#section2') You Benfits
               li
-                a(href='#section3') Serivice
-              li
-                a(href='#section4') Leverage
+                a(href='#section3') Customer Service
               li
                 a(href='#section5') Contact
               li
                 a(href='#section6') Apply Now 
-                  i.fa.fa-spinner.fa-spin
+                  i.fa.fa.fa-cog.fa-spin.fa-2x(style="margin-top:-10px;")
                                
               //- li.dropdown
               //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -194,262 +194,253 @@ html(lang='en')
           //- p.text-center
           //-   | 
 
-          //Pricing Table 
-      .section
-        .container          
-          .row
-            //Pricing Plans Wrapper 
-            .pricing-wrapper.col-md-12
-              //Pricing Plan 
-              .pricing-plan
-                //Pricing Plan Ribbon 
-                .ribbon-wrapper
-                  .price-ribbon.ribbon-red Apply
-                h2.pricing-plan-title 1 Step
-                p.pricing-plan-price 3-4 Mins
-                //Pricing Plan Features 
-                ul.pricing-plan-features
-                  li
-                    strong Fill 
-                    | the easy form
-                  li
-                    strong Full Name 
-                    | and Address
-                  li
-                    strong SSN
-                    | number
-                a.btn(href='#') Read More
+        //Pricing Table 
+        .section
+          .container          
+            .row
+              //Pricing Plans Wrapper 
+              .pricing-wrapper.col-md-12.animatedParent(data-sequence='100')
+                //Pricing Plan 
+                .pricing-plan.animated.growIn(data-id='1')
+                  //Pricing Plan Ribbon 
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-red Apply
+                  h2.pricing-plan-title 1 Step
+                  p.pricing-plan-price 3-4 Mins
+                  //Pricing Plan Features 
+                  ul.pricing-plan-features
+                    li
+                      strong Fill 
+                      | the easy form
+                    li
+                      strong Full Name 
+                      | and Address
+                    li
+                      strong SSN 
+                      | number
+                  a.btn(href='#') Read More
 
-              //End Pricing Plan 
-              .pricing-plan
-                .ribbon-wrapper
-                  .price-ribbon.ribbon-red Approval                
-                h2.pricing-plan-title 2 Step
-                p.pricing-plan-price
-                  | 1 Mins
-                  span 
-                ul.pricing-plan-features
-                  li
-                    strong Super 
-                    | fast check
-                  li
-                    strong Details 
-                    | infomation
-                  li
-                    strong Approval 
-                    | in one minute
-                a.btn(href='#') Read More
+                //End Pricing Plan 
+                .pricing-plan.animated.growIn(data-id='2')
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-red Approval                
+                  h2.pricing-plan-title 2 Step
+                  p.pricing-plan-price
+                    | 1 Mins
+                    span 
+                  ul.pricing-plan-features
+                    li
+                      strong Super 
+                      | fast check
+                    li
+                      strong Details 
+                      | infomation
+                    li
+                      strong Approval 
+                      | in one minute
+                  a.btn(href='#') Read More
 
-              //Promoted Pricing Plan 
-              .pricing-plan.pricing-plan-promote
-                .ribbon-wrapper
-                  .price-ribbon.ribbon-red Transfer                                
-                h2.pricing-plan-title 3 Step
-                p.pricing-plan-price
-                  | 10 mins 
-                  span 
-                ul.pricing-plan-features
-                  li
-                    strong Fast 
-                    | transfer
-                  li
-                    strong Vary 
-                    | transerf ways
-                  li
-                    strong Safe 
-                    | deposit
-                a.btn(href='#') Read More
+                //Promoted Pricing Plan 
+                .pricing-plan.animated.growIn(data-id='3')
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-red Transfer                                
+                  h2.pricing-plan-title 3 Step
+                  p.pricing-plan-price
+                    | 10 mins 
+                    span 
+                  ul.pricing-plan-features
+                    li
+                      strong Fast 
+                      | transfer
+                    li
+                      strong Vary 
+                      | transerf ways
+                    li
+                      strong Safe 
+                      | deposit
+                  a.btn(href='#') Read More
 
-              .pricing-plan
-                //Pricing Plan Ribbon 
-                .ribbon-wrapper
-                  .price-ribbon.ribbon-green Features
-                h2.pricing-plan-title Flexiable Payment Plan
-                p.pricing-plan-price
-                  | 4 ways
-                  span 
-                ul.pricing-plan-features
-                  li
-                    strong Flexiable 
-                    | payment
-                  li
-                    strong Unlimited 
-                    | extend
-                  li
-                    strong Free 
-                    | interest
-                a.btn(href='#') Read More
-            //End Pricing Plans Wrapper 
-          //End Pricing Table 
+                .pricing-plan.pricing-plan-promote.animated.growIn(data-id='4')
+                  //Pricing Plan Ribbon 
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-green Features
+                  h2.pricing-plan-title Flexiable Payment Plan
+                  p.pricing-plan-price
+                    | 4 ways
+                    span 
+                  ul.pricing-plan-features
+                    li
+                      strong Flexiable 
+                      | payment
+                    li
+                      strong Unlimited 
+                      | extend
+                    li
+                      strong Free 
+                      | interest
+                  a.btn(href='#') Read More
+              //End Pricing Plans Wrapper 
+            //End Pricing Table 
 
       
-      #section2.container.bg-4
-        .col-sm-8.col-sm-offset-2.text-center
-          h1 Benfits
-          p
-            | Instead of creating a unique version of the webpage for each desktop, mobile & tablet, you can now create one design that works on all devices, browsers & resolutions. Your designs will be future ready when a new table or phone size comes in the market, your designs will adapt itself and fit to the new screen size.
-          hr
-        ///col
-      ///container
+
+      #section2.container  
+        .col-sm-10.col-sm-offset-1           
+          .page-header.text-center
+            h1 Your Benfits          
+          p.lead.text-center
+            | We always care our customers and explore better ways to serve!
+
+          .row.animatedParent(data-sequence='20')
+            .col-sm-6
+              .service-wrapper.animated.bounceInLeft(data-id='1')
+                img(src='./img/diamond.png', alt='Service Name')
+                h3 Proecting Your Privacy and Security and explore better ways to server!
+                p
+                  | Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum
+                a.btn(href='#') Read more
+            .col-sm-6
+              .service-wrapper.animated.bounceInRight(data-id='2')
+                img(src='img/ruler.png', alt='Service Name')
+                h3 No Impact on Your FICO Score! And Rebuld Your Credit with Payments!
+                p
+                  | Suspendisse eget libero mi. Fusce ligula orci, vulputate nec elit ultrices, ornare faucibus orci. Aenean lectus sapien, vehicula
+                a.btn(href='#') Read more
+            .col-sm-6
+              .service-wrapper.animated.bounceInLeft(data-id='3')
+                img(src='img/box.png', alt='Service Name')
+                h3 Exclusive for Returning Users!
+                p
+                  | Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque
+                a.btn(href='#') Read more
+            .col-sm-6
+              .service-wrapper.animated.bounceInRight(data-id='4')
+                img(src='img/diamond.png', alt='Service Name')
+                h3 Monthly Lucky Draw! Get your service fee waived!
+                p
+                  | Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum
+                a.btn(href='#') Read more
+
       .divider
 
-      section#section4
-        .col-sm-6.col-sm-offset-3.text-center
-          h2 Leverage 
-      .continer
-        .row
-          .col-sm-4.col-xs-6
-            .panel.panel-default
-                          
-              .panel-body
-                p.lead Approvals in Minutes
-                  
-            ///panel
-          ///col
-          .col-sm-4.col-xs-6
-            .panel.panel-default
-              .panel-thumbnail
-             
-              .panel-body
-                p.lead Flexiables in Funding and Management
-                  
-            ///panel
-          ///col
-          .col-sm-4.col-xs-6
-            .panel.panel-default
-              .panel-thumbnail
-             
-              .panel-body
-                p.lead Real Customer Serivice
-                  
-            ///panel
-          ///col
-        ///row
-      ///container
-      #section5.divider
-      .row
-        //- h1.text-center Where In The World?
-        //- #map-canvas
-        //- hr
-        //- .col-sm-8
-        //-   .row.form-group
-        //-     .col-xs-3
-        //-       input#firstName.form-control(type='text', name='firstName', placeholder='First Name', required='')
-        //-     .col-xs-3
-        //-       input#middleName.form-control(type='text', name='firstName', placeholder='Middle Name', required='')
-        //-     .col-xs-4
-        //-       input#lastName.form-control(type='text', name='lastName', placeholder='Last Name', required='')
-        //-   .row.form-group
-        //-     .col-xs-5
-        //-       input.form-control(type='email', name='email', placeholder='Email', required='')
-        //-     .col-xs-5
-        //-       input.form-control(type='email', name='phone', placeholder='Phone', required='')
-        //-   .row.form-group
-        //-     .col-xs-10
-        //-       input.form-control(type='homepage', placeholder='Website URL', required='')
-        //-   .row.form-group
-        //-     .col-xs-10
-        //-       button.btn.btn-default.pull-right Contact Us
-        //- .col-sm-3.pull-right
-        //-   address
-        //-     strong Iatek, LLC.
-        //-     br
-        //-     | 795 Folsom Ave, Suite 600
-        //-     br
-        //-     | Newport, RI 94107
-        //-     br
-        //-     | P: (123) 456-7890
-        //-   address
-        //-     strong Email Us
-        //-     br
-        //-     a(href='mailto:#') first.last@example.com
-      ///row
-      //- .container
-        //- .col-sm-8.col-sm-offset-2.text-center
-          //- h2 Contact
-          //- hr
-          //- h4
-          //-   | 
-          //- p
-          //-   | 
-          //-   a(href='http://bootply.com') 
-          //-   | 
-          //- hr
-          //- ul.list-inline.center-block
-          //-   li
-          //-     a(href='')
-          //-       img(src='./img/soc_fb.png')
-          //-   li
-          //-     a(href='')
-          //-       img(src='./img/soc_tw.png')
-          //-   li
-          //-     a(href='')
-          //-       img(src='./img/soc_gplus.png')
-          //-   li
-          //-     a(href='')
-          //-       img(src='./img/soc_pin.png')
-        ///col
+      #section3.container  
+        .col-sm-10.col-sm-offset-1    
+        .page-header.text-center
+          h1 Real Customer Service 
+
+        //Testimonials 
+        .section
+          .container.bg-2
+            h3(style="color:#ccc") Testimonials
+            hr
+            .row
+              .testimonial.col-md-4.col-sm-6
+                .author-photo
+                  img(src='img/user1.jpg', alt='Author 1')
+                .testimonial-bubble
+                  blockquote
+                    p.quote
+                      | "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
+                    cite.author-info
+                      | - Name Surname,
+                      br
+                      | Managing Director at 
+                      a(href='#') Some Company
+                  .sprite.arrow-speech-bubble
+              .testimonial.col-md-4.col-sm-6
+                .author-photo
+                  img(src='img/user5.jpg', alt='Author 2')
+                .testimonial-bubble
+                  blockquote
+                    p.quote
+                      | "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+                    cite.author-info
+                      | - Name Surname,
+                      br
+                      | Managing Director at 
+                      a(href='#') Some Company
+                  .sprite.arrow-speech-bubble
+              .testimonial.col-md-4.col-sm-6
+                .author-photo
+                  img(src='img/user2.jpg', alt='Author 3')
+                .testimonial-bubble
+                  blockquote
+                    p.quote
+                      | "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    cite.author-info
+                      | - Name Surname,
+                      br
+                      | Managing Director at 
+                      a(href='#') Some Company
+                  .sprite.arrow-speech-bubble
+        //End Testimonials 
       ///container
     ///wrap
-    footer#footer
-      div.container
-        div.row
-          div.col-xs-6.col-sm-6.col-md-3.column
-            //h5 Information
-            ul.nav
-              li
-                a(href='about-us.html') Products
-              li
-                a(href='about-us.html') Services
-              li
-                a(href='about-us.html') Benefits
-              li
-                a(href='elements.html') Developers
-          div.col-xs-6.col-md-3.column
-            //h5 Follow Us
-            ul.nav
-              li
-                a(href='#') Twitter
-              li
-                a(href='#') Facebook
-              li
-                a(href='#') Google+
-              li
-                a(href='#') Pinterest
-          div.col-xs-6.col-md-3.column
-            //h5 Contact Us
-            ul.nav
-              li
-                a(href='#') Email
-              li
-                a(href='#') Headquarters
-              li
-                a(href='#') Management
-              li
-                a(href='#') Support
-          div.col-xs-6.col-md-3.column
-            //h5 Customer Service
-            ul.nav
-              li
-                a(href='#') About Us
-              li
-                a(href='#') Delivery Information
-              li
-                a(href='#') Privacy Policy
-              li
-                a(href='#') Terms & Conditions
-    // /row
+    
+    .divider
 
-
+    //- footer#footer      
+      //- div
+      //-   div.row
+      //-     div.col-xs-6.col-sm-6.col-md-3.column            
+      //-       ul.nav
+      //-         li(style="font-size:18px;")
+      //-           a(href='#') Company
+      //-         li
+      //-           a(href='#') Products
+      //-         li
+      //-           a(href='#') Services
+      //-         li
+      //-           a(href='#') Benefits
+      //-         li
+      //-           a(href='#') Developers
+      //-     div.col-xs-6.col-md-3.column
+      //-       ul.nav
+      //-         li(style="font-size:18px;")
+      //-           a(href='#') Product
+      //-         li
+      //-           a(href='#') Twitter
+      //-         li
+      //-           a(href='#') Facebook
+      //-         li
+      //-           a(href='#') Google+
+      //-         li
+      //-           a(href='#') Pinterest
+      //-     div.col-xs-6.col-md-3.column
+      //-       ul.nav
+      //-         li(style="font-size:18px;")
+      //-           a(href='#') Legal
+      //-         li
+      //-           a(href='#') Email
+      //-         li
+      //-           a(href='#') Headquarters
+      //-         li
+      //-           a(href='#') Management
+      //-         li
+      //-           a(href='#') Support
+      //-     div.col-xs-6.col-md-3.column            
+      //-       ul.nav
+      //-         li
+      //-           a(href='#') About Us
+      //-         li
+      //-           a(href='#') Delivery Information
+      //-         li
+      //-           a(href='#') Privacy Policy
+      //-         li
+      //-           a(href='#') Terms & Conditions
+    //row
 
     ul.nav.pull-right.scroll-top
       li
         a(href='#', title='Scroll to top')
           i.glyphicon.glyphicon-chevron-up          
+
     //script references 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js')      
     script(src='./javascript/bootstrap.min.js')
     script(src='./javascript/jquery.accordionSlider.min.js')          
+    script(src='./javascript/css3-animate-it.js')          
+    script(src='./javascript/jquery.appear.js')          
     script(src='./javascript/scriptsh.js')
 
     //Aminated intro  

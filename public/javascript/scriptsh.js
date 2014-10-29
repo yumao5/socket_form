@@ -25,6 +25,7 @@ $('#nav .navbar-nav li>a').click(function(){
 	
 			$('#example1').accordionSlider({
 				width: 1170,
+				// orientation: "horizontal",
 				height: 450,
 				startPanel: 1,
 				shadow: 0,
