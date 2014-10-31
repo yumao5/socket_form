@@ -177,7 +177,7 @@ h1 {
 }
 
 .row_divider {
-  height:30px;
+  height:50px;
 }
 
 .panel {
@@ -224,7 +224,7 @@ section .heading-line {
 }
 
 .bg-1 {
-	background: url(../img/intro-bg_1.jpg) no-repeat center center fixed; 
+	background: url(../img/intro-bg_1.jpg) repeat center center fixed; 
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -232,7 +232,7 @@ section .heading-line {
 }
 
 .bg-2 {
-	background: url(../img/intro-bg_3.jpg) no-repeat center center fixed; 
+	background: url(../img/intro-bg_3.jpg) repeat center center fixed; 
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -240,7 +240,7 @@ section .heading-line {
 }
 
 .bg-3 {
-	background: url(../img/intro-bg_7.jpg) no-repeat center center fixed; 
+	background: url(../img/intro-bg_7.jpg) repeat center center fixed; 
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -248,11 +248,11 @@ section .heading-line {
 }
 
 .bg-5 {
-  background: url(../img/intro-bg_4.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
+  background: url(../img/page-background.png) repeat center center fixed; 
+    /*-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover;*/
 }
 
 .bg-4 {
@@ -640,4 +640,54 @@ section .heading-line {
 .testimonial .author-info {
   font-weight: 400;
   font-size: 0.8em;
+}
+
+#carousel-slider {
+  position: relative;
+}
+
+#carousel-slider .carousel-indicators {
+  bottom: -25px;
+}
+
+#carousel-slider .carousel-indicators li {
+  border: 1px solid #ffbd20;
+}
+
+#carousel-slider a i {
+  border: 1px solid #777;
+  border-radius:50%;
+  font-size: 28px;
+  height: 50px;
+  padding: 8px;
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  color:#777;
+}
+
+#carousel-slider a i:hover {
+  background:#bfbfbf;
+  color:#fff;
+  border: 1px solid #bfbfbf;
+}
+
+#carousel-slider 
+.carousel-control {
+  width:inherit;
+}
+
+#carousel-slider .carousel-control.left i {
+  left:-25px
+}
+
+#carousel-slider .carousel-control.right i {
+  right: -25px;
+}
+
+#carousel-slider
+.carousel-control.left, 
+#carousel-slider
+.carousel-control.right {
+  background: none;
 }

@@ -73,31 +73,31 @@ html(lang='en')
                 //-       a(href='#')
                 //-         i.glyphicon.glyphicon-cog
                 //-         | Profile
-
-
+          //.row
+        .container-fluid
           .row
             #example1.accordion-slider
               .as-panels
                 //Panel 1 
                 .as-panel
                   a(href='#')
-                    img.as-background(src='', data-src='./img/intro-bg_3.jpg', data-retina='image1@2x.jpg')
+                    img.as-background(src='', data-src='./img/slider_two.jpg', data-retina='')
                   .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
-                    | First time?
+                    | First time
                   h3.as-layer.as-opened.as-black.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left')
-                    | Lorem ipsum dolor sit amet
+                    | First time loan
                   p.as-layer.as-opened.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200')
-                    | consectetur adipisicing elit
+                    | First time loan change your fate
                   p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='40', data-vertical='34%', data-width='350', data-show-transition='left', data-show-delay='400', data-hide-transition='left', data-hide-delay='500')
-                    | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    | First time loan change your fate here and there.
                 //Panel 2 
                 .as-panel
                   a(href='#')
-                    img.as-background(src='', data-src='./img/intro-bg_2.jpg', data-retina='image2@2x.jpg')
+                    img.as-background(src='', data-src='./img/slider_three.jpg', data-retina='')
                   .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='354')
                     | Quick Apply
                   p.as-layer.as-closed.as-black.as-padding(data-position='bottomLeft', data-horizontal='5',  data-vertical='5')
-                    | Not quick enough?                    
+                    | Need quick loan?                    
                   .as-layer.as-opened.as-padding(data-position='bottomLeft', data-horizontal='20', data-vertical='20', data-width='100%',data-hide-transition='bottomLeft', data-hide-delay='200')
                     //- p.as-layer.as-opened.as-white.as-padding(data-position='bottomLeft', data-show-transition='left', data-hide-transition='up', data-show-delay='400', data-hide-delay='200')
                     //-   | Lorem ipsum
@@ -107,7 +107,7 @@ html(lang='en')
                     .col-md-12
                       .row.form-group
                         .col-xs-5
-                          label.control-label(style="color:#000") Quick Application Silder Bar and Fields
+                          h3.control-label(style="color:#000") Quick Application Silder Bar and Fields
                       .row.form-group
                         .col-xs-3
                           label.control-label(style="color:#000") State Name                           
@@ -132,14 +132,15 @@ html(lang='en')
                 //Panel 3 
                 .as-panel
                   a(href='#')
-                    img.as-background(src='', data-src='./img/intro-bg_1.jpg', data-retina='image3@2x.jpg')
+                    img.as-background(src='', data-src='./img/slider_four.jpg', data-retina='')
                   .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
-                    | Already applyed?
+                    | Already applyed
                   p.as-layer.as-opened.as-white.as-padding(data-horizontal='center', data-vertical='44%', data-show-transition='right', data-hide-transition='left', data-show-delay='500')
-                    | Lorem ipsum dolor sit amet
+                    | Ready to apply new loan?
                   p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='center', data-vertical='58%', data-show-transition='left', data-show-delay='700', data-hide-transition='right', data-hide-delay='200')
-                    | consectetur adipisicing elit
-
+                    | New loan, new change, new life
+        
+        .container
           .row.row_divider          
           //.row.masthead.animatedParent.animateOnce(data-appear-top-offset='-10')
           .row
@@ -191,21 +192,28 @@ html(lang='en')
               li
                 a(href='#section6') Apply Now 
                   i.fa.fa.fa-cog.fa-spin.fa-2x(style="margin-top:-10px;")
+              //- li.dropdown
+              //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+              //-     | More
+              //-     b.caret
+              //-   ul.dropdown-menu
+              //-     li
+              //-       a(href='#') Action
+              //-     li
+              //-       a(href='#') Another action
+              //-     li
+              //-       a(href='#') Something else here
+              //-     li
+              //-       a(href='#') Separated link
+              //-     li
+              //-       a(href='#') One more separated link
               li.dropdown
                 a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | More
+                  | Search
                   b.caret
                 ul.dropdown-menu
                   li
-                    a(href='#') Action
-                  li
-                    a(href='#') Another action
-                  li
-                    a(href='#') Something else here
-                  li
-                    a(href='#') Separated link
-                  li
-                    a(href='#') One more separated link
+                    input.form-control(type='email', name='Search', placeholder='', required='')                     
           ///.nav-collapse 
         ///.container 
       ///.navbar 
@@ -338,6 +346,7 @@ html(lang='en')
               .service-wrapper.animated.bounceInLeft(data-id='3')
                 img(src='img/box.png', alt='Service Name')
                 h3 Exclusive for Returning Users!
+                br
                 p
                   | Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque
                 a.btn(href='#') Read more
@@ -351,9 +360,32 @@ html(lang='en')
 
       .divider
 
-      #section3
-        .page-header.text-center
-          h1 Real Customer Service 
+      #section3(style="padding-top:50px;")
+        .container
+          .page-header.text-center
+            h1 Real Customer Service 
+            br
+            .container
+              #about-slider
+                #carousel-slider.carousel.slide(data-ride='carousel')
+                  //Indicators 
+                  ol.carousel-indicators.visible-xs
+                    li.active(data-target='#carousel-slider', data-slide-to='0')
+                    li(data-target='#carousel-slider', data-slide-to='1')
+                    li(data-target='#carousel-slider', data-slide-to='2')
+                  .carousel-inner
+                    .item.active
+                      img.img-responsive(src='img/slider_one.jpg', alt='')
+                    .item
+                      img.img-responsive(src='img/slider_one.jpg', alt='')
+                    .item
+                      img.img-responsive(src='img/slider_one.jpg', alt='')
+                  a.left.carousel-control.hidden-xs(href='#carousel-slider', data-slide='prev')
+                    i.fa.fa-angle-left
+                  a.right.carousel-control.hidden-xs(href='#carousel-slider', data-slide='next')
+                    i.fa.fa-angle-right        
+        
+
         //Testimonials 
         .container.bg-5
           h3(style="color:#333") Testimonials
@@ -403,11 +435,11 @@ html(lang='en')
     
     .divider
 
-    #footer.container  
+    #footer.container(style="padding-bottom:205px;")  
       div.col-sm-10.col-sm-offset-1    
         div.col-xs-6.col-sm-6.col-md-3.column            
           ul.nav
-            li(style="font-size:17px;font-weight:600;")
+            li(style="font-size:20px;font-weight:600;")
               a(href='#') Company
             li
               a(href='#') Products
@@ -419,7 +451,7 @@ html(lang='en')
               a(href='#') Developers
         div.col-xs-6.col-md-3.column
           ul.nav
-            li(style="font-size:17px;font-weight:600;")
+            li(style="font-size:20px;font-weight:600;")
               a(href='#') Product
             li
               a(href='#') Twitter
@@ -431,7 +463,7 @@ html(lang='en')
               a(href='#') Pinterest
         div.col-xs-6.col-md-3.column
           ul.nav
-            li(style="font-size:17px;font-weight:600;")
+            li(style="font-size:20px;font-weight:600;")
               a(href='#') Legal
             li
               a(href='#') Email
