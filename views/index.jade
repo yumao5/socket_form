@@ -1,191 +1,471 @@
 
 html(lang='en')
-head
+  head    
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    title zaplo
-    
-    script(src='javascript/angular.min.js')
-
-    script(type='text/javascript') $(document).ready(function() {$().introtzikas();});
-
-    //Bootstrap Core CSS 
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    title Zaplo    
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    //- link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet')      
     link(href='./stylesheets/bootstrap.min.paper.css', rel='stylesheet')
-    //Custom CSS 
-    link(href='./stylesheets/grayscale.css', rel='stylesheet')
-    //Custom Fonts 
-    //link(href='./stylesheets/font-awesome-4.1.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
-    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
-    //HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries 
-    //WARNING: Respond.js doesn't work if you view the page via file:// 
+    link(href='./stylesheets/accordion-slider.min.css', rel='stylesheet')
+    link(href='./stylesheets/animations.css', rel='stylesheet')   
+    //link(href='./stylesheets/animate.css', rel='stylesheet')      
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
+
     //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-  
-  body#page-top(data-spy='scroll', data-target='.navbar-fixed-top', ng-app='app', ng-controller='NewUserController')
-    //Navigation 
-    nav.navbar.navbar-custom.navbar-fixed-top(role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-main-collapse')
-            i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='#page-top')
-            //- i.fa.fa-play-circle
-            span.light Zaplo            
-        //Collect the nav links, forms, and other content for toggling 
-        .collapse.navbar-collapse.navbar-right.navbar-main-collapse
-          ul.nav.navbar-nav
-            //Hidden li included to remove active class from about link when scrolled up past about section 
-            li.hidden
-              a(href='#page-top')
-            li
-              a.page-scroll(href='#about') About
-            li
-              a.page-scroll(href='#download') FAQ
-            li
-              a.page-scroll(href='#forum') Form
-            li
-              a.page-scroll(href='#contact') Contact
-        ///.navbar-collapse 
-      ///.container 
-    //Intro Header 
-    header.intro
+      script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
+    link(href='./stylesheets/stylesh.css', rel='stylesheet')
+  body
+    //Wrap all page content here 
+    #wrap
+      header
         .container
           .row
-            .col-md-8.col-md-offset-2
-              h2.brand-heading 
-                h2 Your team. Always up-in-air  
-              //- p.intro-text
-              //-   | A quick, responsive, loan service team.
-              //-   br
-              //-   | Supported by 4Finance.
-              a.btn.btn-circle.page-scroll(href='#about')
-                i.fa.fa-angle-double-down.animated
-    svg#bigTriangleColor1(xmlns='http://www.w3.org/2000/svg', version='1.1', width='100%', height='100', viewbox='0 0 100 102', preserveaspectratio='none')
-      path(d='M0 0 L50 100 L100 0 Z')
-                 
-    //About Section 
-    section#about.container.content-section.text-center
-      .row
-        .col-lg-8.col-lg-offset-2
-          h3 About Zaplo
-          p
-            | 1st loan free!
-            | If your first loan is repaid on time, you will not be charged any additional interest or fees.
-            | Easy and Convenient
-            | Apply online and the funds are automatically transferred to your bank account, without leaving the comfort of your home.
-            | Fast Approval
-            | We tell you immediately, if you are eligible for a loan.
-          a.btn.btn-circle.page-scroll(href='#download')
-            i.fa.fa-angle-double-down.animated
+            .col-sm-8
+              h3 ZAPLO.COM
+               p Fast, Secure and Real Customer Serivice 
+            .col-sm-4              
+              .div.text-right(style="margin-top:10px;text-decoration:underline")                                              
+                p(style="padding:5px;")    
+                  i.fa.fa-facebook.fa-lg(style="margin-right:15px;")                  
+                  i.fa.fa-google-plus.fa-lg(style="margin-right:15px;")                                    
+                  i.fa.fa-twitter.fa-lg(style="margin-right:15px;")                                    
+                  i.fa.fa-youtube.fa-lg(style="margin-right:15px;")                                    
+                  | Español  
+                p
+                  span(style="margin-right:15px;")
+                    i.fa.fa-phone-square(style="margin-right:15px;") 1-800-zaplo
+                  span(style="margin-right:15px;")
+                    | Rates and terms  
+                  span(style="margin-right:15px;")
+                    | Login
+                  span(style="margin-right:5px;")
+                    | Apply                                      
+
+                      
+                //- ul(style="display: table-cell;")
+                //-   li 
+                //-     i.fa.fa-phone-square 1-800-zaplo
+                //-   li 
+                //-     | Rates and terms 
+                //-   li 
+                //-     | Login 
+                //-   li 
+                //-     | Apply
+                //- .pull-right.hidden-xs
+                //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+                //-     h3
+                //-       i.glyphicon.glyphicon-list
+                //-   ul.dropdown-menu
+                //-     li
+                //-       a(href='#')
+                //-         i.glyphicon.glyphicon-chevron-right
+                //-         | Call 1-800-zaplo
+                //-     li
+                //-       a(href='#')
+                //-         i.glyphicon.glyphicon-user
+                //-         | Sign up
+                //-     li
+                //-       a(href='#')
+                //-         i.glyphicon.glyphicon-lock
+                //-         | Login
+                //-     li
+                //-       a(href='#')
+                //-         i.glyphicon.glyphicon-cog
+                //-         | Profile
 
 
-    //Download Section 
-    section#download.content-section.text-center
-      .download-section
+          .row
+            #example1.accordion-slider
+              .as-panels
+                //Panel 1 
+                .as-panel
+                  a(href='#')
+                    img.as-background(src='', data-src='./img/intro-bg_3.jpg', data-retina='image1@2x.jpg')
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
+                    | First time?
+                  h3.as-layer.as-opened.as-black.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left')
+                    | Lorem ipsum dolor sit amet
+                  p.as-layer.as-opened.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200')
+                    | consectetur adipisicing elit
+                  p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='40', data-vertical='34%', data-width='350', data-show-transition='left', data-show-delay='400', data-hide-transition='left', data-hide-delay='500')
+                    | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                //Panel 2 
+                .as-panel
+                  a(href='#')
+                    img.as-background(src='', data-src='./img/intro-bg_2.jpg', data-retina='image2@2x.jpg')
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='354')
+                    | Quick Apply
+                  p.as-layer.as-closed.as-black.as-padding(data-position='bottomLeft', data-horizontal='5',  data-vertical='5')
+                    | Not quick enough?                    
+                  .as-layer.as-opened.as-padding(data-position='bottomLeft', data-horizontal='20', data-vertical='20', data-width='100%',data-hide-transition='bottomLeft', data-hide-delay='200')
+                    //- p.as-layer.as-opened.as-white.as-padding(data-position='bottomLeft', data-show-transition='left', data-hide-transition='up', data-show-delay='400', data-hide-delay='200')
+                    //-   | Lorem ipsum
+                    //- p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='120', data-show-transition='left', data-hide-transition='up', data-show-delay='600', data-hide-delay='100')
+                    //-   | dolor sit amet
+
+                    .col-md-12
+                      .row.form-group
+                        .col-xs-5
+                          label.control-label(style="color:#000") Quick Application Silder Bar and Fields
+                      .row.form-group
+                        .col-xs-3
+                          label.control-label(style="color:#000") State Name                           
+                          select.form-control
+                            option MO - Missouri
+                            option MT - Montana
+                            option ID - Idaho
+                      .row.form-group
+                        .col-xs-5
+                          label.control-label(style="color:#000") Email 
+                          input.form-control(type='email', name='email', placeholder='', required='')
+                        .col-xs-5
+                          label.control-label(style="color:#000") Phone
+                          input.form-control(type='email', name='phone', placeholder='', required='')
+                      .row.form-group
+                        .col-xs-5
+                          button.btn.btn-default.pull-center Apply Now
+                        .col-xs-5
+                          button.btn.btn-default.pull-center Call Us                            
+
+
+                //Panel 3 
+                .as-panel
+                  a(href='#')
+                    img.as-background(src='', data-src='./img/intro-bg_1.jpg', data-retina='image3@2x.jpg')
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
+                    | Already applyed?
+                  p.as-layer.as-opened.as-white.as-padding(data-horizontal='center', data-vertical='44%', data-show-transition='right', data-hide-transition='left', data-show-delay='500')
+                    | Lorem ipsum dolor sit amet
+                  p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='center', data-vertical='58%', data-show-transition='left', data-show-delay='700', data-hide-transition='right', data-hide-delay='200')
+                    | consectetur adipisicing elit
+
+          .row.row_divider          
+          //.row.masthead.animatedParent.animateOnce(data-appear-top-offset='-10')
+          .row
+              .col-sm-4.text-center
+                .row
+                  .col-sm-10.col-sm-offset-2.text-center
+                    i.fa.fa-clock-o.fa-5x
+                    h5(style="color:#444") Fast
+                    p(style="color:#555")
+                      | Approval in minutes
+
+              .col-sm-4.text-center
+                .row
+                  .col-sm-10.col-sm-offset-1.text-center
+                    i.fa.fa-comments-o.fa-5x
+                    h5(style="color:#444") Flexible
+                    p(style="color:#555")
+                      | Flexiable funding and payment
+
+              .col-sm-4.text-center
+                .row
+                  .col-sm-10.text-center
+                    i.fa.fa-child.fa-5x
+                    h5(style="color:#444") Serivice
+                    p(style="color:#555")
+                      | Real person service
+            //row finished
+
+      //Fixed navbar                         
+      #nav.navbar.navbar-custom.navbar-inverse.navbar-static-top
         .container
-          .col-lg-8.col-lg-offset-2
-            h3 FAQ
-            p You can contact with us any time you want to spend monedy.
-            a.btn.btn-default.btn-lg(href='http://startbootstrap.com/template-overviews/grayscale/') Visit FAQ Page
-            p
-              a.btn.btn-circle.page-scroll(href='#forum')
-                i.fa.fa-angle-double-down.animated
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav.nav-justified
+              li
+                a(href='#') Home
+              li
+                a(href='#section1') How it works
+              li
+                a(href='#section2') You Benfits
+              li
+                a(href='#section3') Customer Service
+              li
+                a(href='#footer') Contact
+              li
+                a(href='#section6') Apply Now 
+                  i.fa.fa.fa-cog.fa-spin.fa-2x(style="margin-top:-10px;")
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | More
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li
+                    a(href='#') Separated link
+                  li
+                    a(href='#') One more separated link
+          ///.nav-collapse 
+        ///.container 
+      ///.navbar 
+      
 
-    //Form Section 
-    section#forum.content-section.text-center
-      .row
-      .forum-section
-        .container
-          .col-lg-8.col-lg-offset-2            
-            h3 Apply 
-            form(name='userForm', novalidate='novalidate')
+      //Begin page content 
+      #section1.divider
+      .container
+        .col-sm-10.col-sm-offset-1
+          .page-header.text-center
+            h1 How it Works
+          p.lead.text-center
+            | Learn how can you get your loan in 15mins
+          //- p.text-center
+          //-   | 
 
-              .form-group(show-errors='{showSuccess: true}')
-                h6.control-label.text-left First Name
-                input.form-control(type='text', name='fname', ng-model='user.fname', required='required', placeholder='First Name', ng-pattern='/^[a-zA-Z]{2,12}$/')
-                //.label-warnning.help-block(ng-if='userForm.fname.$error.required') The user's first name is required
-                .label-warnning.help-block(ng-if='userForm.fname.$error.pattern') The name is invalid
+        //Pricing Table 
+        .section
+          .container          
+            .row
+              //Pricing Plans Wrapper 
+              .pricing-wrapper.col-md-12.animatedParent(data-sequence='100')
+                //Pricing Plan 
+                .pricing-plan.animated.growIn(data-id='1')
+                  //Pricing Plan Ribbon 
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-red Apply
+                  h2.pricing-plan-title 1 Step
+                  p.pricing-plan-price 3-4 Mins
+                  //Pricing Plan Features 
+                  ul.pricing-plan-features
+                    li
+                      strong Fill 
+                      | the easy form
+                    li
+                      strong Full Name 
+                      | and Address
+                    li
+                      strong SSN 
+                      | number
+                  a.btn(href='#') Read More
 
-              .form-group(show-errors='{showSuccess: true}')
-                h6.control-label.text-left Last Name
-                input.form-control(type='text', name='lname', ng-model='user.lname', required='required', placeholder='Last Name', ng-pattern='/^[a-zA-Z]{3,12}$/')
-                //.label-warnning.help-block(ng-if='userForm.lname.$error.required') The user's last name is required
-                .label-warnning.help-block(ng-if='userForm.lname.$error.pattern') The name is invalid
-              
-              .form-group(show-errors='{showSuccess: true}')
-                h6.control-label.text-left Email
-                input.form-control(type='email', name='email', ng-model='user.email', required='required', placeholder='Email')
-                //.label-warnning.help-block(ng-if='userForm.email.$error.required') The user's email is required
-                .label-warnning.help-block(ng-if='userForm.email.$error.email') The email address is invalid
+                //End Pricing Plan 
+                .pricing-plan.animated.growIn(data-id='2')
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-red Approval                
+                  h2.pricing-plan-title 2 Step
+                  p.pricing-plan-price
+                    | 1 Mins
+                    span 
+                  ul.pricing-plan-features
+                    li
+                      strong Super 
+                      | fast check
+                    li
+                      strong Details 
+                      | infomation
+                    li
+                      strong Approval 
+                      | in one minute
+                  a.btn(href='#') Read More
 
-              .form-group(show-errors='{showSuccess: true}')
-                h6.control-label.text-left Phone
-                input.form-control(type='number', name='phone', ng-model='user.phone', required='required', placeholder='xxx-xxx-xxxx', ng-pattern='/^[0-9]{1,11}$/')
-                //.label-warnning.help-block(ng-if='userForm.phone.$error.required') The user's phone is required
-                .label-warnning.help-block(ng-if='userForm.phone.$error.pattern') The user's phone is invalid
+                //Promoted Pricing Plan 
+                .pricing-plan.animated.growIn(data-id='3')
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-red Transfer                                
+                  h2.pricing-plan-title 3 Step
+                  p.pricing-plan-price
+                    | 10 mins 
+                    span 
+                  ul.pricing-plan-features
+                    li
+                      strong Fast 
+                      | transfer
+                    li
+                      strong Vary 
+                      | transerf ways
+                    li
+                      strong Safe 
+                      | deposit
+                  a.btn(href='#') Read More
 
-              .form-group(show-errors='{showSuccess: true}')
-                h6.control-label.text-left Date
-                input.form-control(type='date', name='date', ng-model='user.date', required='required', placeholder='' )
-                //.label-warnning.help-block(ng-if='userForm.date.$error.required') The Date is required
+                .pricing-plan.pricing-plan-promote.animated.growIn(data-id='4')
+                  //Pricing Plan Ribbon 
+                  .ribbon-wrapper
+                    .price-ribbon.ribbon-green Features
+                  h2.pricing-plan-title Flexiable Payment Plan
+                  p.pricing-plan-price
+                    | 4 ways
+                    span 
+                  ul.pricing-plan-features
+                    li
+                      strong Flexiable 
+                      | payment
+                    li
+                      strong Unlimited 
+                      | extend
+                    li
+                      strong Free 
+                      | interest
+                  a.btn(href='#') Read More
+              //End Pricing Plans Wrapper 
+            //End Pricing Table 
 
-              button.btn.btn-default.btn-lg(ng-click='save()') Apply 
-              | &nbsp;
-              button.btn.btn-default.btn-lg(ng-click='reset()') Reset
+      
 
-            p
-              a.btn.btn-circle.page-scroll(href='#contact')
-                i.fa.fa-angle-double-down.animated
+      #section2.container  
+        .col-sm-10.col-sm-offset-1           
+          .page-header.text-center
+            h1 Your Benfits          
+          p.lead.text-center
+            | We always care our customers and explore better ways to serve!
 
-    //Contact Section 
-    section#contact.container.content-section.text-center
-      .contact-section
-        .col-lg-8.col-lg-offset-2
-          h3 Contact Zaplo
-          p
-            | Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!
-          p
-            a(href='mailto:feedback@startbootstrap.com') feedback@Zalop.com
-          ul.list-inline.banner-social-buttons
-            li
-              a.btn.btn-default.btn-lg(href='https://twitter.com/')
-                i.fa.fa-twitter.fa-fw
-                span.network-name Twitter
-            li
-              a.btn.btn-default.btn-lg(href='https://plus.google.com/')
-                i.fa.fa-google-plus.fa-fw
-                span.network-name Google+
-          p Copyright &copy; Your Website 2014                
-    //Map Section 
+          .row.animatedParent(data-sequence='20')
+            .col-sm-6
+              .service-wrapper.animated.bounceInLeft(data-id='1')
+                img(src='./img/diamond.png', alt='Service Name')
+                h3 Proecting Your Privacy and Security and explore better ways to server!
+                p
+                  | Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum
+                a.btn(href='#') Read more
+            .col-sm-6
+              .service-wrapper.animated.bounceInRight(data-id='2')
+                img(src='img/ruler.png', alt='Service Name')
+                h3 No Impact on Your FICO Score! And Rebuld Your Credit with Payments!
+                p
+                  | Suspendisse eget libero mi. Fusce ligula orci, vulputate nec elit ultrices, ornare faucibus orci. Aenean lectus sapien, vehicula
+                a.btn(href='#') Read more
+            .col-sm-6
+              .service-wrapper.animated.bounceInLeft(data-id='3')
+                img(src='img/box.png', alt='Service Name')
+                h3 Exclusive for Returning Users!
+                p
+                  | Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque
+                a.btn(href='#') Read more
+            .col-sm-6
+              .service-wrapper.animated.bounceInRight(data-id='4')
+                img(src='img/diamond.png', alt='Service Name')
+                h3 Monthly Lucky Draw! Get your service fee waived!
+                p
+                  | Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum
+                a.btn(href='#') Read more
+
+      .divider
+
+      #section3
+        .page-header.text-center
+          h1 Real Customer Service 
+        //Testimonials 
+        .container.bg-5
+          h3(style="color:#333") Testimonials
+          br
+          .testimonial.col-md-4.col-sm-6
+            .author-photo
+              img(src='img/user1.jpg', alt='Author 1')
+            .testimonial-bubble
+              blockquote
+                p.quote
+                  | "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
+                cite.author-info
+                  | - Name Surname,
+                  br
+                  | Managing Director at 
+                  a(href='#') Some Company
+              .sprite.arrow-speech-bubble
+          .testimonial.col-md-4.col-sm-6
+            .author-photo
+              img(src='img/user5.jpg', alt='Author 2')
+            .testimonial-bubble
+              blockquote
+                p.quote
+                  | "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+                cite.author-info
+                  | - Name Surname,
+                  br
+                  | Managing Director at 
+                  a(href='#') Some Company
+              .sprite.arrow-speech-bubble
+          .testimonial.col-md-4.col-sm-6
+            .author-photo
+              img(src='img/user2.jpg', alt='Author 3')
+            .testimonial-bubble
+              blockquote
+                p.quote
+                  | "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                cite.author-info
+                  | - Name Surname,
+                  br
+                  | Managing Director at 
+                  a(href='#') Some Company
+              .sprite.arrow-speech-bubble
+        //End Testimonials 
+      ///container
+    ///wrap
     
-    //Footer 
-    footer
-      .container.text-center
-        //p Copyright &copy; Your Website 2014
-    
-    //jQuery Version 1.11.0 
-    script(src='./javascript/jquery-1.11.0.js')
-    //Bootstrap Core JavaScript 
+    .divider
+
+    #footer.container  
+      div.col-sm-10.col-sm-offset-1    
+        div.col-xs-6.col-sm-6.col-md-3.column            
+          ul.nav
+            li(style="font-size:17px;font-weight:600;")
+              a(href='#') Company
+            li
+              a(href='#') Products
+            li
+              a(href='#') Services
+            li
+              a(href='#') Benefits
+            li
+              a(href='#') Developers
+        div.col-xs-6.col-md-3.column
+          ul.nav
+            li(style="font-size:17px;font-weight:600;")
+              a(href='#') Product
+            li
+              a(href='#') Twitter
+            li
+              a(href='#') Facebook
+            li
+              a(href='#') Google+
+            li
+              a(href='#') Pinterest
+        div.col-xs-6.col-md-3.column
+          ul.nav
+            li(style="font-size:17px;font-weight:600;")
+              a(href='#') Legal
+            li
+              a(href='#') Email
+            li
+              a(href='#') Headquarters
+            li
+              a(href='#') Management
+            li
+              a(href='#') Support
+        div.col-xs-6.col-md-3.column            
+          ul.nav
+            li
+              a(href='#') About Us
+            li
+              a(href='#') Delivery Information
+            li
+              a(href='#') Privacy Policy
+            li
+              a(href='#') Terms & Conditions
+  
+
+    ul.nav.pull-right.scroll-top
+      li
+        a(href='#', title='Scroll to top')
+          i.glyphicon.glyphicon-chevron-up          
+
+    //script references 
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js')      
     script(src='./javascript/bootstrap.min.js')
-    //Plugin JavaScript 
-    script(src='./javascript/jquery.easing.min.js')
-    //Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ 
-    //script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false')
-    //Custom Theme JavaScript 
-    script(src='./javascript/grayscale.js')
-    //script(src='javascript/jquery-2.0.3.min.js')
-    
-    script(src='./javascript/script.js')
+    script(src='./javascript/jquery.accordionSlider.min.js')          
+    script(src='./javascript/css3-animate-it.js')          
+    script(src='./javascript/jquery.appear.js')          
+    script(src='./javascript/scriptsh.js')
 
     //Aminated intro  
-    script(src='./javascript/introtzikas.js')
-    script(src='./javascript/init.js')      
-
-    script(src='./javascript/mousewheel.min.js')
-    
-
+    //- script(src='./javascript/introtzikas.js')
+    //- script(src='./javascript/init.js')            
