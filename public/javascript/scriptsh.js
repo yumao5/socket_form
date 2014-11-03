@@ -24,12 +24,12 @@ $('#nav .navbar-nav li>a').click(function(){
 
 /* accordion layers */
 $('#example1').accordionSlider({
-	width: 2000,
+	width: 1800,
 	// orientation: "horizontal",
-	height: 525,
-	startPanel: 0,
+	height: 510,
+	startPanel: 1,
 	shadow: 0,
-	responsiveMode: 'auto',
+	//responsiveMode: 'auto',
 	openedPanelSize: '60%',
 	maxOpenedPanelSize: '100%',
 	visiblePanels: 3,
