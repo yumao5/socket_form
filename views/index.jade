@@ -15,6 +15,9 @@ html(lang='en')
     //if lt IE 9
       script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
     link(href='./stylesheets/stylesh.css', rel='stylesheet')
+
+    link(href='./stylesheets/classic.css', rel='stylesheet')
+
   body
     //Wrap all page content here 
     #wrap
@@ -83,38 +86,55 @@ html(lang='en')
                   a(href='#')
                     img.as-background(src='', data-src='./img/intro-bg_1s.jpg', data-retina='')
                   .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
-                    | First time expenrice
-                  h3.as-layer.as-opened.as-black.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left')
+                    | First time for loan?
+                  h3.as-layer.as-closed.as-black.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left')
                     | First time loan
-                  p.as-layer.as-opened.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200')
-                    | First time loan change your fate
-                  p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='40', data-vertical='34%', data-width='350', data-show-transition='left', data-show-delay='400', data-hide-transition='left', data-hide-delay='500')
-                    | First time loan change your fate here and there.
+                  //- p.as-layer.as-opened.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200')
+                  //-   | First time loan change your fate                    
+                  p.as-layer.as-closed.as-black.as-padding.hide-small-screen(data-horizontal='40', data-vertical='34%', data-width='200', data-show-transition='left', data-show-delay='400', data-hide-transition='left', data-hide-delay='500')
+                    | Click here to details
+                  p.as-layer.as-closed.as-white.as-padding.hide-medium-screen(data-horizontal='40', data-vertical='22%', data-show-transition='left', data-show-delay='200', data-hide-transition='left', data-hide-delay='200', style="list-style:none")  
+                    ul
+                      li
+                        | - Which loan?
+                      li
+                        | - New loan!  
+                  h3.as-layer.as-opened.as-white.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left', data-width='73%',data-height='300', data-show-delay='200',  data-hide-delay='200')
+                    | We need marketing team to provide more details for this part.
+
                 //Panel 2 
                 .as-panel
                   a(href='#')
                     img.as-background(src='', data-src='./img/intro-bg_3s.jpg', data-retina='')
-                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='354')
+                  
+                  h3.as-layer.as-opened.as-white.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left', data-width='73%',data-height='150', data-show-delay='200',  data-hide-delay='200')
+                    | We need marketing team to provide more details for this part.
+
+                  .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
                     | Quick Apply
-                  p.as-layer.as-closed.as-black.as-padding(data-position='bottomLeft', data-horizontal='5',  data-vertical='5')
-                    | Need quick loan?                    
+                  //- p.as-layer.as-closed.as-black.as-padding(data-position='bottomLeft', data-horizontal='5',  data-vertical='5')
+                  //-   | Need quick loan?                    
                   .as-layer.as-opened.as-padding(data-position='bottomLeft', data-horizontal='20', data-vertical='20', data-width='100%',data-hide-transition='bottomLeft', data-hide-delay='200')
                     //- p.as-layer.as-opened.as-white.as-padding(data-position='bottomLeft', data-show-transition='left', data-hide-transition='up', data-show-delay='400', data-hide-delay='200')
                     //-   | Lorem ipsum
                     //- p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='120', data-show-transition='left', data-hide-transition='up', data-show-delay='600', data-hide-delay='100')
                     //-   | dolor sit amet
 
-                    .col-md-12
+                    .col-md-11
                       .row.form-group
-                        .col-xs-5
-                          h3.control-label(style="color:#000") Quick Application Silder Bar and Fields
+                        //- .col-xs-5
+                        //-   h3.control-label(style="color:#000") Quick Application Silder Bar and Fields
                       .row.form-group
                         .col-xs-3
-                          label.control-label(style="color:#000") State Name                           
+                          label.control-label(style="color:#000") Where you live?                           
                           select.form-control
                             option MO - Missouri
                             option MT - Montana
                             option ID - Idaho
+                        .col-xs-2                           
+                        .col-xs-5                           
+                          label.control-label(style="color:#000") How much you need?                                                   
+                          img(src='./img/silder.png', alt='')                                                                               
                       .row.form-group
                         .col-xs-5
                           label.control-label(style="color:#000") Email 
@@ -134,13 +154,35 @@ html(lang='en')
                   a(href='#')
                     img.as-background(src='', data-src='./img/intro-bg_2s.jpg', data-retina='')
                   .as-layer.as-closed.as-white.panel-counter(data-position='bottomLeft', data-horizontal='0', data-vertical='0')
-                    | Already applyed
+                    | Already applied?
+                  .as-layer.as-closed.as-padding(data-position='bottomLeft', data-horizontal='40', data-vertical='50', data-width='20%',data-hide-transition='bottomLeft', data-hide-delay='200')
+                    //- p.as-layer.as-opened.as-white.as-padding(data-position='bottomLeft', data-show-transition='left', data-hide-transition='up', data-show-delay='400', data-hide-delay='200')
+                    //-   | Lorem ipsum
+                    //- p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-position='bottomLeft', data-horizontal='120', data-show-transition='left', data-hide-transition='up', data-show-delay='600', data-hide-delay='100')
+                    //-   | dolor sit amet
+
+                        
+                    label.control-label(style="color:#000") Email 
+                    input.form-control(type='email', name='email', placeholder='', required='')
+                  
+                  
+                    label.control-label(style="color:#000") Password
+                    input.form-control(type='email', name='phone', placeholder='', required='')                      
+                    br  
+                    button.btn.btn-default.pull-center Login
+                    br
+                    br  
+                    | Forget password?                      
+
                   p.as-layer.as-opened.as-white.as-padding(data-horizontal='center', data-vertical='44%', data-show-transition='right', data-hide-transition='left', data-show-delay='500')
                     | Ready to apply new loan?
                   p.as-layer.as-opened.as-black.as-padding.hide-small-screen(data-horizontal='center', data-vertical='58%', data-show-transition='left', data-show-delay='700', data-hide-transition='right', data-hide-delay='200')
                     | New loan, new change, new life
+  
+                  h3.as-layer.as-opened.as-white.as-padding(data-horizontal='40', data-vertical='10%', data-show-transition='left', data-hide-transition='left', data-width='73%',data-height='300', data-show-delay='200',  data-hide-delay='200')
+                    | We need marketing team to provide more details for this part.                    
         
-        .container
+        .container          
           .row.row_divider          
           //.row.masthead.animatedParent.animateOnce(data-appear-top-offset='-10')
           .row
@@ -219,10 +261,12 @@ html(lang='en')
       #section1.divider
       .container
         .col-sm-10.col-sm-offset-1
+          #slider
           .page-header.text-center
             h1 How it Works
           p.lead.text-center
             | Learn how can you get your loan in 15mins
+
           //- p.text-center
           //-   | 
 
@@ -363,26 +407,26 @@ html(lang='en')
             br
             h3(style="color:#333") Our support team  
             .container
-              #about-slider
-                #carousel-slider.carousel.slide(data-ride='carousel')
-                  //Indicators 
-                  ol.carousel-indicators.visible-xs
-                    li.active(data-target='#carousel-slider', data-slide-to='0')
-                    li(data-target='#carousel-slider', data-slide-to='1')
-                    li(data-target='#carousel-slider', data-slide-to='2')
-                  .carousel-inner
-                    .item.active
-                      img.img-responsive(src='img/slider_one.jpg', alt='')
-                    .item
-                      img.img-responsive(src='img/slider_one.jpg', alt='')
-                    .item
-                      img.img-responsive(src='img/slider_one.jpg', alt='')
-                  a.left.carousel-control.hidden-xs(href='#carousel-slider', data-slide='prev')
-                    i.fa.fa-angle-left
-                  a.right.carousel-control.hidden-xs(href='#carousel-slider', data-slide='next')
-                    i.fa.fa-angle-right        
+        #about-slider
+          #carousel-slider.carousel.slide(data-ride='carousel')
+            //Indicators 
+            ol.carousel-indicators.visible-xs
+              li.active(data-target='#carousel-slider', data-slide-to='0')
+              li(data-target='#carousel-slider', data-slide-to='1')
+              li(data-target='#carousel-slider', data-slide-to='2')
+            .carousel-inner(style="margin-left: auto;margin-right: auto;")
+              .item.active
+                img.img-responsive(src='img/slider_two.jpg', alt='')
+              .item
+                img.img-responsive(src='img/slider_two.jpg', alt='')
+              .item
+                img.img-responsive(src='img/slider_two.jpg', alt='')
+            a.left.carousel-control.hidden-xs(href='#carousel-slider', data-slide='prev')
+              i.fa.fa-angle-left
+            a.right.carousel-control.hidden-xs(href='#carousel-slider', data-slide='next')
+              i.fa.fa-angle-right        
         
-
+        .divider        
         //Testimonials 
         .container.bg-5
           h3.text-center(style="color:#333") Testimonials
@@ -498,3 +542,6 @@ html(lang='en')
     //Aminated intro  
     //- script(src='./javascript/introtzikas.js')
     //- script(src='./javascript/init.js')            
+
+    script(src='./javascript/jquery-ui.js')
+    script(src='./javascript/jQEditRangeSlider.js')

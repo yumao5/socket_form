@@ -1,6 +1,13 @@
 
 $(document).ready(function(){/* affix the navbar after scroll below header */
 
+// Silder test
+ $("#slider").editRangeSlider({
+  bounds: {min: 0, max: 15000},
+  defaultValues:{min: 0, max: 100},
+  step:55,  
+});
+
 $('#nav').affix({
       offset: {
         top: $('header').height()-$('#nav').height()
@@ -29,12 +36,12 @@ $('#example1').accordionSlider({
 	height: 510,
 	startPanel: 1,
 	shadow: 0,
-	//responsiveMode: 'auto',
+	responsiveMode: 'auto',
 	openedPanelSize: '60%',
 	maxOpenedPanelSize: '100%',
 	visiblePanels: 3,
 	closePanelsOnMouseOut: false,
-	autoplay: false
+	autoplay: false,
 });
 
 // change the responsive mode

@@ -81,7 +81,7 @@ h1,h2,h3,h4 {
 }
 
 header {
-  background: #eee;
+  background: #fff;
   height:800px;
   color:#000000;
 }
@@ -678,11 +678,11 @@ section .heading-line {
 }
 
 #carousel-slider .carousel-control.left i {
-  left:-25px
+  left:0px
 }
 
 #carousel-slider .carousel-control.right i {
-  right: -25px;
+  right: 0px;
 }
 
 #carousel-slider
