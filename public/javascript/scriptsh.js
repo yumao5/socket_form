@@ -4,9 +4,13 @@ $(document).ready(function(){/* affix the navbar after scroll below header */
 // Silder test
  $("#slider").editRangeSlider({
   bounds: {min: 0, max: 15000},
-  defaultValues:{min: 0, max: 100},
-  step:55,  
+  defaultValues:{min: 100, max: 800},
+  // range: {min: 500, max: 15000}, 
+  step:50,  
+  // type: "number",
 });
+
+$('#item-id').draggable( "destroy" );
 
 $('#nav').affix({
       offset: {

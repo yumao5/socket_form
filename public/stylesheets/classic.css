@@ -13,27 +13,35 @@
 	background:#DDD;
 }
 
-.ui-rangeSlider .ui-rangeSlider-handle{
-	width:6px;
-	height:22px;
-	background:#AAA;
-	background:rgba(100,100,100, 0.3);
-	cursor:col-resize;
+.ui-rangeSlider .ui-rangeSlider-Righthandle{
+	width:15px;
+	height:22px;	
+	background:rgba(100,100,150, 0.8);
+	cursor:grab;
+	cursor:move
+}
+
+.ui-rangeSlider .ui-rangeSlider-Lefthandle{
+	width:0px;
+	height:20px;	
+	background:rgba(100,100,150, 0.8);
 }
 
 .ui-rangeSlider .ui-rangeSlider-bar{
 	margin: 1px 0;
-	background:#CCC;
-	background:rgba(100,100,150, 0.2);
+	background:#aaa;
+	background:rgba(100, 100, 150, 0.8);
 	height:20px;
-	cursor:move;
+/*	cursor:move;
 	cursor:grab;
-	cursor: -moz-grab;
+	cursor: -moz-grab;*/
 }
 
+
+
 .ui-rangeSlider .ui-rangeSlider-bar.ui-draggable-dragging{
-	cursor:	-moz-grabbing;
-	cursor:grabbing;
+/*	cursor:	-moz-grabbing;
+	cursor:grabbing;*/
 }
 
 .ui-rangeSlider-arrow{
@@ -70,13 +78,14 @@
 }
 
 .ui-rangeSlider-label{
-	margin:0 2px 2px;
+	margin:0 0px 0px;
 	background-image:url('icons-classic/label.png');
 	background-position:bottom center;
-	background-repeat:no-repeat;
+	background-repeat:no-repeat;	
+
   white-space: nowrap;
-  bottom:20px;
-  padding:3px 6px 7px;
+  bottom:22px;
+  padding:3px 3px 6px 2px ;
   cursor:col-resize;
 }
 
@@ -92,5 +101,25 @@ input.ui-editRangeSlider-inputValue{
 	width:3em;
 	vertical-align: middle;
 	text-align:center;
+	height:1.5em;
+	box-shadow: none;
+	background:#ddd;
+	background:rgba(100,100,10, .1);	
 }
+
 #sliderleft.input : disable;
+
+#ui-rangeSlider-label-value{
+	background-color: #eee;
+}
+
+/*input[name="sliderleft"] {
+  	input: disable;
+}*/
+
+.ui-rangeSlider-label {
+	visibility: hidden;
+}
+.ui-rangeSlider-rightLabel{
+	visibility: visible;	
+}

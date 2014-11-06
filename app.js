@@ -69,7 +69,7 @@ app.get('/ws', function(req, res){
 
     var soap = require('soap');
     var soapWSDL = "http://www.webservicex.net/stockquote.asmx?WSDL";
-    var args = {symbol: 'aapl'};
+    var args = {symbol: 'UGAZ'};
     var quote ='';
 
     soap.createClient(soapWSDL, function (err, client) {
