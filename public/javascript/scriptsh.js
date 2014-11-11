@@ -4,9 +4,12 @@ $(document).ready(function(){/* affix the navbar after scroll below header */
 // Silder test
  $("#slider").editRangeSlider({
   bounds: {min: 0, max: 15000},
-  defaultValues:{min: 100, max: 800},
-  // range: {min: 500, max: 15000}, 
+  defaultValues:{min: 100, max: 400},
+  // range: {min: 400, max: 400}, 
+  type: "number",
+  arrows:false,
   step:50,  
+
   // type: "number",
 });
 
@@ -35,10 +38,10 @@ $('#nav .navbar-nav li>a').click(function(){
 
 /* accordion layers */
 $('#example1').accordionSlider({
-	width: 1800,
+	width: 1150,
 	// orientation: "horizontal",
 	height: 510,
-	startPanel: 1,
+	startPanel: 0,
 	shadow: 0,
 	responsiveMode: 'auto',
 	openedPanelSize: '60%',

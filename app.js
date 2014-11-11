@@ -7,7 +7,19 @@ var http = require('https');
 
 // Express init
 var app = express();
-app.http().io()
+app.http().io();
+
+app.use(express.cookieParser());
+app.use(express.session({
+    secret: 'MONEY',          
+    //store: sessionStore,
+    cookie: {
+      path: '/',
+      domain: '.Money.ca',
+      maxAge: 3600000, 
+      httpOnly: true      
+    }
+}));
 
 //i18n init
 i18n.configure({
@@ -19,15 +31,24 @@ var server = app.listen(3000, function() {
     console.log('Dev App Listening on port %d', server.address().port);
 })
 
-
 app.use(i18n.init); 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// app.all('*', ensureSecure); // Show info
+
 app.get('/', function (req, res) {
   res.render('index'); 
+  res.cookie('rememberme', '1+2', { maxAge: 36000000, httpOnly: true,} );
+  req.session.cookie.maxAge = 365 * 24 * 60 * 60 * 1000 * 20; //20 YEARS
+
+  console.log("Cookies: ", req.cookies);
+  req.session.id = 'User';
+  console.log("Sessions: ", req.session)
+  // console.log("Sessions ID: ", req.session.id)
+
 });
 
 
@@ -63,9 +84,61 @@ app.get('/hr', function (req, res) {
 
 });
 
+
+// var get_ip = require('ipware')().get_ip;
+// var UAParser = require('ua-parser-js');
+
+
+// var io = require('socket.io').listen(3000);
+// io.sockets.on('connection', function (socket) {
+//   var endpoint = socket.manager.handshaken[socket.id].address;
+//   console.log('Client connected from: ' + endpoint.address + ":" + endpoint.port);
+// });
+
+
+function ensureSecure(req, res, next){
+  console.log(req.headers);
+  console.log('req.ip :');
+  console.log(req.ip);
+  console.log("req.ips");
+  console.log(req.ips);
+  console.log("req.path");
+  console.log(req.path);
+  console.log("req.query");
+  console.log(req.query);
+  console.log("req.cookies");
+  console.log(req.cookies);
+  console.log("req.signedCookies");
+  console.log(req.signedCookies);
+  console.log("req.fresh");
+  console.log(req.fresh);
+  console.log("req.xhr");
+  console.log(req.xhr);
+  console.log("req.protocol");
+  console.log(req.protocol);
+  console.log("req.secure");
+  console.log(req.secure);
+  console.log("req.originalUrl");
+  console.log(req.originalUrl);
+  next();
+}
+
+
+
 app.get('/ws', function(req, res){
 
     res.render('index'); 
+    // var parser = new UAParser();
+    // var ua = req.headers['user-agent'];
+    // var browserName = parser.setUA(ua).getBrowser().name;
+    // var fullBrowserVersion = parser.setUA(ua).getBrowser().version;
+    // var browserVersion = fullBrowserVersion.split(".",1).toString();
+    // var browserVersionNumber = Number(browserVersion);
+
+    // console.log(ua);
+
+    // var ip_info = get_ip(req);
+    //console.log(req);
 
     var soap = require('soap');
     var soapWSDL = "http://www.webservicex.net/stockquote.asmx?WSDL";
@@ -75,10 +148,10 @@ app.get('/ws', function(req, res){
     soap.createClient(soapWSDL, function (err, client) {
       
       if (err) throw err;
-      console.log(client.describe());
+      //console.log(client.describe());
       client.GetQuote(args, function(err, result) {
-        console.log(result);
-        quote = result;
+        //console.log(result);
+        //quote = result;
       })  
      });
   
@@ -86,7 +159,9 @@ app.get('/ws', function(req, res){
 
 
 app.get('/apply', function (req, res) {
-   res.render('apply') 
+   res.render('apply') ;
+
+
 });
 
 app.use('/form', require('./routes/en')); 

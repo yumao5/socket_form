@@ -22,8 +22,8 @@
 }
 
 .ui-rangeSlider .ui-rangeSlider-Lefthandle{
-	width:0px;
-	height:20px;	
+	width:5px;
+	height:22px;	
 	background:rgba(100,100,150, 0.8);
 }
 
@@ -81,11 +81,12 @@
 	margin:0 0px 0px;
 	background-image:url('icons-classic/label.png');
 	background-position:bottom center;
-	background-repeat:no-repeat;	
+	background-repeat:no-repeat;		
+	
 
   white-space: nowrap;
   bottom:22px;
-  padding:3px 3px 6px 2px ;
+  padding:18px 1px 7px 1px ;
   cursor:col-resize;
 }
 
@@ -97,11 +98,18 @@
  * Edit slider
  */
 
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus:focus {
+	border-color: none;	
+	box-shadow: none;
+    -webkit-box-shadow: none;
+    outline:none;
+}
+
 input.ui-editRangeSlider-inputValue{
-	width:3em;
+	width:4em;
 	vertical-align: middle;
 	text-align:center;
-	height:1.5em;
+	height:1.8em;
 	box-shadow: none;
 	background:#ddd;
 	background:rgba(100,100,10, .1);	

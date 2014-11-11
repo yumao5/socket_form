@@ -415,8 +415,9 @@ function(a, b) {
         _stepRatio: function() {
             return this._leftHandle("stepRatio")
         },
+        // Scroll bar control settings
         _scrollRightClick: function(a) {
-            return this.options.enabled ? (a.preventDefault(), this._bar("startScroll"), this._bindStopScroll(), this._continueScrolling("scrollRight", 4 * this._stepRatio(), 1), void 0) : !1
+            return this.options.enabled ? (a.preventDefault(), this._bar("startScroll"), this._bindStopScroll(), this._continueScrolling("scrollRight", 100 * this._stepRatio(), 1), void 0) : !1
         },
         _continueScrolling: function(a, b, c, d) {
             if (!this.options.enabled) return !1;
@@ -429,7 +430,7 @@ function(a, b) {
             }, b)
         },
         _scrollLeftClick: function(a) {
-            return this.options.enabled ? (a.preventDefault(), this._bar("startScroll"), this._bindStopScroll(), this._continueScrolling("scrollLeft", 4 * this._stepRatio(), 1), void 0) : !1
+            return this.options.enabled ? (a.preventDefault(), this._bar("startScroll"), this._bindStopScroll(), this._continueScrolling("scrollLeft", 100 * this._stepRatio(), 1), void 0) : !1
         },
         _bindStopScroll: function() {
             var b = this;
@@ -1186,47 +1187,47 @@ function(a) {
             return !1
         }
     };
-    a.widget("ui.ruler", {
-        options: {
-            min: 0,
-            max: 100,
-            scales: []
-        },
-        _create: function() {
-            this.element.addClass("ui-ruler"), this._createScales()
-        },
-        destroy: function() {
-            this.element.removeClass("ui-ruler"), this.element.empty()
-        },
-        _regenerate: function() {
-            this.element.empty(), this._createScales()
-        },
-        _setOption: function(a, b) {
-            return "min" === a || "max" === a && b !== this.options[a] ? (this.options[a] = b, this._regenerate(), void 0) : "scales" === a && b instanceof Array ? (this.options.scales = b, this._regenerate(), void 0) : void 0
-        },
-        _createScales: function() {
-            if (this.options.max !== this.options.min)
-                for (var a = 0; a < this.options.scales.length; a++) this._createScale(this.options.scales[a], a)
-        },
-        _createScale: function(c, d) {
-            var e = a.extend({}, b, c),
-                f = a("<div class='ui-ruler-scale' />").appendTo(this.element);
-            f.addClass("ui-ruler-scale" + d), this._createTicks(f, e)
-        },
-        _createTicks: function(a, b) {
-            var c, d, e, f = b.first(this.options.min, this.options.max),
-                g = this.options.max - this.options.min,
-                h = !0;
-            do c = f, f = b.next(c), d = (Math.min(f, this.options.max) - Math.max(c, this.options.min)) / g, e = this._createTick(c, f, b), a.append(e), e.css("width", 100 * d + "%"), h && c > this.options.min && e.css("margin-left", 100 * (c - this.options.min) / g + "%"), h = !1; while (!this._stop(b, f))
-        },
-        _stop: function(a, b) {
-            return a.stop(b) || b >= this.options.max
-        },
-        _createTick: function(b, c, d) {
-            var e = a("<div class='ui-ruler-tick' style='display:inline-block' />"),
-                f = a("<div class='ui-ruler-tick-inner' />").appendTo(e),
-                g = a("<span class='ui-ruler-tick-label' />").appendTo(f);
-            return g.text(d.label(b, c)), d.format(e, b, c), e
-        }
-    })
+    // a.widget("ui.ruler", {
+    //     options: {
+    //         min: 0,
+    //         max: 100,
+    //         scales: []
+    //     },
+    //     _create: function() {
+    //         this.element.addClass("ui-ruler"), this._createScales()
+    //     },
+    //     destroy: function() {
+    //         this.element.removeClass("ui-ruler"), this.element.empty()
+    //     },
+    //     _regenerate: function() {
+    //         this.element.empty(), this._createScales()
+    //     },
+    //     _setOption: function(a, b) {
+    //         return "min" === a || "max" === a && b !== this.options[a] ? (this.options[a] = b, this._regenerate(), void 0) : "scales" === a && b instanceof Array ? (this.options.scales = b, this._regenerate(), void 0) : void 0
+    //     },
+    //     _createScales: function() {
+    //         if (this.options.max !== this.options.min)
+    //             for (var a = 0; a < this.options.scales.length; a++) this._createScale(this.options.scales[a], a)
+    //     },
+    //     _createScale: function(c, d) {
+    //         var e = a.extend({}, b, c),
+    //             f = a("<div class='ui-ruler-scale' />").appendTo(this.element);
+    //         f.addClass("ui-ruler-scale" + d), this._createTicks(f, e)
+    //     },
+    //     _createTicks: function(a, b) {
+    //         var c, d, e, f = b.first(this.options.min, this.options.max),
+    //             g = this.options.max - this.options.min,
+    //             h = !0;
+    //         do c = f, f = b.next(c), d = (Math.min(f, this.options.max) - Math.max(c, this.options.min)) / g, e = this._createTick(c, f, b), a.append(e), e.css("width", 100 * d + "%"), h && c > this.options.min && e.css("margin-left", 100 * (c - this.options.min) / g + "%"), h = !1; while (!this._stop(b, f))
+    //     },
+    //     _stop: function(a, b) {
+    //         return a.stop(b) || b >= this.options.max
+    //     },
+    //     _createTick: function(b, c, d) {
+    //         var e = a("<div class='ui-ruler-tick' style='display:inline-block' />"),
+    //             f = a("<div class='ui-ruler-tick-inner' />").appendTo(e),
+    //             g = a("<span class='ui-ruler-tick-label' />").appendTo(f);
+    //         return g.text(d.label(b, c)), d.format(e, b, c), e
+    //     }
+    // })
 }(jQuery);	
