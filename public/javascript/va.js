@@ -286,8 +286,6 @@ $(document).ready(function() {
     $('#registrationForm').find('[name="wphone"]').mask('000-000-0000');
     $('#registrationForm').find('[name="hphone"]').mask('000-000-0000');
 
-
-
     // Reset button to help css style
     $('#rest_btn').click(function(){
         $('#registrationForm').data('bootstrapValidator').resetForm();  

@@ -11,8 +11,13 @@
     "jade": "^1.6.0",
     "nodemon": "^1.2.1",
     "i18n": "*",
-    "validator": "~3.19.1",                
+    "socket.io": "~1.1.0",
+    "validator": "~3.19.1",
+    "wcf.js": "0.0.6",
+    "douche": "0.0.1",    
+    "querystring": "~0.2.0",
+    "ws": "~0.4.32",
     "soap": "~0.5.1",    
-    "express.io": "~1.1.13",
+    "express.io": "~1.1.13"
   }
 }

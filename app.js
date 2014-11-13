@@ -4,6 +4,9 @@ var i18n = require('i18n');
 var path = require('path');
 var va = require('validator');
 var http = require('https');
+var colors = require('colors');
+var geoip = require('geoip-lite');
+var MongoStore = require('connect-mongo')(express);
 
 // Express init
 var app = express();
@@ -11,14 +14,18 @@ app.http().io();
 
 app.use(express.cookieParser());
 app.use(express.session({
-    secret: 'MONEY',          
-    //store: sessionStore,
-    cookie: {
-      path: '/',
-      domain: '.Money.ca',
-      maxAge: 3600000, 
-      httpOnly: true      
-    }
+    secret: 'kqsdjfmlksdhfhzirzeoibrzecrbzuzefcuercazeafxzeokwdfzeijfxcerig',              
+    key: 'sid',
+    store:new MongoStore({
+            db: 'test',
+            host: '127.0.0.1',
+            port: 27017,  
+            username: 'root',
+            password: '', 
+            collection: 'session', 
+            auto_reconnect:true,
+    }),
+    cookie: { path: '/', httpOnly: true, maxAge : 36000000 },      
 }));
 
 //i18n init
@@ -41,16 +48,23 @@ app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
   res.render('index'); 
-  res.cookie('rememberme', '1+2', { maxAge: 36000000, httpOnly: true,} );
-  req.session.cookie.maxAge = 365 * 24 * 60 * 60 * 1000 * 20; //20 YEARS
 
-  console.log("Cookies: ", req.cookies);
-  req.session.id = 'User';
-  console.log("Sessions: ", req.session)
-  // console.log("Sessions ID: ", req.session.id)
+  if (req.cookies.rememberme === '1+2+3') {  
+    req.session.cookie.maxAge = 36000000; 
+    console.log(colors.green("Cookies exits and Sessions ID is"), colors.red.underline(req.session.id));
+  }
+  else {
+    res.cookie('rememberme', '1+2+3', { maxAge: 365 * 24 * 60 * 60 * 1000 * 100, httpOnly: true} );  
+    console.log("Sessions ID: ", req.session.id);
+  }
+  //console.log("Cookies Id: ", req.cookies.sid);
+
+  var ip = "211.147.4.31";
+  var geo = geoip.lookup(ip);
+
+  console.log(colors.green("Vistor Geo info is"), colors.red.underline(geo.region ,'/', geo.country ,'/', geo.city ));
 
 });
-
 
 app.get('/hr', function (req, res) {
 
@@ -123,44 +137,34 @@ function ensureSecure(req, res, next){
   next();
 }
 
+app.get('/sws', function(req, res){
 
+    //res.render('index'); 
 
-app.get('/ws', function(req, res){
-
-    res.render('index'); 
-    // var parser = new UAParser();
-    // var ua = req.headers['user-agent'];
-    // var browserName = parser.setUA(ua).getBrowser().name;
-    // var fullBrowserVersion = parser.setUA(ua).getBrowser().version;
-    // var browserVersion = fullBrowserVersion.split(".",1).toString();
-    // var browserVersionNumber = Number(browserVersion);
-
-    // console.log(ua);
-
-    // var ip_info = get_ip(req);
-    //console.log(req);
-
-    var soap = require('soap');
+    var soap = require('soap');    
     var soapWSDL = "http://www.webservicex.net/stockquote.asmx?WSDL";
-    var args = {symbol: 'UGAZ'};
+    var args = {symbol: 'JAKK'};
     var quote ='';
 
     soap.createClient(soapWSDL, function (err, client) {
       
       if (err) throw err;
-      //console.log(client.describe());
+      console.log(client.describe());
+      
       client.GetQuote(args, function(err, result) {
-        //console.log(result);
-        //quote = result;
+        console.log(result);
+        quote = result;
       })  
      });
+
+    res.write(quote);
   
 });
 
 
 app.get('/apply', function (req, res) {
+   
    res.render('apply') ;
-
 
 });
 
