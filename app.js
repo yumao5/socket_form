@@ -7,6 +7,58 @@ var http = require('https');
 var colors = require('colors');
 var geoip = require('geoip-lite');
 var MongoStore = require('connect-mongo')(express);
+var mongoose = require('mongoose');
+
+var db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function() {
+  // Create your schemas and models here.
+});
+mongoose.connect('mongodb://127.0.0.1:27017/test');
+
+var movieSchema = new mongoose.Schema({
+  title: { type: String }, 
+  rating: String, 
+  releaseYear: Number, 
+  hasCreditCookie: Boolean
+});
+
+var Movie = mongoose.model('Movie', movieSchema);
+
+// Remove data 
+// Movie.remove ({"title":"Thor"}, function(err, result) { 
+//      (result === 1) ? console.log("Deleted") : console.log("error:" , err);      
+// });
+
+var thor = new Movie({
+  title: 'Thor', 
+  rating: 'PG-13', 
+  releaseYear: '2011', 
+  hasCreditCookie: true
+});
+
+thor.save(function(err, thor) {
+  if (err) return console.log(err);
+  console.log("Datas insert done");
+});
+
+// Movie.findOne({ rating: 'PG-13' }, function(err, thor) {
+//   if (err) return console.error(err);
+//   console.dir(thor);
+// });
+
+// Find all movies.
+Movie.find(function(err, movies) {
+  if (err) return console.log(err);
+  console.log(colors.green("Find all movies"));
+  console.log(movies);
+});
+
+// Find all movies that have a credit cookie.
+// Movie.find({ hasCreditCookie: true }, function(err, movies) {
+//   if (err) return console.error(err);
+//   console.dir(movies);
+// });
 
 // Express init
 var app = express();
@@ -35,7 +87,7 @@ i18n.configure({
 });
 
 var server = app.listen(3000, function() {
-    console.log('Dev App Listening on port %d', server.address().port);
+    console.log(colors.yellow('Dev App Listening on port %d'), server.address().port);
 })
 
 app.use(i18n.init); 
@@ -49,6 +101,9 @@ app.set('view engine', 'jade');
 app.get('/', function (req, res) {
   res.render('index'); 
 
+
+
+  // Cookie Test
   if (req.cookies.rememberme === '1+2+3') {  
     req.session.cookie.maxAge = 36000000; 
     console.log(colors.green("Cookies exits and Sessions ID is"), colors.red.underline(req.session.id));
@@ -59,6 +114,7 @@ app.get('/', function (req, res) {
   }
   //console.log("Cookies Id: ", req.cookies.sid);
 
+  //Ip2Geo Test
   var ip = "211.147.4.31";
   var geo = geoip.lookup(ip);
 
@@ -95,7 +151,6 @@ app.get('/hr', function (req, res) {
 
   req.write( body );
   req.end();
-
 });
 
 
