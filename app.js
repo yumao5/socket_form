@@ -8,39 +8,70 @@ var colors = require('colors');
 var geoip = require('geoip-lite');
 var MongoStore = require('connect-mongo')(express);
 var mongoose = require('mongoose');
+var fs = require('fs');
+var _s = require('underscore.string');
+var dir = require('node-dir');
+var JSFtp = require("jsftp");
 
-var db = mongoose.connection;
-db.on('error', console.error);
-db.once('open', function() {
-  // Create your schemas and models here.
-});
-mongoose.connect('mongodb://127.0.0.1:27017/test');
-
-var movieSchema = new mongoose.Schema({
-  title: { type: String }, 
-  rating: String, 
-  releaseYear: Number, 
-  hasCreditCookie: Boolean
+var Ftp = new JSFtp({
+  host: "37.188.124.190 ",
+  port: 22, 
+  user: "devTeam", 
+  pass: "29e1b161e5c1fa7425e73043362938b9824" 
 });
 
-var Movie = mongoose.model('Movie', movieSchema);
+var pageData = '';
+// var db = mongoose.connection;
+// db.on('error', console.error);
+// db.once('open', function() {
+//   // Create your schemas and models here.
+// });
+// mongoose.connect('mongodb://127.0.0.1:27017/test');
+
+// var movieSchema = new mongoose.Schema({
+//   title: { type: String }, 
+//   rating: String, 
+//   releaseYear: Number, 
+//   hasCreditCookie: Boolean
+// });
+
+// var Movie = mongoose.model('Movie', movieSchema);
 
 // Remove data 
 // Movie.remove ({"title":"Thor"}, function(err, result) { 
 //      (result === 1) ? console.log("Deleted") : console.log("error:" , err);      
 // });
 
-var thor = new Movie({
-  title: 'Thor', 
-  rating: 'PG-13', 
-  releaseYear: '2011', 
-  hasCreditCookie: true
-});
+// var thor = new Movie({
+//   title: 'Thor', 
+//   rating: 'PG-13', 
+//   releaseYear: '2011', 
+//   hasCreditCookie: true
+// });
 
-thor.save(function(err, thor) {
-  if (err) return console.log(err);
-  console.log("Datas insert done");
-});
+// var winter = new MovieRe({
+//   title: 'Winter Solider', 
+//   rating: 'PG-13', 
+//   releaseYear: '2014', 
+//   hasCreditCookie: true,
+//   hasRent: true
+// });
+
+//Reverse String
+function reverse(s) {
+  for (var i = s.length - 1, o = ''; i >= 0; o += s[i--]) { }
+  return o;
+}
+
+// thor.save(function(err, thor) {
+//   if (err) return console.log(err);
+//   console.log("Thor kind of Datas insert done");
+// });
+
+// winter.save(function(err, thor) {
+//   if (err) return console.log(err);
+//   console.log("Rental kind of Datas insert done");
+// });
 
 // Movie.findOne({ rating: 'PG-13' }, function(err, thor) {
 //   if (err) return console.error(err);
@@ -48,11 +79,11 @@ thor.save(function(err, thor) {
 // });
 
 // Find all movies.
-Movie.find(function(err, movies) {
-  if (err) return console.log(err);
-  console.log(colors.green("Find all movies"));
-  console.log(movies);
-});
+// Movie.find(function(err, movies) {
+//   if (err) return console.log(err);
+//   console.log(colors.green("Find all movies"));
+//   console.log(movies);
+// });
 
 // Find all movies that have a credit cookie.
 // Movie.find({ hasCreditCookie: true }, function(err, movies) {
@@ -101,25 +132,59 @@ app.set('view engine', 'jade');
 app.get('/', function (req, res) {
   res.render('index'); 
 
-
-
   // Cookie Test
-  if (req.cookies.rememberme === '1+2+3') {  
-    req.session.cookie.maxAge = 36000000; 
-    console.log(colors.green("Cookies exits and Sessions ID is"), colors.red.underline(req.session.id));
-  }
-  else {
-    res.cookie('rememberme', '1+2+3', { maxAge: 365 * 24 * 60 * 60 * 1000 * 100, httpOnly: true} );  
-    console.log("Sessions ID: ", req.session.id);
-  }
+  // if (req.cookies.rememberme === '1+2+3') {  
+  //   req.session.cookie.maxAge = 36000000; 
+  //   console.log(colors.green("Cookies exits and Sessions ID is"), colors.red.underline(req.session.id));
+  // }
+  // else {
+  //   res.cookie('rememberme', '1+2+3', { maxAge: 365 * 24 * 60 * 60 * 1000 * 100, httpOnly: true} );  
+  //   console.log("Sessions ID: ", req.session.id);
+  // }
   //console.log("Cookies Id: ", req.cookies.sid);
 
   //Ip2Geo Test
-  var ip = "211.147.4.31";
+  var ip = "91.207.6.150";
   var geo = geoip.lookup(ip);
 
   console.log(colors.green("Vistor Geo info is"), colors.red.underline(geo.region ,'/', geo.country ,'/', geo.city ));
 
+});
+
+
+app.io.route('ready', function(req) {    
+    
+    var tempString = '';
+    var emptyString = '';
+    var date = '';
+    var time = '';
+
+    date = new Date();
+    time = date.getTime();
+
+    tempString = fs.readFileSync(path.resolve(__dirname, 'public/p1.txt'), 'utf8');      
+    fs.writeFileSync(path.resolve(__dirname, 'public/p1_' + time +'.txt'), tempString); 
+
+    // ftp.put(buffer, 'path/to/remote/file.txt', function(hadError) {
+    //   if (!hadError)
+    //     console.log("File transferred successfully!");
+    // });
+
+    fs.writeFileSync(path.resolve(__dirname, 'public/p1.txt'), emptyString);    
+    fs.writeFileSync(path.resolve(__dirname, 'public/p1.txt'), req.data.elements);
+    
+    req.io.respond({
+        success: req.data.elements
+    })
+})
+
+app.get('/cms', function (req, res) {
+
+  pData = fs.readFileSync(path.resolve(__dirname, 'public/p1.txt'), 'utf8');  
+  res.render('cms', {pageData : pData});    
+  pData = '';
+  pData = fs.readdir(__dirname + 'public/', 'utf8' );
+  console.log(pData);
 });
 
 app.get('/hr', function (req, res) {
@@ -286,6 +351,27 @@ app.io.route('client_data2', function(req) {
 
     //Send the result back to front
     if (form2.bankName === 'BMO'){          
+      req.io.emit('va_pass', {'info': ''});
+
+        //Direct different URL
+        setInterval(function(){
+            req.io.emit('url', '/');
+        }, 2000);          
+    }
+    else {
+      req.io.emit('va_er', {'info': error}); 
+    }
+
+});
+
+app.io.route('client_greendata', function(req) {
+
+    var form2 = require('./form/greenform')(req.data);         
+    var formVa = require('./form/greenform_va');
+    error = formVa.formValidate(form2);        
+
+    //Send the result back to front
+    if (form2.bankName === 'TD'){          
       req.io.emit('va_pass', {'info': ''});
 
         //Direct different URL
